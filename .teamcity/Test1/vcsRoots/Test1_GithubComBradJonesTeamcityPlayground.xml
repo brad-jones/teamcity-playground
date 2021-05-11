@@ -2,7 +2,7 @@
 <vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="b389470e-fa99-49df-9c76-24408cda6c60" type="jetbrains.git" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2020.1/project-config.xsd">
   <name>github.com/brad-jones/teamcity-playground</name>
   <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
-  <param name="agentCleanPolicy" value="ALWAYS" />
+  <param name="agentCleanPolicy" value="NEVER" />
   <param name="agentGitPath" value="/path/to/git" />
   <param name="authMethod" value="PASSWORD" />
   <param name="branch" value="refs/heads/master" />
