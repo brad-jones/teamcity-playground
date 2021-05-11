@@ -3,6 +3,9 @@
   <name>Build1</name>
   <description>This is a build config</description>
   <settings>
+    <options>
+      <option name="checkoutMode" value="ON_SERVER" />
+    </options>
     <parameters />
     <build-runners />
     <vcs-settings>
