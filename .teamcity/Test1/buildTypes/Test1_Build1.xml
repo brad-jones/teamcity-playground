@@ -72,7 +72,6 @@
           <param name="cronExpression_sec" value="0" />
           <param name="cronExpression_year" value="*" />
           <param name="dayOfWeek" value="Thursday" />
-          <param name="enableQueueOptimization" value="true" />
           <param name="enforceCleanCheckout" value="true" />
           <param name="enforceCleanCheckoutForDependencies" value="true" />
           <param name="hour" value="5" />
