@@ -9,6 +9,7 @@
       <option name="buildNumberPattern" value="1.%build.counter%-%build.vcs.number.VCSRootName%" />
       <option name="checkoutDirectory" value="/foo/bar/baz" />
       <option name="cleanBuild" value="true" />
+      <option name="enableHangingBuildsDetection" value="false" />
       <option name="excludeDefaultBranchChanges" value="true" />
       <option name="showDependenciesChanges" value="true" />
     </options>
