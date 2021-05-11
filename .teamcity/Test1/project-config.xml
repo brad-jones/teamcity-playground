@@ -21,8 +21,10 @@
       <parameters>
         <param name="enabled" value="true" />
         <param name="name" value="foo" />
-        <param name="quota" value="100" />
-        <param name="type" value="quoted" />
+        <param name="type" value="custom" />
+        <param name="values"><![CDATA[foo
+bar
+baz]]></param>
       </parameters>
     </extension>
   </project-extensions>
