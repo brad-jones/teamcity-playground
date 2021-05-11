@@ -27,6 +27,7 @@
         <parameters>
           <param name="command.executable" value="foo" />
           <param name="command.parameters" value="bar -baz=adsfg -e.t foo etc" />
+          <param name="teamcity.build.workingDir" value="/foo/bar/baz" />
           <param name="teamcity.step.mode" value="execute_always" />
         </parameters>
       </runner>
