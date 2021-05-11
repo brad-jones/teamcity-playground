@@ -57,7 +57,8 @@
           <param name="quietPeriod" value="345" />
           <param name="quietPeriodMode" value="USE_CUSTOM" />
           <param name="triggerRules"><![CDATA[+:**
--:**]]></param>
+-:**
++:user=foo;root=Test1_GithubComBradJonesTeamcityPlayground;comment=.*:**]]></param>
         </parameters>
       </build-trigger>
     </build-triggers>
