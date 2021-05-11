@@ -10,11 +10,13 @@
   <project-extensions>
     <extension id="KEEP_RULE_1" type="keepRules">
       <parameters>
-        <param name="filters.1.status" value="failed" />
-        <param name="filters.1.type" value="buildStatus" />
-        <param name="filters.2.tagsList"><![CDATA[v1.0.0
+        <param name="filters.1.personal" value="personal" />
+        <param name="filters.1.type" value="personalBuild" />
+        <param name="filters.2.status" value="failed" />
+        <param name="filters.2.type" value="buildStatus" />
+        <param name="filters.3.tagsList"><![CDATA[v1.0.0
 v2.0.0]]></param>
-        <param name="filters.2.type" value="tags" />
+        <param name="filters.3.type" value="tags" />
         <param name="keepData.1.type" value="statistics" />
         <param name="limit.type" value="all" />
         <param name="partitions.1.type" value="perBranch" />
