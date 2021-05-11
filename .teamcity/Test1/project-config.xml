@@ -10,7 +10,8 @@
   <project-extensions>
     <extension id="KEEP_RULE_1" type="keepRules">
       <parameters>
-        <param name="filters.1.pattern" value="+:master" />
+        <param name="filters.1.pattern"><![CDATA[+:master
++:archived]]></param>
         <param name="filters.1.type" value="branchPattern" />
         <param name="filters.2.personal" value="not_personal" />
         <param name="filters.2.type" value="personalBuild" />
