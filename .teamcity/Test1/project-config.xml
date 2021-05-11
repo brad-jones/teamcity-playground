@@ -10,7 +10,7 @@
   <project-extensions>
     <extension id="KEEP_RULE_1" type="keepRules">
       <parameters>
-        <param name="filters.1.activity" value="active" />
+        <param name="filters.1.activity" value="inactive" />
         <param name="filters.1.type" value="branchActivity" />
         <param name="filters.2.pattern"><![CDATA[+:master
 +:archived]]></param>
