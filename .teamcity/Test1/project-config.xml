@@ -2,7 +2,9 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="0f711432-9f13-47f6-acb5-66a8c3c31374" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2020.1/project-config.xsd">
   <name>Test1</name>
   <description>This is a test project</description>
-  <parameters />
+  <parameters>
+    <param name="foo" value="bar" />
+  </parameters>
   <project-extensions>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
       <parameters>
