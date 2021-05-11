@@ -19,6 +19,7 @@
       <option name="shouldFailBuildIfTestsFailed" value="false" />
       <option name="shouldFailBuildOnAnyErrorMessage" value="true" />
       <option name="shouldFailBuildOnBadExitCode" value="false" />
+      <option name="shouldFailBuildOnOOMEOrCrash" value="false" />
       <option name="showDependenciesChanges" value="true" />
       <option name="supportTestRetry" value="true" />
     </options>
