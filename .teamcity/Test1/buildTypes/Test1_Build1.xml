@@ -19,6 +19,7 @@
       <option name="shouldFailBuildIfTestsFailed" value="false" />
       <option name="shouldFailBuildOnBadExitCode" value="false" />
       <option name="showDependenciesChanges" value="true" />
+      <option name="supportTestRetry" value="true" />
     </options>
     <parameters />
     <build-runners>
