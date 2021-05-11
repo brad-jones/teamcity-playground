@@ -133,6 +133,9 @@
           <param name="version" value="1.2.3" />
         </parameters>
       </build-trigger>
+      <build-trigger id="mavenSnapshotDependencyTrigger" type="mavenSnapshotDependencyTrigger">
+        <parameters />
+      </build-trigger>
     </build-triggers>
     <cleanup />
   </settings>
