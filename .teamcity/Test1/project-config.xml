@@ -12,6 +12,8 @@
       <parameters>
         <param name="filters.1.status" value="failed" />
         <param name="filters.1.type" value="buildStatus" />
+        <param name="filters.2.tagsList" value="v1.0.0" />
+        <param name="filters.2.type" value="tags" />
         <param name="keepData.1.type" value="statistics" />
         <param name="limit.type" value="all" />
         <param name="partitions.1.type" value="perBranch" />
