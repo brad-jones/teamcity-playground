@@ -153,7 +153,7 @@
           <param name="buildTag" value="v1.0.4" />
           <param name="metricKey" value="ArtifactsSize" />
           <param name="metricThreshold" value="123" />
-          <param name="metricUnits" value="metricUnitsDefault" />
+          <param name="metricUnits" value="metricUnitsPercents" />
           <param name="moreOrLess" value="more" />
           <param name="withBuildAnchor" value="true" />
         </parameters>
