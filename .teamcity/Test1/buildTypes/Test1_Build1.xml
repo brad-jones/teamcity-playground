@@ -13,6 +13,7 @@
       <option name="cleanBuild" value="true" />
       <option name="enableHangingBuildsDetection" value="false" />
       <option name="excludeDefaultBranchChanges" value="true" />
+      <option name="maximumNumberOfBuilds" value="134" />
       <option name="showDependenciesChanges" value="true" />
     </options>
     <parameters />
