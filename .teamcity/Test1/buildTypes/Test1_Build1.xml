@@ -5,6 +5,7 @@
   <settings>
     <options>
       <option name="checkoutDirectory" value="/foo/bar/baz" />
+      <option name="cleanBuild" value="true" />
     </options>
     <parameters />
     <build-runners />
