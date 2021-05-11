@@ -80,6 +80,7 @@
           <param name="revisionRuleBuildBranch" value="+:&lt;default&gt;" />
           <param name="schedulingPolicy" value="weekly" />
           <param name="timezone" value="Australia/Melbourne" />
+          <param name="triggerRules" value="+:**" />
         </parameters>
       </build-trigger>
     </build-triggers>
