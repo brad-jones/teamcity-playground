@@ -12,6 +12,7 @@
   <param name="teamcity:branchSpec" value="+:refs/heads/*" />
   <param name="url" value="https://github.com/brad-jones/teamcity-playground.git" />
   <param name="useAlternates" value="true" />
+  <param name="userForTags" value="Foo Bar foo.bar@acme.org" />
   <param name="username" value="brad-jones" />
   <param name="usernameStyle" value="EMAIL" />
 </vcs-root>
