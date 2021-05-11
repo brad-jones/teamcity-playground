@@ -20,6 +20,9 @@
     <parameters />
     <build-runners>
       <runner id="RUNNER_1" name="Step1" type="simpleRunner">
+        <conditions>
+          <equals name="teamcity.build.branch.is_default" value="true" />
+        </conditions>
         <parameters>
           <param name="command.executable" value="foo" />
           <param name="command.parameters" value="bar -baz=adsfg -e.t foo etc" />
