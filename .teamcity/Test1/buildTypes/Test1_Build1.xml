@@ -17,6 +17,7 @@
       <option name="executionTimeoutMin" value="60" />
       <option name="maximumNumberOfBuilds" value="1" />
       <option name="shouldFailBuildIfTestsFailed" value="false" />
+      <option name="shouldFailBuildOnAnyErrorMessage" value="true" />
       <option name="shouldFailBuildOnBadExitCode" value="false" />
       <option name="showDependenciesChanges" value="true" />
       <option name="supportTestRetry" value="true" />
