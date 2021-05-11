@@ -52,7 +52,8 @@
       <build-trigger id="vcsTrigger" type="vcsTrigger">
         <parameters>
           <param name="branchFilter" value="+:*" />
-          <param name="quietPeriodMode" value="USE_DEFAULT" />
+          <param name="quietPeriod" value="345" />
+          <param name="quietPeriodMode" value="USE_CUSTOM" />
         </parameters>
       </build-trigger>
     </build-triggers>
