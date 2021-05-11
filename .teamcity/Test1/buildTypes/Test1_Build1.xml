@@ -73,6 +73,7 @@
           <param name="cronExpression_year" value="*" />
           <param name="dayOfWeek" value="Thursday" />
           <param name="enableQueueOptimization" value="true" />
+          <param name="enforceCleanCheckout" value="true" />
           <param name="hour" value="5" />
           <param name="minute" value="20" />
           <param name="revisionRule" value="buildTag" />
