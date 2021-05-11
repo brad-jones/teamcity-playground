@@ -29,6 +29,7 @@
           <param name="command.parameters" value="bar -baz=adsfg -e.t foo etc" />
           <param name="log.stderr.as.errors" value="true" />
           <param name="plugin.docker.imageId" value="node:latest" />
+          <param name="plugin.docker.imagePlatform" value="linux" />
           <param name="teamcity.build.workingDir" value="/foo/bar/baz" />
           <param name="teamcity.step.mode" value="execute_always" />
         </parameters>
