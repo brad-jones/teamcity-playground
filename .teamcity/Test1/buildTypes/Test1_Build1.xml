@@ -31,6 +31,7 @@
           <param name="plugin.docker.imageId" value="node:latest" />
           <param name="plugin.docker.imagePlatform" value="windows" />
           <param name="plugin.docker.pull.enabled" value="true" />
+          <param name="plugin.docker.run.parameters" value="--entrypoint /foo" />
           <param name="teamcity.build.workingDir" value="/foo/bar/baz" />
           <param name="teamcity.step.mode" value="execute_always" />
         </parameters>
