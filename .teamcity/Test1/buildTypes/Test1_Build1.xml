@@ -148,7 +148,7 @@
     <build-extensions>
       <extension id="BUILD_EXT_1" type="BuildFailureOnMetric">
         <parameters>
-          <param name="anchorBuild" value="lastSuccessful" />
+          <param name="anchorBuild" value="lastPinned" />
           <param name="metricKey" value="ArtifactsSize" />
           <param name="metricThreshold" value="1" />
           <param name="metricUnits" value="metricUnitsDefault" />
