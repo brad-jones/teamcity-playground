@@ -19,8 +19,9 @@
     </extension>
     <extension id="PROJECT_EXT_3" type="JetBrains.SharedResources">
       <parameters>
+        <param name="enabled" value="true" />
         <param name="name" value="foo" />
-        <param name="quota" value="-1" />
+        <param name="quota" value="100" />
         <param name="type" value="quoted" />
       </parameters>
     </extension>
