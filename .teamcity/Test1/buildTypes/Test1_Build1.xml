@@ -4,7 +4,7 @@
   <description>This is a build config</description>
   <settings>
     <options>
-      <option name="checkoutMode" value="ON_SERVER" />
+      <option name="checkoutMode" value="ON_AGENT" />
     </options>
     <parameters />
     <build-runners />
