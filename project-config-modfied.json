@@ -1,0 +1,1095 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "option": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "spec": {"type": "string"}
+            }
+        },
+        "options": {
+            "type": "object",
+            "required": ["option"],
+            "properties": {
+                "option": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/option"},
+                    "minItems": 1
+                }
+            }
+        },
+        "dependon": {
+            "type": "object",
+            "required": [
+                "options",
+                "sourceBuildTypeId"
+            ],
+            "properties": {
+                "options": {"$ref": "#/definitions/options"},
+                "sourceBuildTypeId": {"type": "string"}
+            }
+        },
+        "revisionRule": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+                "name": {"type": "string"},
+                "revision": {"type": "string"},
+                "branch": {"type": "string"}
+            }
+        },
+        "any": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "exists": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "notexists": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "equals": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "doesnotequal": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "morethan": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "nomorethan": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "lessthan": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "nolessthan": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "contains": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "doesnotcontain": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "startswith": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "endswith": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "matches": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "doesnotmatch": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "vermorethan": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "vernomorethan": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "verlessthan": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "vernolessthan": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "id": {"type": "string"}
+            }
+        },
+        "conditions": {
+            "type": "object",
+            "properties": {
+                "anyOrexistsOrnotexists": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {"$ref": "#/definitions/any"},
+                            {"$ref": "#/definitions/exists"},
+                            {"$ref": "#/definitions/notexists"},
+                            {"$ref": "#/definitions/equals"},
+                            {"$ref": "#/definitions/doesnotequal"},
+                            {"$ref": "#/definitions/morethan"},
+                            {"$ref": "#/definitions/nomorethan"},
+                            {"$ref": "#/definitions/lessthan"},
+                            {"$ref": "#/definitions/nolessthan"},
+                            {"$ref": "#/definitions/contains"},
+                            {"$ref": "#/definitions/doesnotcontain"},
+                            {"$ref": "#/definitions/startswith"},
+                            {"$ref": "#/definitions/endswith"},
+                            {"$ref": "#/definitions/matches"},
+                            {"$ref": "#/definitions/doesnotmatch"},
+                            {"$ref": "#/definitions/vermorethan"},
+                            {"$ref": "#/definitions/vernomorethan"},
+                            {"$ref": "#/definitions/verlessthan"},
+                            {"$ref": "#/definitions/vernolessthan"}
+                        ]
+                    },
+                    "minItems": 0
+                }
+            }
+        },
+        "param": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+                "Content": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"},
+                "spec": {"type": "string"}
+            }
+        },
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "param": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/param"},
+                    "minItems": 0
+                }
+            }
+        },
+        "runner": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+                "conditionsOrparameters": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {"$ref": "#/definitions/conditions"},
+                            {"$ref": "#/definitions/parameters"}
+                        ]
+                    },
+                    "minItems": 0
+                },
+                "id": {"type": "string"},
+                "type": {"type": "string"},
+                "name": {"type": "string"}
+            }
+        },
+        "buildrunners": {
+            "type": "object",
+            "properties": {
+                "runner": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/runner"},
+                    "minItems": 0
+                },
+                "order": {"type": "string"}
+            }
+        },
+        "name": {
+            "type": "object",
+            "properties": {
+                "Content": {"type": "string"}
+            }
+        },
+        "description": {
+            "type": "object",
+            "properties": {
+                "Content": {"type": "string"}
+            }
+        },
+        "defaulttemplate": {
+            "type": "object",
+            "required": ["ref"],
+            "properties": {
+                "ref": {"type": "string"}
+            }
+        },
+        "extension": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+                "parameters": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/parameters"},
+                    "minItems": 0
+                },
+                "id": {"type": "string"},
+                "type": {"type": "string"}
+            }
+        },
+        "projectextensions": {
+            "type": "object",
+            "properties": {
+                "extension": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/extension"},
+                    "minItems": 0
+                }
+            }
+        },
+        "policy": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+                "parameters": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/parameters"},
+                    "minItems": 0
+                },
+                "type": {"type": "string"},
+                "cleanuplevel": {
+                    "allOf": [
+                        {"type": "string"},
+                        {
+                            "enum": [
+                                "EVERYTHING",
+                                "HISTORY_ENTRY",
+                                "ARTIFACTS"
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "cleanup": {
+            "type": "object",
+            "properties": {
+                "optionsOrpolicy": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {"$ref": "#/definitions/options"},
+                            {"$ref": "#/definitions/policy"}
+                        ]
+                    },
+                    "minItems": 0
+                }
+            }
+        },
+        "buildTypesOrder": {
+            "type": "object",
+            "required": ["order"],
+            "properties": {
+                "order": {"type": "string"}
+            }
+        },
+        "subprojectsOrder": {
+            "type": "object",
+            "required": ["order"],
+            "properties": {
+                "order": {"type": "string"}
+            }
+        },
+        "project": {
+            "type": "object",
+            "properties": {
+                "name": {"$ref": "#/definitions/name"},
+                "description": {"$ref": "#/definitions/description"},
+                "defaulttemplate": {"$ref": "#/definitions/defaulttemplate"},
+                "parametersOrprojectextensionsOrcleanup": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {"$ref": "#/definitions/parameters"},
+                            {"$ref": "#/definitions/projectextensions"},
+                            {"$ref": "#/definitions/cleanup"},
+                            {"$ref": "#/definitions/buildTypesOrder"},
+                            {"$ref": "#/definitions/subprojectsOrder"}
+                        ]
+                    },
+                    "minItems": 0
+                },
+                "parentid": {"type": "string"},
+                "archived": {"$ref": "#/definitions/booleanString"},
+                "uuid": {"type": "string"}
+            }
+        },
+        "checkoutrule": {
+            "type": "object",
+            "required": ["rule"],
+            "properties": {
+                "rule": {"type": "string"}
+            }
+        },
+        "vcsentryref": {
+            "type": "object",
+            "required": ["rootid"],
+            "properties": {
+                "checkoutrule": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/checkoutrule"},
+                    "minItems": 0
+                },
+                "rootid": {"type": "string"}
+            }
+        },
+        "ref": {
+            "type": "object",
+            "properties": {
+                "id": {"type": "string"}
+            }
+        },
+        "inherits": {
+            "type": "object",
+            "properties": {
+                "ref": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/ref"},
+                    "minItems": 0
+                }
+            }
+        },
+        "settingref": {
+            "type": "object",
+            "required": ["ref"],
+            "properties": {
+                "ref": {"type": "string"}
+            }
+        },
+        "disabledsettings": {
+            "type": "object",
+            "properties": {
+                "settingref": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/settingref"},
+                    "minItems": 0
+                }
+            }
+        },
+        "buildextensions": {
+            "type": "object",
+            "properties": {
+                "extension": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/extension"},
+                    "minItems": 0
+                }
+            }
+        },
+        "vcssettings": {
+            "type": "object",
+            "properties": {
+                "vcsentryref": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/vcsentryref"},
+                    "minItems": 0
+                }
+            }
+        },
+        "requirements": {
+            "type": "object",
+            "properties": {
+                "anyOrexistsOrnotexists": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {"$ref": "#/definitions/any"},
+                            {"$ref": "#/definitions/exists"},
+                            {"$ref": "#/definitions/notexists"},
+                            {"$ref": "#/definitions/equals"},
+                            {"$ref": "#/definitions/doesnotequal"},
+                            {"$ref": "#/definitions/morethan"},
+                            {"$ref": "#/definitions/nomorethan"},
+                            {"$ref": "#/definitions/lessthan"},
+                            {"$ref": "#/definitions/nolessthan"},
+                            {"$ref": "#/definitions/contains"},
+                            {"$ref": "#/definitions/doesnotcontain"},
+                            {"$ref": "#/definitions/startswith"},
+                            {"$ref": "#/definitions/endswith"},
+                            {"$ref": "#/definitions/matches"},
+                            {"$ref": "#/definitions/doesnotmatch"},
+                            {"$ref": "#/definitions/vermorethan"},
+                            {"$ref": "#/definitions/vernomorethan"},
+                            {"$ref": "#/definitions/verlessthan"},
+                            {"$ref": "#/definitions/vernolessthan"}
+                        ]
+                    },
+                    "minItems": 0
+                }
+            }
+        },
+        "buildtrigger": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+                "parameters": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/parameters"},
+                    "minItems": 0
+                },
+                "id": {"type": "string"},
+                "type": {"type": "string"}
+            }
+        },
+        "buildtriggers": {
+            "type": "object",
+            "properties": {
+                "buildtrigger": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/buildtrigger"},
+                    "minItems": 0
+                }
+            }
+        },
+        "artifact": {
+            "type": "object",
+            "required": ["sourcePath"],
+            "properties": {
+                "sourcePath": {"type": "string"}
+            }
+        },
+        "dependency": {
+            "type": "object",
+            "required": [
+                "revisionRule",
+                "artifact",
+                "sourceBuildTypeId"
+            ],
+            "properties": {
+                "revisionRule": {"$ref": "#/definitions/revisionRule"},
+                "artifact": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/artifact"},
+                    "minItems": 1
+                },
+                "sourceBuildTypeId": {"type": "string"},
+                "cleanDestination": {"$ref": "#/definitions/booleanString"},
+                "id": {"type": "string"}
+            }
+        },
+        "artifactdependencies": {
+            "type": "object",
+            "properties": {
+                "dependency": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/dependency"},
+                    "minItems": 0
+                }
+            }
+        },
+        "dependencies": {
+            "type": "object",
+            "properties": {
+                "dependon": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/dependon"},
+                    "minItems": 0
+                }
+            }
+        },
+        "settings": {
+            "type": "object",
+            "properties": {
+                "inherits": {"$ref": "#/definitions/inherits"},
+                "options": {"$ref": "#/definitions/options"},
+                "disabledsettings": {"$ref": "#/definitions/disabledsettings"},
+                "parametersOrbuildrunnersOrbuildextensions": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {"$ref": "#/definitions/parameters"},
+                            {"$ref": "#/definitions/buildrunners"},
+                            {"$ref": "#/definitions/buildextensions"},
+                            {"$ref": "#/definitions/vcssettings"},
+                            {"$ref": "#/definitions/requirements"},
+                            {"$ref": "#/definitions/buildtriggers"},
+                            {"$ref": "#/definitions/artifactdependencies"},
+                            {"$ref": "#/definitions/dependencies"},
+                            {"$ref": "#/definitions/cleanup"}
+                        ]
+                    },
+                    "minItems": 0
+                },
+                "ref": {"type": "string"}
+            }
+        },
+        "buildtype": {
+            "type": "object",
+            "required": ["settings"],
+            "properties": {
+                "name": {"$ref": "#/definitions/name"},
+                "description": {"$ref": "#/definitions/description"},
+                "settings": {"$ref": "#/definitions/settings"},
+                "uuid": {"type": "string"},
+                "paused": {"$ref": "#/definitions/booleanString"}
+            }
+        },
+        "enforcedSettings.settings": {
+            "type": "object",
+            "properties": {
+                "ref": {"type": "string"}
+            }
+        },
+        "enforcedSettings": {
+            "type": "object",
+            "required": ["settings"],
+            "properties": {
+                "settings": {"$ref": "#/definitions/enforcedSettings.settings"}
+            }
+        },
+        "vcsroot": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+                "name": {"$ref": "#/definitions/name"},
+                "param": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/param"},
+                    "minItems": 0
+                },
+                "uuid": {"type": "string"},
+                "type": {"type": "string"},
+                "modificationcheckinterval": {"type": "string"}
+            }
+        },
+        "template": {
+            "type": "object",
+            "required": ["settings"],
+            "properties": {
+                "name": {"$ref": "#/definitions/name"},
+                "description": {"$ref": "#/definitions/description"},
+                "settings": {"$ref": "#/definitions/settings"},
+                "uuid": {"type": "string"}
+            }
+        },
+        "booleanString": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "true",
+                        "false",
+                        "yes",
+                        "no"
+                    ]
+                }
+            ]
+        }
+    },
+    "anyOf": [
+        {
+            "type": "object",
+            "properties": {
+                "depend-on": {"$ref": "#/definitions/dependon"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "options": {"$ref": "#/definitions/options"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "option": {"$ref": "#/definitions/option"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "revisionRule": {"$ref": "#/definitions/revisionRule"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "build-runners": {"$ref": "#/definitions/buildrunners"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "runner": {"$ref": "#/definitions/runner"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "conditions": {"$ref": "#/definitions/conditions"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "any": {"$ref": "#/definitions/any"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "exists": {"$ref": "#/definitions/exists"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "not-exists": {"$ref": "#/definitions/notexists"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "equals": {"$ref": "#/definitions/equals"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "does-not-equal": {"$ref": "#/definitions/doesnotequal"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "more-than": {"$ref": "#/definitions/morethan"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "no-more-than": {"$ref": "#/definitions/nomorethan"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "less-than": {"$ref": "#/definitions/lessthan"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "no-less-than": {"$ref": "#/definitions/nolessthan"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "contains": {"$ref": "#/definitions/contains"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "does-not-contain": {"$ref": "#/definitions/doesnotcontain"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "starts-with": {"$ref": "#/definitions/startswith"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ends-with": {"$ref": "#/definitions/endswith"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "matches": {"$ref": "#/definitions/matches"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "does-not-match": {"$ref": "#/definitions/doesnotmatch"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ver-more-than": {"$ref": "#/definitions/vermorethan"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ver-no-more-than": {"$ref": "#/definitions/vernomorethan"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ver-less-than": {"$ref": "#/definitions/verlessthan"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ver-no-less-than": {"$ref": "#/definitions/vernolessthan"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "parameters": {"$ref": "#/definitions/parameters"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "param": {"$ref": "#/definitions/param"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "project": {"$ref": "#/definitions/project"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "name": {"$ref": "#/definitions/name"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "description": {"$ref": "#/definitions/description"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "default-template": {"$ref": "#/definitions/defaulttemplate"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "project-extensions": {"$ref": "#/definitions/projectextensions"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "extension": {"$ref": "#/definitions/extension"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "cleanup": {"$ref": "#/definitions/cleanup"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "policy": {"$ref": "#/definitions/policy"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "buildTypesOrder": {"$ref": "#/definitions/buildTypesOrder"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "subprojectsOrder": {"$ref": "#/definitions/subprojectsOrder"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "vcs-entry-ref": {"$ref": "#/definitions/vcsentryref"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "checkout-rule": {"$ref": "#/definitions/checkoutrule"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "build-type": {"$ref": "#/definitions/buildtype"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "settings": {"$ref": "#/definitions/settings"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "inherits": {"$ref": "#/definitions/inherits"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ref": {"$ref": "#/definitions/ref"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "disabled-settings": {"$ref": "#/definitions/disabledsettings"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "setting-ref": {"$ref": "#/definitions/settingref"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "build-extensions": {"$ref": "#/definitions/buildextensions"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "vcs-settings": {"$ref": "#/definitions/vcssettings"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "requirements": {"$ref": "#/definitions/requirements"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "build-triggers": {"$ref": "#/definitions/buildtriggers"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "build-trigger": {"$ref": "#/definitions/buildtrigger"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "artifact-dependencies": {"$ref": "#/definitions/artifactdependencies"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "dependency": {"$ref": "#/definitions/dependency"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "artifact": {"$ref": "#/definitions/artifact"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "dependencies": {"$ref": "#/definitions/dependencies"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "enforcedSettings": {"$ref": "#/definitions/enforcedSettings"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "vcs-root": {"$ref": "#/definitions/vcsroot"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "template": {"$ref": "#/definitions/template"}
+            }
+        }
+    ]
+}

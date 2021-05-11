@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+
+	<xsd:element name='project'>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref='name' minOccurs='0' maxOccurs='1'/>
+				<xsd:element ref='description' minOccurs='0' maxOccurs='1'/>
+				<xsd:element ref="default-template" minOccurs='0' maxOccurs='1'/>
+				<xsd:choice minOccurs='0' maxOccurs='unbounded'>
+					<xsd:element ref='parameters'/>
+					<xsd:element ref='project-extensions'/>
+					<xsd:element ref='cleanup'/>
+					<xsd:element ref='buildTypesOrder'/>
+					<xsd:element ref='subprojectsOrder'/>
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attribute name='parent-id' type='externalId' use='optional'/>
+			<xsd:attribute name='archived' use='optional' type="booleanString"/>
+			<xsd:attribute name='uuid' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='template'>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref='name' minOccurs='0' maxOccurs='1'/>
+				<xsd:element ref='description' minOccurs='0' maxOccurs='1'/>
+				<xsd:element ref='settings'/>
+			</xsd:sequence>
+			<xsd:attribute name='uuid' type='xsd:string' use='optional'/>
+			<xsd:attribute name='name' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='enforcedSettings'>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="settings" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:attribute name='ref' type='externalId'/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='build-type'>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref='name' minOccurs='0' maxOccurs='1'/>
+				<xsd:element ref='description' minOccurs='0' maxOccurs='1'/>
+				<xsd:element ref='settings'/>
+			</xsd:sequence>
+			<xsd:attribute name='uuid' type='xsd:string' use='optional'/>
+			<xsd:attribute name='name' type='xsd:string' use='optional'/>
+			<xsd:attribute name='paused' use='optional' type="booleanString"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='name'>
+		<xsd:complexType mixed='true'>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='description'>
+		<xsd:complexType mixed='true'>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='settings'>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref='inherits' minOccurs='0' maxOccurs='1' />
+				<xsd:element ref='options' minOccurs='0' maxOccurs='1'/>
+				<xsd:element ref='disabled-settings' minOccurs='0' maxOccurs='1'/>
+				<xsd:choice minOccurs='0' maxOccurs='unbounded'>
+					<xsd:element ref='parameters'/>
+					<xsd:element ref='build-runners'/>
+					<xsd:element ref='build-extensions'/>
+					<xsd:element ref='vcs-settings'/>
+					<xsd:element ref='requirements'/>
+					<xsd:element ref='build-triggers'/>
+					<xsd:element ref='artifact-dependencies'/>
+					<xsd:element ref='dependencies'/>
+					<xsd:element ref='cleanup'/>
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attribute name='ref' type='externalId' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='inherits'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='ref'/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='ref'>
+		<xsd:complexType>
+			<xsd:attribute name="id" type='externalId' />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='disabled-settings'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='setting-ref'/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='setting-ref'>
+		<xsd:complexType>
+			<xsd:attribute name='ref' type='externalId' use='required'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='build-runners'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='runner'/>
+			</xsd:sequence>
+			<xsd:attribute name='order' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='runner'>
+		<xsd:complexType>
+			<xsd:choice minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='conditions'/>
+				<xsd:element ref='parameters'/>
+			</xsd:choice>
+			<xsd:attribute name='id' type='externalId' use='optional'/>
+			<xsd:attribute name='type' type='xsd:string' use='required'/>
+			<xsd:attribute name='name' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='build-extensions'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='extension'/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='project-extensions'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='extension'/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='extension'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='parameters'/>
+			</xsd:sequence>
+			<xsd:attribute name='id' type='externalId' use='optional'/>
+			<xsd:attribute name='type' type='xsd:string' use='required'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='vcs-settings'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='vcs-entry-ref'/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='vcs-entry-ref'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='checkout-rule'/>
+			</xsd:sequence>
+			<xsd:attribute name='root-id' type='externalId' use='required'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='checkout-rule'>
+		<xsd:complexType>
+			<xsd:attribute name='rule' type='xsd:string' use='required'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='cleanup'>
+		<xsd:complexType>
+			<xsd:choice minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='options'/>
+				<xsd:element ref='policy'/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='vcs-root'>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref='name' minOccurs='0' maxOccurs='1'/>
+				<xsd:element ref='param' minOccurs='0' maxOccurs='unbounded'/>
+			</xsd:sequence>
+			<xsd:attribute name='uuid' type='xsd:string' use='optional'/>
+			<xsd:attribute name='name' type='xsd:string' use='optional'/>
+			<xsd:attribute name='type' type='xsd:string' use='required'/>
+			<xsd:attribute name='modification-check-interval' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='requirements'>
+		<xsd:complexType>
+			<xsd:choice minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='any'/>
+				<xsd:element ref='exists'/>
+				<xsd:element ref='not-exists'/>
+				<xsd:element ref='equals'/>
+				<xsd:element ref='does-not-equal'/>
+				<xsd:element ref='more-than'/>
+				<xsd:element ref='no-more-than'/>
+				<xsd:element ref='less-than'/>
+				<xsd:element ref='no-less-than'/>
+				<xsd:element ref='contains'/>
+				<xsd:element ref='does-not-contain'/>
+				<xsd:element ref='starts-with'/>
+				<xsd:element ref='ends-with'/>
+				<xsd:element ref='matches'/>
+				<xsd:element ref='does-not-match'/>
+				<xsd:element ref='ver-more-than'/>
+				<xsd:element ref='ver-no-more-than'/>
+				<xsd:element ref='ver-less-than'/>
+				<xsd:element ref='ver-no-less-than'/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='conditions'>
+		<xsd:complexType>
+			<xsd:choice minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='any'/>
+				<xsd:element ref='exists'/>
+				<xsd:element ref='not-exists'/>
+				<xsd:element ref='equals'/>
+				<xsd:element ref='does-not-equal'/>
+				<xsd:element ref='more-than'/>
+				<xsd:element ref='no-more-than'/>
+				<xsd:element ref='less-than'/>
+				<xsd:element ref='no-less-than'/>
+				<xsd:element ref='contains'/>
+				<xsd:element ref='does-not-contain'/>
+				<xsd:element ref='starts-with'/>
+				<xsd:element ref='ends-with'/>
+				<xsd:element ref='matches'/>
+				<xsd:element ref='does-not-match'/>
+				<xsd:element ref='ver-more-than'/>
+				<xsd:element ref='ver-no-more-than'/>
+				<xsd:element ref='ver-less-than'/>
+				<xsd:element ref='ver-no-less-than'/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='options'>
+		<xsd:complexType>
+			<xsd:sequence maxOccurs='unbounded'>
+				<xsd:element ref='option'/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='option'>
+		<xsd:complexType>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='spec' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='dependencies'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0" maxOccurs='unbounded'>
+				<xsd:element ref='depend-on'/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='depend-on'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='1'>
+				<xsd:element ref='options'/>
+			</xsd:sequence>
+			<xsd:attribute name='sourceBuildTypeId' type='externalId' use='required'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='artifact-dependencies'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0" maxOccurs='unbounded'>
+				<xsd:element ref='dependency'/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='dependency'>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref='revisionRule'/>
+				<xsd:sequence maxOccurs='unbounded'>
+					<xsd:element ref='artifact'/>
+				</xsd:sequence>
+			</xsd:sequence>
+			<xsd:attribute name='sourceBuildTypeId' type='externalId' use='required'/>
+			<xsd:attribute name='cleanDestination' use='optional' type="booleanString"/>
+			<xsd:attribute name='id' use='optional' type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='revisionRule'>
+		<xsd:complexType>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='revision' type='xsd:string' use='optional'/>
+			<xsd:attribute name='branch' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='artifact'>
+		<xsd:complexType>
+			<xsd:attribute name='sourcePath' type='xsd:string' use='required'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='build-triggers'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='build-trigger'/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='build-trigger'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='parameters'/>
+			</xsd:sequence>
+			<xsd:attribute name='id' type='externalId' use='optional'/>
+			<xsd:attribute name='type' type='xsd:string' use='required'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='parameters'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='param'/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='default-template'>
+		<xsd:complexType>
+			<xsd:attribute name='ref' type='externalId' use='required' />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='policy'>
+		<xsd:complexType>
+			<xsd:sequence minOccurs='0' maxOccurs='unbounded'>
+				<xsd:element ref='parameters'/>
+			</xsd:sequence>
+			<xsd:attribute name='type' type='xsd:string' use='required'/>
+			<xsd:attribute name='cleanup-level' use='optional'>
+				<xsd:simpleType>
+					<xsd:restriction base='xsd:string'>
+						<xsd:enumeration value='EVERYTHING'/>
+						<xsd:enumeration value='HISTORY_ENTRY'/>
+						<xsd:enumeration value='ARTIFACTS'/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='param'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='optional'/>
+			<xsd:attribute name='spec' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='contains'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='does-not-contain'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='no-less-than'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='ver-no-less-than'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='ends-with'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='less-than'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='ver-less-than'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='any'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='exists'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='not-exists'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='more-than'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='ver-more-than'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='starts-with'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='no-more-than'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='ver-no-more-than'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='equals'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='does-not-equal'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='matches'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name='does-not-match'>
+		<xsd:complexType mixed='true'>
+			<xsd:attribute name='name' type='xsd:string' use='required'/>
+			<xsd:attribute name='value' type='xsd:string' use='required'/>
+			<xsd:attribute name='id' type='xsd:string' use='optional'/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:simpleType name="booleanString">
+		<xsd:restriction base='xsd:string'>
+			<xsd:enumeration value='true'/>
+			<xsd:enumeration value='false'/>
+			<xsd:enumeration value='yes'/>
+			<xsd:enumeration value='no'/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="externalId">
+		<xsd:restriction base='xsd:string'/>
+	</xsd:simpleType>
+
+	<xsd:element name="buildTypesOrder">
+		<xsd:complexType>
+			<xsd:attribute name="order" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="subprojectsOrder">
+		<xsd:complexType>
+			<xsd:attribute name="order" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
