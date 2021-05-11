@@ -23,7 +23,7 @@
         <parameters>
           <param name="command.executable" value="foo" />
           <param name="command.parameters" value="bar -baz=adsfg -e.t foo etc" />
-          <param name="teamcity.step.mode" value="default" />
+          <param name="teamcity.step.mode" value="execute_if_success" />
         </parameters>
       </runner>
       <runner id="RUNNER_2" name="Step 2" type="simpleRunner">
