@@ -119,6 +119,18 @@
           <param name="secure:nuget.password" value="credentialsJSON:38a028f3-e750-4e0c-a5a6-a949fe620c94" />
         </parameters>
       </build-trigger>
+      <build-trigger id="TRIGGER_4" type="mavenArtifactDependencyTrigger">
+        <parameters>
+          <param name="artifactId" value="xyz" />
+          <param name="classifier" value="foo" />
+          <param name="groupId" value="abc" />
+          <param name="repoId" value="bar" />
+          <param name="repoUrl" value="http://example.org" />
+          <param name="type" value="jar" />
+          <param name="userSettingsSelection" value="userSettingsSelection:default" />
+          <param name="version" value="1.2.3" />
+        </parameters>
+      </build-trigger>
     </build-triggers>
     <cleanup />
   </settings>
