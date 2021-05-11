@@ -11,9 +11,10 @@
     <extension id="PROJECT_EXT_2" type="versionedSettings">
       <parameters>
         <param name="buildSettings" value="PREFER_VCS" />
+        <param name="credentialsStorageType" value="credentialsJSON" />
         <param name="enabled" value="true" />
         <param name="rootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
-        <param name="showChanges" value="false" />
+        <param name="showChanges" value="true" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_3" type="JetBrains.SharedResources">
