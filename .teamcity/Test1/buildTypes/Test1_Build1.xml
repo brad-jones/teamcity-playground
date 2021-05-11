@@ -22,6 +22,7 @@
       <runner id="RUNNER_1" name="Step1" type="simpleRunner">
         <conditions>
           <exists name="teamcity.build.branch.is_default" />
+          <equals name="teamcity.build.branch" value="release" />
         </conditions>
         <parameters>
           <param name="command.executable" value="foo" />
