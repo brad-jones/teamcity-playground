@@ -148,7 +148,7 @@
     <build-extensions>
       <extension id="BUILD_EXT_1" type="BuildFailureOnMetric">
         <parameters>
-          <param name="metricKey" value="buildLogSize" />
+          <param name="metricKey" value="CodeCoverageAbsCTotal" />
           <param name="metricThreshold" value="1" />
           <param name="metricUnits" value="metricUnitsDefault" />
           <param name="moreOrLess" value="more" />
