@@ -4,6 +4,7 @@
   <description>This is a build config</description>
   <settings>
     <options>
+      <option name="branchFilter" value="+:master&#xD;&#xA;+:foo" />
       <option name="checkoutDirectory" value="/foo/bar/baz" />
       <option name="cleanBuild" value="true" />
       <option name="excludeDefaultBranchChanges" value="true" />
