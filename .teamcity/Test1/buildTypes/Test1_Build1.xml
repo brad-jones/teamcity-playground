@@ -3,9 +3,6 @@
   <name>Build1</name>
   <description>This is a build config</description>
   <settings>
-    <options>
-      <option name="checkoutMode" value="MANUAL" />
-    </options>
     <parameters />
     <build-runners />
     <vcs-settings>
