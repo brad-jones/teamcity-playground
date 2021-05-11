@@ -75,7 +75,6 @@
           <param name="enableQueueOptimization" value="true" />
           <param name="hour" value="5" />
           <param name="minute" value="20" />
-          <param name="promoteWatchedBuild" value="true" />
           <param name="revisionRule" value="buildTag" />
           <param name="revisionRuleBuildBranch" value="+:&lt;default&gt;" />
           <param name="revisionRuleDependsOn" value="Test1_Build1" />
