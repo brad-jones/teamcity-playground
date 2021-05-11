@@ -8,27 +8,6 @@
     <param name="system.baz" value="qux" />
   </parameters>
   <project-extensions>
-    <extension id="KEEP_RULE_1" type="keepRules">
-      <parameters>
-        <param name="filters.1.activity" value="inactive" />
-        <param name="filters.1.type" value="branchActivity" />
-        <param name="filters.2.pattern"><![CDATA[+:master
-+:archived]]></param>
-        <param name="filters.2.type" value="branchPattern" />
-        <param name="filters.3.personal" value="not_personal" />
-        <param name="filters.3.type" value="personalBuild" />
-        <param name="filters.4.status" value="failed" />
-        <param name="filters.4.type" value="buildStatus" />
-        <param name="filters.5.tagsList"><![CDATA[v1.0.0
-v2.0.0]]></param>
-        <param name="filters.5.type" value="tags" />
-        <param name="keepData.1.type" value="statistics" />
-        <param name="limit.buildsCount" value="30" />
-        <param name="limit.type" value="lastNBuilds" />
-        <param name="preserveArtifacts" value="false" />
-        <param name="ruleDisabled" value="false" />
-      </parameters>
-    </extension>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
       <parameters>
         <param name="buildSettings" value="PREFER_VCS" />
