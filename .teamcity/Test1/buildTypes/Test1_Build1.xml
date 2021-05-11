@@ -8,13 +8,13 @@
       <option name="allowPersonalBuildTriggering" value="false" />
       <option name="artifactRules" value="+:foo&#xA;+:./bar/xyz/*&#xA;+:baz" />
       <option name="branchFilter" value="+:master&#xD;&#xA;+:foo" />
-      <option name="buildConfigurationType" value="COMPOSITE" />
+      <option name="buildConfigurationType" value="DEPLOYMENT" />
       <option name="buildNumberPattern" value="1.%build.counter%-%build.vcs.number.VCSRootName%" />
       <option name="checkoutDirectory" value="/foo/bar/baz" />
       <option name="cleanBuild" value="true" />
       <option name="enableHangingBuildsDetection" value="false" />
       <option name="excludeDefaultBranchChanges" value="true" />
-      <option name="maximumNumberOfBuilds" value="134" />
+      <option name="maximumNumberOfBuilds" value="1" />
       <option name="showDependenciesChanges" value="true" />
     </options>
     <parameters />
