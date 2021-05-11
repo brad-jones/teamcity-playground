@@ -18,7 +18,15 @@
       <option name="showDependenciesChanges" value="true" />
     </options>
     <parameters />
-    <build-runners />
+    <build-runners>
+      <runner id="RUNNER_1" name="Step1" type="simpleRunner">
+        <parameters>
+          <param name="command.executable" value="foo" />
+          <param name="command.parameters" value="bar -baz=adsfg -e.t foo etc" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+    </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground" />
     </vcs-settings>
