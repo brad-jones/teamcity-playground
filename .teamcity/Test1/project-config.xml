@@ -3,7 +3,7 @@
   <name>Test1</name>
   <description>This is a test project</description>
   <parameters>
-    <param name="foo" value="abc" spec="select display='prompt' description='this param is a test' label='baz' data_2='xyz' data_1='abc' data_3='123'" />
+    <param name="foo" value="abc" spec="select display='prompt' multiple='true' description='this param is a test' label='baz' data_2='xyz' data_1='abc' data_3='123'" />
   </parameters>
   <project-extensions>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
