@@ -104,7 +104,7 @@
       <build-trigger id="retryBuildTrigger" type="retryBuildTrigger">
         <parameters>
           <param name="branchFilter" value="+:*" />
-          <param name="enqueueTimeout" value="0" />
+          <param name="enqueueTimeout" value="120" />
           <param name="reRunBuildWithTheSameRevisions" value="true" />
           <param name="retryAttempts" value="3" />
         </parameters>
