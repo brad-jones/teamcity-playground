@@ -56,7 +56,8 @@
           <param name="perCheckinTriggering" value="true" />
           <param name="quietPeriod" value="345" />
           <param name="quietPeriodMode" value="USE_CUSTOM" />
-          <param name="triggerRules" value="+:**" />
+          <param name="triggerRules"><![CDATA[+:**
+-:**]]></param>
         </parameters>
       </build-trigger>
     </build-triggers>
