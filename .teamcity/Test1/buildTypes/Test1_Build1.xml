@@ -154,7 +154,7 @@
           <param name="metricKey" value="ArtifactsSize" />
           <param name="metricThreshold" value="123" />
           <param name="metricUnits" value="metricUnitsPercents" />
-          <param name="moreOrLess" value="less" />
+          <param name="moreOrLess" value="different" />
           <param name="withBuildAnchor" value="true" />
         </parameters>
       </extension>
