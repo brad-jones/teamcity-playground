@@ -13,6 +13,6 @@
   <param name="url" value="https://github.com/brad-jones/teamcity-playground.git" />
   <param name="useAlternates" value="true" />
   <param name="username" value="brad-jones" />
-  <param name="usernameStyle" value="NAME" />
+  <param name="usernameStyle" value="FULL" />
 </vcs-root>
 
