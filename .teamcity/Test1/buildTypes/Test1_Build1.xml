@@ -78,7 +78,7 @@
           <param name="promoteWatchedBuild" value="true" />
           <param name="revisionRule" value="lastFinished" />
           <param name="revisionRuleBuildBranch" value="+:&lt;default&gt;" />
-          <param name="schedulingPolicy" value="daily" />
+          <param name="schedulingPolicy" value="weekly" />
           <param name="timezone" value="SERVER" />
           <param name="triggerBuildWithPendingChangesOnly" value="true" />
         </parameters>
