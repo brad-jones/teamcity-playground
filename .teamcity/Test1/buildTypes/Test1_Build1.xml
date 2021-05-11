@@ -109,6 +109,15 @@
           <param name="retryAttempts" value="5" />
         </parameters>
       </build-trigger>
+      <build-trigger id="TRIGGER_3" type="nuget.simple">
+        <parameters>
+          <param name="nuget.exe" value="/path/to/nuget.exe" />
+          <param name="nuget.package" value="abc" />
+          <param name="nuget.source" value="https://foo.example.org" />
+          <param name="nuget.username" value="bar" />
+          <param name="secure:nuget.password" value="credentialsJSON:38a028f3-e750-4e0c-a5a6-a949fe620c94" />
+        </parameters>
+      </build-trigger>
     </build-triggers>
     <cleanup />
   </settings>
