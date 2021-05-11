@@ -14,7 +14,7 @@
         <param name="credentialsStorageType" value="credentialsJSON" />
         <param name="enabled" value="true" />
         <param name="rootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
-        <param name="showChanges" value="true" />
+        <param name="showChanges" value="false" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_3" type="JetBrains.SharedResources">
