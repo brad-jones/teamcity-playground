@@ -89,6 +89,7 @@
       </build-trigger>
       <build-trigger id="TRIGGER_2" type="buildDependencyTrigger">
         <parameters>
+          <param name="afterSuccessfulBuildOnly" value="true" />
           <param name="branchFilter" value="+:&lt;default&gt;" />
           <param name="dependsOn" value="Test1_Build1" />
         </parameters>
