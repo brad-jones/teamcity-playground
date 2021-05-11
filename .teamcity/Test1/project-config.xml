@@ -3,7 +3,7 @@
   <name>Test1</name>
   <description>This is a test project</description>
   <parameters>
-    <param name="foo" value="bar" spec="checkbox display='prompt' checkedValue='true' description='this param is a test' readOnly='true' label='baz'" />
+    <param name="foo" value="bar" spec="checkbox description='this param is a test' readOnly='true' label='baz' uncheckedValue='false' display='prompt' checkedValue='true'" />
   </parameters>
   <project-extensions>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
