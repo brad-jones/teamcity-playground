@@ -76,9 +76,10 @@
           <param name="hour" value="5" />
           <param name="minute" value="20" />
           <param name="promoteWatchedBuild" value="true" />
-          <param name="revisionRule" value="lastPinned" />
+          <param name="revisionRule" value="buildTag" />
           <param name="revisionRuleBuildBranch" value="+:&lt;default&gt;" />
           <param name="revisionRuleDependsOn" value="Test1_Build1" />
+          <param name="revistionRuleBuildTag" value="v1.0.0" />
           <param name="schedulingPolicy" value="weekly" />
           <param name="timezone" value="Australia/Melbourne" />
           <param name="triggerBuildIfWatchedBuildChanges" value="true" />
