@@ -134,7 +134,9 @@
         </parameters>
       </build-trigger>
       <build-trigger id="mavenSnapshotDependencyTrigger" type="mavenSnapshotDependencyTrigger">
-        <parameters />
+        <parameters>
+          <param name="skipIfRunning" value="true" />
+        </parameters>
       </build-trigger>
     </build-triggers>
     <cleanup />
