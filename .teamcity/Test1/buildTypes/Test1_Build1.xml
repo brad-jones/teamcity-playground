@@ -126,6 +126,7 @@
           <param name="groupId" value="abc" />
           <param name="repoId" value="bar" />
           <param name="repoUrl" value="http://example.org" />
+          <param name="skipIfRunning" value="true" />
           <param name="type" value="jar" />
           <param name="userSettingsPath" value="/settings/path" />
           <param name="userSettingsSelection" value="userSettingsSelection:byPath" />
