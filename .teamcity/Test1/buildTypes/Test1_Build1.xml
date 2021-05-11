@@ -105,6 +105,7 @@
         <parameters>
           <param name="branchFilter" value="+:*" />
           <param name="enqueueTimeout" value="120" />
+          <param name="moveToTheQueueTop" value="true" />
           <param name="retryAttempts" value="5" />
         </parameters>
       </build-trigger>
