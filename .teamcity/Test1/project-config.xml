@@ -24,7 +24,7 @@ v2.0.0]]></param>
         <param name="filters.5.type" value="tags" />
         <param name="keepData.1.type" value="statistics" />
         <param name="limit.daysCount" value="30" />
-        <param name="limit.type" value="NDaysSinceLastBuild" />
+        <param name="limit.type" value="NDaysSinceLastSuccessfulBuild" />
         <param name="partitions.1.type" value="perBranch" />
         <param name="preserveArtifacts" value="false" />
         <param name="ruleDisabled" value="false" />
