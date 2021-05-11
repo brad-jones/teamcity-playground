@@ -52,6 +52,7 @@
       <build-trigger id="vcsTrigger" type="vcsTrigger">
         <parameters>
           <param name="branchFilter" value="+:*" />
+          <param name="groupCheckinsByCommitter" value="true" />
           <param name="perCheckinTriggering" value="true" />
           <param name="quietPeriod" value="345" />
           <param name="quietPeriodMode" value="USE_CUSTOM" />
