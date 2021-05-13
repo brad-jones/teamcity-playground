@@ -29,7 +29,7 @@
       <depend-on sourceBuildTypeId="Test1_SubProject1_BuildLin">
         <options>
           <option name="run-build-if-dependency-failed" value="CANCEL" />
-          <option name="run-build-if-dependency-failed-to-start" value="RUN_ADD_PROBLEM" />
+          <option name="run-build-if-dependency-failed-to-start" value="RUN" />
           <option name="sync-revisions" value="false" />
         </options>
       </depend-on>
