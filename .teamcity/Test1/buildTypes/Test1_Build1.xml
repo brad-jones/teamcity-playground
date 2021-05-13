@@ -221,6 +221,11 @@
           <param name="free-space-work" value="3gb" />
         </parameters>
       </extension>
+      <extension id="golang" type="golang">
+        <parameters>
+          <param name="test.format" value="json" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
