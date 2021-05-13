@@ -66,6 +66,7 @@
       <starts-with id="RQ_9" name="uio" value="foo" />
       <contains id="RQ_10" name="asd" value="foo" />
       <does-not-contain id="RQ_11" name="fgh" value="foo" />
+      <ends-with id="RQ_12" name="jkl" value="foo" />
     </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
