@@ -230,6 +230,9 @@
         <parameters>
           <param name="assignOnSecondFailure" value="true" />
           <param name="defaultAssignee.username" value="brad.jones" />
+          <param name="excludeAssignees.usernames"><![CDATA[foo
+bar
+baz]]></param>
         </parameters>
       </extension>
     </build-extensions>
