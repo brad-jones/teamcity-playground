@@ -286,12 +286,13 @@ baz]]></param>
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
           <param name="authenticationType" value="vcsRoot" />
+          <param name="filterAuthorRole" value="MEMBER" />
           <param name="filterSourceBranch"><![CDATA[+:foo
 -:bar]]></param>
           <param name="filterTargetBranch"><![CDATA[+:abc
 -:xyz]]></param>
-          <param name="providerType" value="bitbucketServer" />
-          <param name="serverUrl" value="https://example.org/" />
+          <param name="providerType" value="github" />
+          <param name="serverUrl" value="http://example.org/" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
