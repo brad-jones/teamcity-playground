@@ -70,7 +70,7 @@ baz]]></param>
     <extension id="PROJECT_EXT_8" type="ReportTab">
       <parameters>
         <param name="buildTypeId" value="Test1_Build1" />
-        <param name="revisionRuleName" value="lastSuccessful" />
+        <param name="revisionRuleName" value="lastPinned" />
         <param name="startPage" value="index.html" />
         <param name="title" value="FooBarBaz" />
         <param name="type" value="ProjectReportTab" />
