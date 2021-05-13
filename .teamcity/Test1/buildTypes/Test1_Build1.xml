@@ -309,6 +309,9 @@ baz]]></param>
           <param name="ui.ruby.configurator.use.rvm" value="rbenv_file" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_10" type="JetBrains.SharedResources">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
