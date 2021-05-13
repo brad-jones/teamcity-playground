@@ -176,6 +176,11 @@
           <param name="teamcity.merge.policy" value="fastForward" />
         </parameters>
       </extension>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
