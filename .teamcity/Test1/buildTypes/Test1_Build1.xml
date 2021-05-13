@@ -188,14 +188,11 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="failureVote" value="-1" />
-          <param name="gerritProject" value="abc" />
-          <param name="gerritServer" value="example.org:9999" />
-          <param name="gerritUsername" value="foo" />
-          <param name="label" value="Verified" />
-          <param name="publisherId" value="gerritStatusPublisher" />
-          <param name="successVote" value="+1" />
-          <param name="teamcitySshKey" value="foo" />
+          <param name="publisherId" value="upsourcePublisher" />
+          <param name="secure:upsourcePassword" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
+          <param name="upsourceProjectId" value="abc123" />
+          <param name="upsourceServerUrl" value="https://example.org" />
+          <param name="upsourceUsername" value="foo" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
