@@ -179,6 +179,8 @@
       <extension id="swabra" type="swabra">
         <parameters>
           <param name="swabra.processes" value="kill" />
+          <param name="swabra.rules"><![CDATA[+:/a/b/c
+-:/1/2/3]]></param>
         </parameters>
       </extension>
     </build-extensions>
