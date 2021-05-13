@@ -96,6 +96,18 @@
         <param name="username" value="baz" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_19" type="IssueTracker">
+      <parameters>
+        <param name="authType" value="anonymous" />
+        <param name="name" value="foo" />
+        <param name="pattern" value="#(\d+)" />
+        <param name="repository" value="https://example.org" />
+        <param name="secure:accessToken" value="" />
+        <param name="secure:password" value="" />
+        <param name="type" value="GithubIssues" />
+        <param name="username" value="" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
       <parameters>
         <param name="buildSettings" value="PREFER_VCS" />
