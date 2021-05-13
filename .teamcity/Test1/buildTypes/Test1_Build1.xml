@@ -300,6 +300,7 @@ baz]]></param>
         <parameters>
           <param name="ui.ruby.configurator.ruby.interpreter.path" value="/path/to/ruby" />
           <param name="ui.ruby.configurator.rvm.gemset.create.if.non.exists" value="true" />
+          <param name="ui.ruby.configurator.rvm.gemset.name" value="foobar" />
           <param name="ui.ruby.configurator.rvm.path" value="%env.rvm_path%" />
           <param name="ui.ruby.configurator.rvm.rvmrc.path" value=".rvmrc" />
           <param name="ui.ruby.configurator.rvm.sdk.name" value="system" />
