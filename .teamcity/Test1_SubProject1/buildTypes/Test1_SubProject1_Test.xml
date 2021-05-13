@@ -31,7 +31,6 @@
           <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
           <option name="run-build-on-the-same-agent" value="true" />
           <option name="sync-revisions" value="false" />
-          <option name="take-started-build-with-same-revisions" value="true" />
         </options>
       </depend-on>
     </dependencies>
