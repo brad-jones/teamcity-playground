@@ -229,6 +229,7 @@
       <extension id="InvestigationsAutoAssigner" type="InvestigationsAutoAssigner">
         <parameters>
           <param name="assignOnSecondFailure" value="true" />
+          <param name="defaultAssignee.username" value="brad.jones" />
         </parameters>
       </extension>
     </build-extensions>
