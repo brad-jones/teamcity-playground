@@ -130,6 +130,7 @@
     <extension id="PROJECT_EXT_21" type="IssueTracker">
       <parameters>
         <param name="authType" value="loginpassword" />
+        <param name="autoSync" value="true" />
         <param name="host" value="http://example.org" />
         <param name="idPrefix" value="foo bar baz" />
         <param name="name" value="foo" />
