@@ -56,6 +56,7 @@
     </vcs-settings>
     <requirements>
       <exists id="RQ_1" name="foo" />
+      <not-exists id="RQ_2" name="bar" />
     </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
