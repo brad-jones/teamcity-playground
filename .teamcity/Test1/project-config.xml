@@ -31,6 +31,14 @@
         <param name="type" value="token" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_12" type="OAuthProvider">
+      <parameters>
+        <param name="clientId" value="foo" />
+        <param name="displayName" value="Bitbucket Cloud" />
+        <param name="providerType" value="BitBucketCloud" />
+        <param name="secure:clientSecret" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
       <parameters>
         <param name="buildSettings" value="PREFER_VCS" />
