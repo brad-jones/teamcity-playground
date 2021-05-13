@@ -186,6 +186,14 @@
           <param name="swabra.verbose" value="true" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_3" type="commit-status-publisher">
+        <parameters>
+          <param name="github_authentication_type" value="token" />
+          <param name="github_host" value="https://api.github.com" />
+          <param name="publisherId" value="githubStatusPublisher" />
+          <param name="secure:github_access_token" value="credentialsJSON:f988e8f0-f110-4de6-8a53-2d1fe51f22bf" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
