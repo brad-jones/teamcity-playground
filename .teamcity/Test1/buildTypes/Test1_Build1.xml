@@ -237,6 +237,14 @@ baz]]></param>
           <param name="ignoreBuildProblems.exitCode" value="true" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_5" type="jiraCloud">
+        <parameters>
+          <param name="deployment" value="true" />
+          <param name="environmentName" value="prod" />
+          <param name="environmentType" value="production" />
+          <param name="issueTrackerConnectionId" value="PROJECT_EXT_6" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
