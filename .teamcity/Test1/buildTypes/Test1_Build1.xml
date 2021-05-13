@@ -226,6 +226,9 @@
           <param name="test.format" value="json" />
         </parameters>
       </extension>
+      <extension id="InvestigationsAutoAssigner" type="InvestigationsAutoAssigner">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
