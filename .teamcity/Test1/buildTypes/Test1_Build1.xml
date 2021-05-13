@@ -280,6 +280,9 @@ baz]]></param>
           <param name="feed" value="Test1/foobarbaz" />
         </parameters>
       </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
