@@ -188,10 +188,9 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="github_authentication_type" value="token" />
-          <param name="github_host" value="https://api.github.com" />
-          <param name="publisherId" value="githubStatusPublisher" />
-          <param name="secure:github_access_token" value="credentialsJSON:f988e8f0-f110-4de6-8a53-2d1fe51f22bf" />
+          <param name="gitlabApiUrl" value="https://foo.com/api/v4" />
+          <param name="publisherId" value="gitlabStatusPublisher" />
+          <param name="secure:gitlabAccessToken" value="credentialsJSON:d76c6ecd-d6d5-48fb-91c9-57c92ebba160" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
