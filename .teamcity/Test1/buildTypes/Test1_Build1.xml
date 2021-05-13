@@ -195,6 +195,9 @@
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
+      <extension id="DockerSupport" type="DockerSupport">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
