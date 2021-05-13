@@ -275,6 +275,11 @@ baz]]></param>
           <param name="secure:nuget.auth.password" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_8" type="NuGetPackagesIndexer">
+        <parameters>
+          <param name="feed" value="Test1/foobarbaz" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
