@@ -11,7 +11,9 @@
     <extension id="PROJECT_EXT_10" type="OAuthProvider">
       <parameters>
         <param name="aws.access.key.id" value="foo" />
-        <param name="aws.credentials.type" value="aws.access.keys" />
+        <param name="aws.credentials.type" value="aws.temp.credentials" />
+        <param name="aws.external.id" value="xyz" />
+        <param name="aws.iam.role.arn" value="arn::foobar" />
         <param name="aws.region.name" value="us-east-1" />
         <param name="aws.use.default.credential.provider.chain" value="true" />
         <param name="displayName" value="Amazon ECR" />
