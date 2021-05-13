@@ -61,6 +61,7 @@
       <does-not-equal id="RQ_4" name="qux" value="foo" />
       <more-than id="RQ_5" name="abc" value="1" />
       <no-more-than id="RQ_6" name="xyz" value="1" />
+      <less-than id="RQ_7" name="qwe" value="1" />
     </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
