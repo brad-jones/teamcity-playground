@@ -68,6 +68,7 @@
       <does-not-contain id="RQ_11" name="fgh" value="foo" />
       <ends-with id="RQ_12" name="jkl" value="foo" />
       <matches id="RQ_13" name="zxc" value="foo" />
+      <does-not-match id="RQ_14" name="vbn" value="foo" />
     </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
