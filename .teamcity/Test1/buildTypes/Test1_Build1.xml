@@ -283,6 +283,13 @@ baz]]></param>
       <extension id="perfmon" type="perfmon">
         <parameters />
       </extension>
+      <extension id="BUILD_EXT_9" type="pullRequests">
+        <parameters>
+          <param name="authenticationType" value="token" />
+          <param name="providerType" value="azureDevOps" />
+          <param name="secure:accessToken" value="credentialsJSON:d76c6ecd-d6d5-48fb-91c9-57c92ebba160" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
