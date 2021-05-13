@@ -259,9 +259,13 @@ baz]]></param>
           <param name="firstSuccessAfterFailure" value="true" />
           <param name="newBuildProblemOccured" value="true" />
           <param name="notifier" value="jbSlackNotifier" />
+          <param name="plugin:notificator:jbSlackNotifier:addBranch" value="true" />
+          <param name="plugin:notificator:jbSlackNotifier:addBuildStatus" value="true" />
+          <param name="plugin:notificator:jbSlackNotifier:addChanges" value="true" />
           <param name="plugin:notificator:jbSlackNotifier:channel" value="abc123" />
           <param name="plugin:notificator:jbSlackNotifier:connection" value="PROJECT_EXT_7" />
-          <param name="plugin:notificator:jbSlackNotifier:messageFormat" value="simple" />
+          <param name="plugin:notificator:jbSlackNotifier:maximumNumberOfChanges" value="10" />
+          <param name="plugin:notificator:jbSlackNotifier:messageFormat" value="verbose" />
         </parameters>
       </extension>
     </build-extensions>
