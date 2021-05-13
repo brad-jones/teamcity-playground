@@ -48,6 +48,16 @@
         <param name="secure:clientSecret" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_14" type="OAuthProvider">
+      <parameters>
+        <param name="clientId" value="foo" />
+        <param name="defaultTokenScope" value="public_repo,repo,repo:status,write:repo_hook" />
+        <param name="displayName" value="GitHub.com" />
+        <param name="gitHubUrl" value="https://github.com/" />
+        <param name="providerType" value="GitHub" />
+        <param name="secure:clientSecret" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
       <parameters>
         <param name="buildSettings" value="PREFER_VCS" />
