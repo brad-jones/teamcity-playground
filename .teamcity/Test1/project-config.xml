@@ -22,6 +22,15 @@
         <param name="secure:aws.secret.access.key" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_11" type="OAuthProvider">
+      <parameters>
+        <param name="displayName" value="Azure DevOps" />
+        <param name="providerType" value="tfs" />
+        <param name="secure:accessToken" value="credentialsJSON:d76c6ecd-d6d5-48fb-91c9-57c92ebba160" />
+        <param name="serverUrl" value="https://dev.azure.com/foobar" />
+        <param name="type" value="token" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
       <parameters>
         <param name="buildSettings" value="PREFER_VCS" />
