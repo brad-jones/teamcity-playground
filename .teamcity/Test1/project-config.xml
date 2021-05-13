@@ -127,6 +127,18 @@
         <param name="username" value="foo" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_21" type="IssueTracker">
+      <parameters>
+        <param name="authType" value="accesstoken" />
+        <param name="host" value="http://example.org" />
+        <param name="idPrefix" value="foo bar baz" />
+        <param name="name" value="foo" />
+        <param name="secure:accessToken" value="credentialsJSON:8fda7f99-64d7-4811-b3c4-98ab26e9325b" />
+        <param name="secure:password" value="" />
+        <param name="type" value="youtrack" />
+        <param name="username" value="" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_3" type="JetBrains.SharedResources">
       <parameters>
         <param name="enabled" value="true" />
