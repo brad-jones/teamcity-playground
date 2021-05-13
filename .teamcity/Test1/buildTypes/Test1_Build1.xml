@@ -285,12 +285,13 @@ baz]]></param>
       </extension>
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
-          <param name="authenticationType" value="password" />
-          <param name="filterTargetBranch"><![CDATA[+:foo
+          <param name="authenticationType" value="vcsRoot" />
+          <param name="filterSourceBranch"><![CDATA[+:foo
 -:bar]]></param>
-          <param name="providerType" value="bitbucketCloud" />
-          <param name="secure:password" value="credentialsJSON:ef877dec-1709-4ea3-95b9-99bbadb4d955" />
-          <param name="username" value="abc" />
+          <param name="filterTargetBranch"><![CDATA[+:abc
+-:xyz]]></param>
+          <param name="providerType" value="bitbucketServer" />
+          <param name="serverUrl" value="https://example.org/" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
