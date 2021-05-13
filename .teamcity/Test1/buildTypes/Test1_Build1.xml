@@ -233,6 +233,7 @@
           <param name="excludeAssignees.usernames"><![CDATA[foo
 bar
 baz]]></param>
+          <param name="ignoreBuildProblems.compilation" value="true" />
         </parameters>
       </extension>
     </build-extensions>
