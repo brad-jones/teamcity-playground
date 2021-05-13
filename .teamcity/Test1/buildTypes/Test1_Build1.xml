@@ -64,6 +64,7 @@
       <less-than id="RQ_7" name="qwe" value="1" />
       <no-less-than id="RQ_8" name="rty" value="1" />
       <starts-with id="RQ_9" name="uio" value="foo" />
+      <contains id="RQ_10" name="asd" value="foo" />
     </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
