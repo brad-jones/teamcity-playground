@@ -98,11 +98,11 @@
     </extension>
     <extension id="PROJECT_EXT_19" type="IssueTracker">
       <parameters>
-        <param name="authType" value="anonymous" />
+        <param name="authType" value="accesstoken" />
         <param name="name" value="foo" />
         <param name="pattern" value="#(\d+)" />
         <param name="repository" value="https://example.org" />
-        <param name="secure:accessToken" value="" />
+        <param name="secure:accessToken" value="credentialsJSON:a5788c60-b523-4b3a-bfc7-2fb96494f426" />
         <param name="secure:password" value="" />
         <param name="type" value="GithubIssues" />
         <param name="username" value="" />
