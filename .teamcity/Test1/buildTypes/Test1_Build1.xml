@@ -178,7 +178,7 @@
       </extension>
       <extension id="swabra" type="swabra">
         <parameters>
-          <param name="swabra.processes" value="report" />
+          <param name="swabra.processes" value="kill" />
         </parameters>
       </extension>
     </build-extensions>
