@@ -314,6 +314,11 @@ baz]]></param>
           <param name="locks-param" value="foo readLock bar" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_11" type="ssh-agent-build-feature">
+        <parameters>
+          <param name="teamcitySshKey" value="foo" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
