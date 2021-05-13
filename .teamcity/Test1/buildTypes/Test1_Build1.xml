@@ -332,7 +332,7 @@ baz]]></param>
           <param name="xmlReportParsing.findBugs.home" value="/foo/bar" />
           <param name="xmlReportParsing.reportDirs"><![CDATA[+:foo
 -:bar]]></param>
-          <param name="xmlReportParsing.reportType" value="gtest" />
+          <param name="xmlReportParsing.reportType" value="jslint" />
           <param name="xmlReportParsing.verboseOutput" value="true" />
         </parameters>
       </extension>
