@@ -117,6 +117,16 @@
         <param name="showChanges" value="true" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_20" type="IssueTracker">
+      <parameters>
+        <param name="host" value="https://dev.azure.com/foo/bar" />
+        <param name="name" value="foo" />
+        <param name="pattern" value="#(\d+)" />
+        <param name="secure:password" value="" />
+        <param name="type" value="tfs" />
+        <param name="username" value="" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_3" type="JetBrains.SharedResources">
       <parameters>
         <param name="enabled" value="true" />
