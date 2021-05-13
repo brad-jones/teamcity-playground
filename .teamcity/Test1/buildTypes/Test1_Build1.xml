@@ -178,7 +178,7 @@
       </extension>
       <extension id="swabra" type="swabra">
         <parameters>
-          <param name="swabra.enabled" value="swabra.before.build" />
+          <param name="swabra.enabled" value="swabra.after.build" />
         </parameters>
       </extension>
     </build-extensions>
