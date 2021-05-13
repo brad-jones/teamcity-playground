@@ -163,6 +163,7 @@
           <param name="assembly-format" value="%system.build.number%" />
           <param name="file-format" value="foo" />
           <param name="info-format" value="bar" />
+          <param name="patch-global-assembly-info" value="true" />
         </parameters>
       </extension>
     </build-extensions>
