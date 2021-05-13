@@ -52,7 +52,10 @@
       </runner>
     </build-runners>
     <vcs-settings>
-      <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground" />
+      <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground">
+        <checkout-rule rule="+:foo" />
+        <checkout-rule rule="-:bar" />
+      </vcs-entry-ref>
     </vcs-settings>
     <requirements>
       <exists id="RQ_1" name="foo" />
