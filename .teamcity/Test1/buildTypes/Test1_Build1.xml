@@ -188,11 +188,9 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="publisherId" value="upsourcePublisher" />
-          <param name="secure:upsourcePassword" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
-          <param name="upsourceProjectId" value="abc123" />
-          <param name="upsourceServerUrl" value="https://example.org" />
-          <param name="upsourceUsername" value="foo" />
+          <param name="publisherId" value="tfs" />
+          <param name="secure:accessToken" value="credentialsJSON:d76c6ecd-d6d5-48fb-91c9-57c92ebba160" />
+          <param name="tfsAuthType" value="token" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
