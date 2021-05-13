@@ -285,14 +285,10 @@ baz]]></param>
       </extension>
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
-          <param name="authenticationType" value="token" />
-          <param name="filterSourceBranch"><![CDATA[+:master
--:archived]]></param>
+          <param name="authenticationType" value="vcsRoot" />
           <param name="filterTargetBranch"><![CDATA[+:foo
 -:bar]]></param>
-          <param name="projectUrl" value="https://example.org/" />
-          <param name="providerType" value="azureDevOps" />
-          <param name="secure:accessToken" value="credentialsJSON:d76c6ecd-d6d5-48fb-91c9-57c92ebba160" />
+          <param name="providerType" value="bitbucketCloud" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
