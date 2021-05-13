@@ -8,6 +8,17 @@
     <param name="system.baz" value="qux" />
   </parameters>
   <project-extensions>
+    <extension id="PROJECT_EXT_10" type="OAuthProvider">
+      <parameters>
+        <param name="aws.access.key.id" value="foo" />
+        <param name="aws.credentials.type" value="aws.access.keys" />
+        <param name="aws.region.name" value="us-east-1" />
+        <param name="displayName" value="Amazon ECR" />
+        <param name="providerType" value="AmazonDocker" />
+        <param name="registryId" value="baz" />
+        <param name="secure:aws.secret.access.key" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
       <parameters>
         <param name="buildSettings" value="PREFER_VCS" />
