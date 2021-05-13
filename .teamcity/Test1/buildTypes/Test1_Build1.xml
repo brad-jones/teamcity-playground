@@ -162,6 +162,7 @@
         <parameters>
           <param name="assembly-format" value="%system.build.number%" />
           <param name="file-format" value="foo" />
+          <param name="info-format" value="bar" />
         </parameters>
       </extension>
     </build-extensions>
