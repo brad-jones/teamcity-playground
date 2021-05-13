@@ -59,6 +59,7 @@
       <not-exists id="RQ_2" name="bar" />
       <equals id="RQ_3" name="baz" value="foo" />
       <does-not-equal id="RQ_4" name="qux" value="foo" />
+      <more-than id="RQ_5" name="abc" value="1" />
     </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
