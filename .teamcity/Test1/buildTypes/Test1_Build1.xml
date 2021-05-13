@@ -327,6 +327,14 @@ baz]]></param>
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_13" type="xml-report-plugin">
+        <parameters>
+          <param name="xmlReportParsing.reportDirs"><![CDATA[+:foo
+-:bar]]></param>
+          <param name="xmlReportParsing.reportType" value="junit" />
+          <param name="xmlReportParsing.verboseOutput" value="true" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
