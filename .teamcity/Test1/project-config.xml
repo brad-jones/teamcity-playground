@@ -70,8 +70,8 @@ baz]]></param>
     <extension id="PROJECT_EXT_8" type="ReportTab">
       <parameters>
         <param name="buildTypeId" value="Test1_Build1" />
-        <param name="revisionRuleBuildNumber" value="123" />
-        <param name="revisionRuleName" value="buildNumber" />
+        <param name="revisionRuleBuildTag" value="v1.5.6" />
+        <param name="revisionRuleName" value="buildTag" />
         <param name="startPage" value="index.html" />
         <param name="title" value="FooBarBaz" />
         <param name="type" value="ProjectReportTab" />
