@@ -71,6 +71,7 @@
       <does-not-match id="RQ_14" name="vbn" value="foo" />
       <ver-more-than id="RQ_15" name="verA" value="1.0.0" />
       <ver-no-more-than id="RQ_16" name="verB" value="1.0.0" />
+      <ver-less-than id="RQ_17" name="verC" value="1.0.0" />
     </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
