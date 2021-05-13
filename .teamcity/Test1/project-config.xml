@@ -58,6 +58,15 @@ baz]]></param>
         <param name="username" value="user.name" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_7" type="OAuthProvider">
+      <parameters>
+        <param name="clientId" value="abc" />
+        <param name="displayName" value="Slack" />
+        <param name="providerType" value="slackConnection" />
+        <param name="secure:clientSecret" value="credentialsJSON:a5788c60-b523-4b3a-bfc7-2fb96494f426" />
+        <param name="secure:token" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
+      </parameters>
+    </extension>
   </project-extensions>
   <cleanup />
 </project>
