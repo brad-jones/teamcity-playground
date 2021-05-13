@@ -177,7 +177,9 @@
         </parameters>
       </extension>
       <extension id="swabra" type="swabra">
-        <parameters />
+        <parameters>
+          <param name="swabra.processes" value="report" />
+        </parameters>
       </extension>
     </build-extensions>
     <cleanup />
