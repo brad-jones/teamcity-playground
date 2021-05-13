@@ -77,6 +77,13 @@ baz]]></param>
         <param name="type" value="ProjectReportTab" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_9" type="ReportTab">
+      <parameters>
+        <param name="startPage" value="index.html" />
+        <param name="title" value="Abctest123" />
+        <param name="type" value="BuildReportTab" />
+      </parameters>
+    </extension>
     <extension id="repository-nuget-foobarbaz" type="PackageRepository">
       <parameters>
         <param name="description" value="abc123" />
