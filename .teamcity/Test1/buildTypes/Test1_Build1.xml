@@ -296,6 +296,13 @@ baz]]></param>
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
+      <extension id="ruby.env.configurator" type="ruby.env.configurator">
+        <parameters>
+          <param name="ui.ruby.configurator.fail.build.if.interpreter.not.found" value="true" />
+          <param name="ui.ruby.configurator.rvm.gemset.create.if.non.exists" value="true" />
+          <param name="ui.ruby.configurator.rvm.rvmrc.path" value=".rvmrc" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
