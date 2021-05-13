@@ -332,7 +332,7 @@ baz]]></param>
           <param name="xmlReportParsing.findBugs.home" value="/foo/bar" />
           <param name="xmlReportParsing.reportDirs"><![CDATA[+:foo
 -:bar]]></param>
-          <param name="xmlReportParsing.reportType" value="pmdCpd" />
+          <param name="xmlReportParsing.reportType" value="surefire" />
           <param name="xmlReportParsing.verboseOutput" value="true" />
         </parameters>
       </extension>
