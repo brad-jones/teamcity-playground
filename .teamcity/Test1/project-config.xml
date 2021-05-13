@@ -13,6 +13,7 @@
         <param name="aws.access.key.id" value="foo" />
         <param name="aws.credentials.type" value="aws.access.keys" />
         <param name="aws.region.name" value="us-east-1" />
+        <param name="aws.use.default.credential.provider.chain" value="true" />
         <param name="displayName" value="Amazon ECR" />
         <param name="providerType" value="AmazonDocker" />
         <param name="registryId" value="baz" />
