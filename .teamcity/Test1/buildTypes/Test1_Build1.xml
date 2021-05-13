@@ -63,6 +63,7 @@
       <no-more-than id="RQ_6" name="xyz" value="1" />
       <less-than id="RQ_7" name="qwe" value="1" />
       <no-less-than id="RQ_8" name="rty" value="1" />
+      <starts-with id="RQ_9" name="uio" value="foo" />
     </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
