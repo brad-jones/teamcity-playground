@@ -204,7 +204,7 @@
       </extension>
       <extension id="BUILD_EXT_4" type="JetBrains.FileContentReplacer">
         <parameters>
-          <param name="teamcity.file.content.replacer.failBuild" value="true" />
+          <param name="teamcity.file.content.replacer.failBuild" value="false" />
           <param name="teamcity.file.content.replacer.file.encoding" value="autodetect" />
           <param name="teamcity.file.content.replacer.file.encoding.custom" value="autodetect" />
           <param name="teamcity.file.content.replacer.pattern" value="xyz" />
