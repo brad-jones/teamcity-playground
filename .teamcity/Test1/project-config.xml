@@ -98,14 +98,14 @@
     </extension>
     <extension id="PROJECT_EXT_19" type="IssueTracker">
       <parameters>
-        <param name="authType" value="accesstoken" />
+        <param name="authType" value="loginpassword" />
         <param name="name" value="foo" />
         <param name="pattern" value="#(\d+)" />
         <param name="repository" value="https://example.org" />
         <param name="secure:accessToken" value="credentialsJSON:a5788c60-b523-4b3a-bfc7-2fb96494f426" />
-        <param name="secure:password" value="" />
+        <param name="secure:password" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
         <param name="type" value="GithubIssues" />
-        <param name="username" value="" />
+        <param name="username" value="foo" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
