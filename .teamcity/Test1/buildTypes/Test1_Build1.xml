@@ -245,6 +245,12 @@ baz]]></param>
           <param name="issueTrackerConnectionId" value="PROJECT_EXT_6" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_6" type="notifications">
+        <parameters>
+          <param name="email" value="foo@bar.com" />
+          <param name="notifier" value="email" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
