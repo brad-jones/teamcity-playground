@@ -323,6 +323,7 @@ baz]]></param>
         <parameters>
           <param name="branchFilter" value="+:*" />
           <param name="labelingPattern" value="build-%system.build.number%" />
+          <param name="successfulOnly" value="true" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
