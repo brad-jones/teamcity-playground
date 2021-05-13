@@ -171,7 +171,7 @@
           <param name="teamcity.automerge.buildStatusCondition" value="noNewTests" />
           <param name="teamcity.automerge.dstBranch" value="bar" />
           <param name="teamcity.automerge.message" value="Merge branch '%teamcity.build.branch%'" />
-          <param name="teamcity.automerge.run.policy" value="runAfterBuildFinish" />
+          <param name="teamcity.automerge.run.policy" value="runBeforeBuildFinish" />
           <param name="teamcity.automerge.srcBranchFilter" value="+:foo" />
           <param name="teamcity.merge.policy" value="fastForward" />
         </parameters>
