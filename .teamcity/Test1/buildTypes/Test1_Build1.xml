@@ -227,7 +227,9 @@
         </parameters>
       </extension>
       <extension id="InvestigationsAutoAssigner" type="InvestigationsAutoAssigner">
-        <parameters />
+        <parameters>
+          <param name="assignOnSecondFailure" value="true" />
+        </parameters>
       </extension>
     </build-extensions>
     <cleanup />
