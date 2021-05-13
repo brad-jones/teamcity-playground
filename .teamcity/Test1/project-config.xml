@@ -67,6 +67,15 @@ baz]]></param>
         <param name="secure:token" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_8" type="ReportTab">
+      <parameters>
+        <param name="buildTypeId" value="Test1_Build1" />
+        <param name="revisionRuleName" value="lastSuccessful" />
+        <param name="startPage" value="index.html" />
+        <param name="title" value="FooBarBaz" />
+        <param name="type" value="ProjectReportTab" />
+      </parameters>
+    </extension>
     <extension id="repository-nuget-foobarbaz" type="PackageRepository">
       <parameters>
         <param name="description" value="abc123" />
