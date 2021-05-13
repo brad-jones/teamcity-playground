@@ -36,6 +36,15 @@ baz]]></param>
         <param name="spaceServerUrl" value="https://example.foo" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_5" type="OAuthProvider">
+      <parameters>
+        <param name="displayName" value="Docker Registry" />
+        <param name="providerType" value="Docker" />
+        <param name="repositoryUrl" value="https://docker.io" />
+        <param name="secure:userPass" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
+        <param name="userName" value="foo" />
+      </parameters>
+    </extension>
   </project-extensions>
   <cleanup />
 </project>
