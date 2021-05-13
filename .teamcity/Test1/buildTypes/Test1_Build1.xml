@@ -183,6 +183,7 @@
           <param name="swabra.rules"><![CDATA[+:/a/b/c
 -:/1/2/3]]></param>
           <param name="swabra.strict" value="true" />
+          <param name="swabra.verbose" value="true" />
         </parameters>
       </extension>
     </build-extensions>
