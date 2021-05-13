@@ -188,9 +188,10 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="bitbucketUsername" value="foo" />
-          <param name="publisherId" value="bitbucketCloudPublisher" />
-          <param name="secure:bitbucketPassword" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
+          <param name="publisherId" value="atlassianStashPublisher" />
+          <param name="secure:stashPassword" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
+          <param name="stashBaseUrl" value="https://foo.example" />
+          <param name="stashUsername" value="foo" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
