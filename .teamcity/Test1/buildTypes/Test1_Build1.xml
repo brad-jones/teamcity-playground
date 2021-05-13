@@ -286,7 +286,7 @@ baz]]></param>
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
           <param name="authenticationType" value="vcsRoot" />
-          <param name="filterAuthorRole" value="MEMBER" />
+          <param name="filterAuthorRole" value="MEMBER_OR_COLLABORATOR" />
           <param name="filterSourceBranch"><![CDATA[+:foo
 -:bar]]></param>
           <param name="filterTargetBranch"><![CDATA[+:abc
