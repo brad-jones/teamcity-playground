@@ -310,7 +310,9 @@ baz]]></param>
         </parameters>
       </extension>
       <extension id="BUILD_EXT_10" type="JetBrains.SharedResources">
-        <parameters />
+        <parameters>
+          <param name="locks-param" value="foo readLock" />
+        </parameters>
       </extension>
     </build-extensions>
     <cleanup />
