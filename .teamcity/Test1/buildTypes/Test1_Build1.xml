@@ -208,7 +208,7 @@
           <param name="teamcity.file.content.replacer.file.encoding" value="custom" />
           <param name="teamcity.file.content.replacer.file.encoding.custom" value="IBM866" />
           <param name="teamcity.file.content.replacer.pattern" value="xyz" />
-          <param name="teamcity.file.content.replacer.pattern.case.sensitive" value="true" />
+          <param name="teamcity.file.content.replacer.pattern.case.sensitive" value="false" />
           <param name="teamcity.file.content.replacer.regexMode" value="REGEX" />
           <param name="teamcity.file.content.replacer.wildcards"><![CDATA[+:foo
 -:bar]]></param>
