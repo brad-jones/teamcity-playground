@@ -27,6 +27,15 @@ bar
 baz]]></param>
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_4" type="OAuthProvider">
+      <parameters>
+        <param name="displayName" value="JetBrains Space" />
+        <param name="providerType" value="JetBrains Space" />
+        <param name="secure:spaceClientSecret" value="credentialsJSON:bb0770d8-25e7-4bc3-8475-96a101c11769" />
+        <param name="spaceClientId" value="abc123" />
+        <param name="spaceServerUrl" value="https://example.foo" />
+      </parameters>
+    </extension>
   </project-extensions>
   <cleanup />
 </project>
