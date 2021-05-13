@@ -331,7 +331,7 @@ baz]]></param>
         <parameters>
           <param name="xmlReportParsing.reportDirs"><![CDATA[+:foo
 -:bar]]></param>
-          <param name="xmlReportParsing.reportType" value="ctest" />
+          <param name="xmlReportParsing.reportType" value="checkstyle" />
           <param name="xmlReportParsing.verboseOutput" value="true" />
         </parameters>
       </extension>
