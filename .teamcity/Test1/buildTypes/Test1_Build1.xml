@@ -161,6 +161,7 @@
       <extension id="JetBrains.AssemblyInfo" type="JetBrains.AssemblyInfo">
         <parameters>
           <param name="assembly-format" value="%system.build.number%" />
+          <param name="file-format" value="foo" />
         </parameters>
       </extension>
     </build-extensions>
