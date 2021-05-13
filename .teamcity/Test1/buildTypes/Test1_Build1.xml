@@ -188,11 +188,10 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="publish.pull.requests" value="true" />
-          <param name="publisherId" value="tfs" />
-          <param name="secure:accessToken" value="credentialsJSON:d76c6ecd-d6d5-48fb-91c9-57c92ebba160" />
-          <param name="tfsAuthType" value="token" />
-          <param name="tfsServerUrl" value="https://foo.example" />
+          <param name="publisherId" value="spaceStatusPublisher" />
+          <param name="spaceCommitStatusPublisherDisplayName" value="abc123" />
+          <param name="spaceConnectionId" value="PROJECT_EXT_4" />
+          <param name="spaceCredentialsType" value="spaceCredentialsConnection" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
