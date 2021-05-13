@@ -158,6 +158,11 @@
           <param name="withBuildAnchor" value="true" />
         </parameters>
       </extension>
+      <extension id="JetBrains.AssemblyInfo" type="JetBrains.AssemblyInfo">
+        <parameters>
+          <param name="assembly-format" value="%system.build.number%" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
