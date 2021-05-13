@@ -188,9 +188,9 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="gitlabApiUrl" value="https://foo.com/api/v4" />
-          <param name="publisherId" value="gitlabStatusPublisher" />
-          <param name="secure:gitlabAccessToken" value="credentialsJSON:d76c6ecd-d6d5-48fb-91c9-57c92ebba160" />
+          <param name="bitbucketUsername" value="foo" />
+          <param name="publisherId" value="bitbucketCloudPublisher" />
+          <param name="secure:bitbucketPassword" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
