@@ -54,7 +54,9 @@
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground" />
     </vcs-settings>
-    <requirements />
+    <requirements>
+      <exists id="RQ_1" name="foo" />
+    </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
         <parameters>
