@@ -234,6 +234,7 @@
 bar
 baz]]></param>
           <param name="ignoreBuildProblems.compilation" value="true" />
+          <param name="ignoreBuildProblems.exitCode" value="true" />
         </parameters>
       </extension>
     </build-extensions>
