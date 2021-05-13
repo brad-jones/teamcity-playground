@@ -196,7 +196,9 @@
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
-        <parameters />
+        <parameters>
+          <param name="cleanupPushed" value="true" />
+        </parameters>
       </extension>
     </build-extensions>
     <cleanup />
