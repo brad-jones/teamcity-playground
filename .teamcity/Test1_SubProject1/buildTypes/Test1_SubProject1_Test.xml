@@ -19,16 +19,17 @@
     <requirements />
     <build-triggers />
     <dependencies>
-      <depend-on sourceBuildTypeId="Test1_SubProject1_BuildLin">
+      <depend-on sourceBuildTypeId="Test1_SubProject1_BuildWin">
         <options>
           <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
           <option name="take-started-build-with-same-revisions" value="true" />
           <option name="take-successful-builds-only" value="true" />
         </options>
       </depend-on>
-      <depend-on sourceBuildTypeId="Test1_SubProject1_BuildWin">
+      <depend-on sourceBuildTypeId="Test1_SubProject1_BuildLin">
         <options>
           <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
+          <option name="run-build-on-the-same-agent" value="true" />
           <option name="take-started-build-with-same-revisions" value="true" />
           <option name="take-successful-builds-only" value="true" />
         </options>
