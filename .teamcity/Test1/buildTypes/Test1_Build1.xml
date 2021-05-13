@@ -268,6 +268,13 @@ baz]]></param>
           <param name="plugin:notificator:jbSlackNotifier:messageFormat" value="verbose" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_7" type="jb.nuget.auth">
+        <parameters>
+          <param name="nuget.auth.feed" value="https://example.oirg" />
+          <param name="nuget.auth.username" value="foo" />
+          <param name="secure:nuget.auth.password" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
