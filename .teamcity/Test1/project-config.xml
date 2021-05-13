@@ -45,6 +45,19 @@ baz]]></param>
         <param name="userName" value="foo" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_6" type="IssueTracker">
+      <parameters>
+        <param name="autoSync" value="true" />
+        <param name="host" value="https://example.org" />
+        <param name="idPrefix" value="abc123" />
+        <param name="jiraCloudClientId" value="baz" />
+        <param name="name" value="foo" />
+        <param name="secure:jiraCloudServerSecret" value="credentialsJSON:27ae21a3-146c-4448-a5bc-59fd89b33586" />
+        <param name="secure:password" value="credentialsJSON:ff2ed01c-bca8-441b-9182-c03e59a5f127" />
+        <param name="type" value="jira" />
+        <param name="username" value="user.name" />
+      </parameters>
+    </extension>
   </project-extensions>
   <cleanup />
 </project>
