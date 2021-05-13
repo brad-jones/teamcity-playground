@@ -247,6 +247,8 @@ baz]]></param>
       </extension>
       <extension id="BUILD_EXT_6" type="notifications">
         <parameters>
+          <param name="branchFilter"><![CDATA[+:master
+-:archived]]></param>
           <param name="email" value="foo@bar.com" />
           <param name="notifier" value="email" />
         </parameters>
