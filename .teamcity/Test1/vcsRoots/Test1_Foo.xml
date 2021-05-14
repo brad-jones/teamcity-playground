@@ -4,7 +4,8 @@
   <param name="cvs-branch-name" value="zsadfgh" />
   <param name="cvs-quiet-period" value="3" />
   <param name="cvs-root" value=":pserver:" />
-  <param name="cvs-tag-mode" value="BRANCH" />
+  <param name="cvs-tag-mode" value="TAG" />
+  <param name="cvs-tag-name" value="ASFDgadsfgh" />
   <param name="local-server-command" value="server" />
   <param name="module-name" value="bar" />
   <param name="secure:cvs-password" value="credentialsJSON:4328815b-28b7-43cf-b8c3-65c8584ae6e8" />
