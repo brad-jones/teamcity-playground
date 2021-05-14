@@ -8,7 +8,6 @@
   <param name="branch" value="refs/heads/master" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="push_url" value="https://github.com/brad-jones/teamcity-playground.git" />
-  <param name="reportTagRevisions" value="true" />
   <param name="secure:password" value="credentialsJSON:39fd150f-810a-420f-831e-091bae70ae4a" />
   <param name="serverSideAutoCrlf" value="true" />
   <param name="submoduleCheckout" value="IGNORE" />
