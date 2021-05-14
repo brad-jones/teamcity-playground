@@ -151,6 +151,15 @@
         <param name="username" value="foo" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_22" type="ReportTab">
+      <parameters>
+        <param name="buildTypeId" value="Test1_Build1" />
+        <param name="revisionRuleName" value="lastSuccessful" />
+        <param name="startPage" value="index.html" />
+        <param name="title" value="adsfgadsfgh" />
+        <param name="type" value="ProjectReportTab" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_3" type="JetBrains.SharedResources">
       <parameters>
         <param name="enabled" value="true" />
