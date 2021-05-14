@@ -3,13 +3,12 @@
   <name>BarBaz</name>
   <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
   <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
-  <param name="authMethod" value="PRIVATE_KEY_FILE" />
+  <param name="authMethod" value="TEAMCITY_SSH_KEY" />
   <param name="branch" value="master" />
   <param name="ignoreKnownHosts" value="true" />
-  <param name="privateKeyPath" value="/foo/bar" />
-  <param name="secure:passphrase" value="credentialsJSON:5ff48919-7a9a-4a1e-b25c-2d3df10615ea" />
   <param name="secure:password" value="" />
   <param name="submoduleCheckout" value="CHECKOUT" />
+  <param name="teamcitySshKey" value="foo" />
   <param name="url" value="git@github.com:brad-jones/teamcity-playground.git" />
   <param name="useAlternates" value="true" />
   <param name="username" value="adsfghadfhsdfgjh" />
