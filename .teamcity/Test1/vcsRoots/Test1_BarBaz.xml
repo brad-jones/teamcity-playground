@@ -10,7 +10,6 @@
   <param name="submoduleCheckout" value="CHECKOUT" />
   <param name="teamcitySshKey" value="foo" />
   <param name="url" value="git@github.com:brad-jones/teamcity-playground.git" />
-  <param name="useAlternates" value="true" />
   <param name="username" value="adsfghadfhsdfgjh" />
   <param name="usernameStyle" value="USERID" />
 </vcs-root>
