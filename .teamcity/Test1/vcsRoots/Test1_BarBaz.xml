@@ -3,11 +3,11 @@
   <name>BarBaz</name>
   <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
   <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
-  <param name="authMethod" value="ANONYMOUS" />
+  <param name="authMethod" value="PRIVATE_KEY_DEFAULT" />
   <param name="branch" value="master" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="submoduleCheckout" value="CHECKOUT" />
-  <param name="url" value="https://github.com/brad-jones/teamcity-playground.git" />
+  <param name="url" value="git@github.com:brad-jones/teamcity-playground.git" />
   <param name="useAlternates" value="true" />
   <param name="usernameStyle" value="USERID" />
 </vcs-root>
