@@ -7,6 +7,7 @@
     <param name="foo" value="abc" spec="select display='prompt' multiple='true' valueSeparator='||' description='this param is a test' label='baz' data_2='xyz' data_1='abc' data_3='123'" />
     <param name="system.baz" value="qux" />
     <param name="teamcity.ui.settings.readOnly" value="false" />
+    <param name="testpwd" value="credentialsJSON:d76c6ecd-d6d5-48fb-91c9-57c92ebba160" spec="password display='normal'" />
   </parameters>
   <project-extensions>
     <extension id="KEEP_RULE_1" type="keepRules">
