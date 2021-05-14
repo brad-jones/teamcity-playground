@@ -178,6 +178,16 @@
         <param name="type" value="ProjectReportTab" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_25" type="ReportTab">
+      <parameters>
+        <param name="buildTypeId" value="Test1_Build1" />
+        <param name="revisionRuleBuildNumber" value="ZADSFgdhg" />
+        <param name="revisionRuleName" value="buildNumber" />
+        <param name="startPage" value="index.html" />
+        <param name="title" value="zdfghdfgh" />
+        <param name="type" value="ProjectReportTab" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_3" type="JetBrains.SharedResources">
       <parameters>
         <param name="enabled" value="true" />
