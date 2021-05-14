@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="c9bbef77-7040-43e9-9a62-0220177462f0" type="cvs" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2020.1/project-config.xsd">
+  <name>foo</name>
+  <param name="cvs-quiet-period" value="3" />
+  <param name="cvs-root" value=":pserver:" />
+  <param name="cvs-tag-mode" value="HEAD" />
+  <param name="local-server-command" value="server" />
+  <param name="module-name" value="bar" />
+  <param name="secure:cvs-password" value="credentialsJSON:4328815b-28b7-43cf-b8c3-65c8584ae6e8" />
+  <param name="ssh-port" value="22" />
+  <param name="ssh-use-ppk" value="false" />
+</vcs-root>
+
