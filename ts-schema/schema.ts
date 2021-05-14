@@ -1,6 +1,29 @@
 interface Project {
-  id: string; // This is essentially the XML filename
-  uuid: string; // This is an attribute on the root XML object
+  /**
+   * This refers to the parent folder of the generated XML file stored in the
+   * .teamcity folder of your repo & ultimately the server's Data Directory.
+   * see: https://www.jetbrains.com/help/teamcity/teamcity-data-directory.html
+   * 
+   * For example an id of `Foo_Bar_Baz` results in the file
+   * `./.teamcity/Foo_Bar_Baz/project-config.xml` being generated.
+   * 
+   * This id is also used as a reference in many places
+   * throughout the rest of this schema.
+   */
+  id: string;
+
+  /**
+   * This value is used as an attribute on the root XML object. It only appears
+   * to be used internally by TeamCity. Hence this is optional and will be
+   * generated for you if you do not explicitly define a value.
+   * 
+   * see: https://www.jetbrains.com/help/teamcity/2020.2/identifier.html#Universally+Unique+IDs
+   */
+  uuid?: string;
+
+  /**
+   * A human friendly name for the project.
+   */
   name: string;
   description?: string;
   parameters?: Parameter[];
@@ -18,12 +41,12 @@ interface Parameter {
 interface Extension {
   id: string;
   type:
-    | "OAuthProvider"
-    | "IssueTracker"
-    | "versionedSettings"
-    | "JetBrains.SharedResources"
-    | "ReportTab"
-    | "PackageRepository"; // Even though there is a <cleanup> tag in XML, I think cleanup rules are another extension type need to double check in the history.
+  | "OAuthProvider"
+  | "IssueTracker"
+  | "versionedSettings"
+  | "JetBrains.SharedResources"
+  | "ReportTab"
+  | "PackageRepository"; // Even though there is a <cleanup> tag in XML, I think cleanup rules are another extension type need to double check in the history.
   parameters?: Record<string, string>; // TODO extend this type and create specfic types for each extension
 }
 
@@ -59,7 +82,8 @@ interface BuildType {
   allowPersonalBuildTriggering: boolean;
   artifactRules: string[];
   branchFilter: string[];
-  buildConfigurationType?: "DEPLOYMENT" | "COMPOSITE";
+  buildConfigurationType?: "DEPLOYMENT" | "COMPOSITE"; // the absense of this means it's a "REGULAR" type
+  buildNumberPattern?: string; // defaults to "%build.counter%"
   checkoutDirectory: string;
   checkoutMode: "ON_SERVER" | "ON_AGENT" | "MANUAL";
   cleanBuild: boolean;
@@ -92,4 +116,4 @@ interface BuildRunner {
   parameters?: Record<string, string>; // TODO extend this type and create specfic types for each type of build runner
 }
 
-interface Condition {}
+interface Condition { }
