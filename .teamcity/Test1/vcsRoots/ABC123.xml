@@ -8,6 +8,8 @@
   <param name="ignoreKnownHosts" value="true" />
   <param name="secure:password" value="" />
   <param name="submoduleCheckout" value="CHECKOUT" />
+  <param name="teamcity:branchSpec"><![CDATA[+:foo
+-:bar]]></param>
   <param name="teamcitySshKey" value="foo" />
   <param name="url" value="git@github.com:brad-jones/teamcity-playground.git" />
   <param name="username" value="adsfghadfhsdfgjh" />
