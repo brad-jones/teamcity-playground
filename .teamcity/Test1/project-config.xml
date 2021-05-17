@@ -4,7 +4,7 @@
   <description>This is a test project</description>
   <parameters>
     <param name="env.xyz" value="abc" />
-    <param name="foo" value="abc" spec="select display='prompt' multiple='true' valueSeparator='||' description='this param is a test' label='baz' data_2='xyz' data_1='abc' data_3='123'" />
+    <param name="foo" value="abc" spec="select data_5='123' label_5='Number Options' label_3='Xyz Option' display='prompt' multiple='true' valueSeparator='||' description='this param is a test' label='baz' data_1='abc' label_1='Abc Option' data_3='xyz'" />
     <param name="system.baz" value="qux" />
     <param name="teamcity.ui.settings.readOnly" value="false" />
     <param name="testpwd" value="" />
