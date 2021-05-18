@@ -109,7 +109,7 @@
     </extension>
     <extension id="PROJECT_EXT_19" type="IssueTracker">
       <parameters>
-        <param name="authType" value="loginpassword" />
+        <param name="authType" value="accesstoken" />
         <param name="name" value="foo" />
         <param name="pattern" value="#(\d+)" />
         <param name="repository" value="https://example.org" />
