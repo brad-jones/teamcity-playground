@@ -10,16 +10,6 @@
     <param name="testpwd" value="" />
   </parameters>
   <project-extensions>
-    <extension id="KEEP_RULE_15" type="keepRules">
-      <parameters>
-        <param name="keepData.1.type" value="everything" />
-        <param name="limit.daysCount" value="30" />
-        <param name="limit.type" value="NDaysSinceLastSuccessfulBuild" />
-        <param name="partitions.1.type" value="perBranch" />
-        <param name="preserveArtifacts" value="true" />
-        <param name="ruleDisabled" value="false" />
-      </parameters>
-    </extension>
     <extension id="KEEP_RULE_16" type="keepRules">
       <parameters>
         <param name="keepData.1.type" value="everything" />
