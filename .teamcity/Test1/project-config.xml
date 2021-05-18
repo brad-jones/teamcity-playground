@@ -10,15 +10,6 @@
     <param name="testpwd" value="" />
   </parameters>
   <project-extensions>
-    <extension id="KEEP_RULE_8" type="keepRules">
-      <parameters>
-        <param name="keepData.1.type" value="everything" />
-        <param name="limit.type" value="all" />
-        <param name="partitions.1.type" value="perBranch" />
-        <param name="preserveArtifacts" value="true" />
-        <param name="ruleDisabled" value="false" />
-      </parameters>
-    </extension>
     <extension id="KEEP_RULE_9" type="keepRules">
       <parameters>
         <param name="filters.1.personal" value="personal" />
