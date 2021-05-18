@@ -190,7 +190,7 @@
     </extension>
     <extension id="PROJECT_EXT_26" type="JetBrains.SharedResources">
       <parameters>
-        <param name="enabled" value="false" />
+        <param name="enabled" value="true" />
         <param name="name" value="bar" />
         <param name="quota" value="-1" />
         <param name="type" value="quoted" />
