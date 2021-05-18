@@ -88,7 +88,7 @@
     </extension>
     <extension id="PROJECT_EXT_17" type="IssueTracker">
       <parameters>
-        <param name="authType" value="loginpassword" />
+        <param name="authType" value="anonymous" />
         <param name="name" value="foo" />
         <param name="pattern" value="#(\d+)" />
         <param name="repository" value="http://example.org/" />
