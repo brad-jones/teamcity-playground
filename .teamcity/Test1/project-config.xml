@@ -16,7 +16,7 @@
         <param name="limit.type" value="all" />
         <param name="partitions.1.type" value="perBranch" />
         <param name="preserveArtifacts" value="true" />
-        <param name="ruleDisabled" value="true" />
+        <param name="ruleDisabled" value="false" />
       </parameters>
     </extension>
     <extension id="KEEP_RULE_10" type="keepRules">
