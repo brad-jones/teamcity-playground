@@ -10,17 +10,6 @@
     <param name="testpwd" value="" />
   </parameters>
   <project-extensions>
-    <extension id="KEEP_RULE_12" type="keepRules">
-      <parameters>
-        <param name="filters.1.activity" value="inactive" />
-        <param name="filters.1.type" value="branchActivity" />
-        <param name="keepData.1.type" value="everything" />
-        <param name="limit.type" value="all" />
-        <param name="partitions.1.type" value="perBranch" />
-        <param name="preserveArtifacts" value="true" />
-        <param name="ruleDisabled" value="false" />
-      </parameters>
-    </extension>
     <extension id="KEEP_RULE_13" type="keepRules">
       <parameters>
         <param name="filters.1.pattern"><![CDATA[+:*
