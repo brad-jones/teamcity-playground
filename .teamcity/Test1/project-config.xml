@@ -10,18 +10,6 @@
     <param name="testpwd" value="" />
   </parameters>
   <project-extensions>
-    <extension id="KEEP_RULE_4" type="keepRules">
-      <parameters>
-        <param name="keepData.1.artifactPatterns"><![CDATA[+:**/*
--:sadfg]]></param>
-        <param name="keepData.1.type" value="artifacts" />
-        <param name="keepData.2.type" value="logs" />
-        <param name="limit.type" value="all" />
-        <param name="partitions.1.type" value="perBranch" />
-        <param name="preserveArtifacts" value="false" />
-        <param name="ruleDisabled" value="false" />
-      </parameters>
-    </extension>
     <extension id="KEEP_RULE_5" type="keepRules">
       <parameters>
         <param name="keepData.1.type" value="statistics" />
