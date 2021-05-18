@@ -188,6 +188,13 @@
         <param name="type" value="ProjectReportTab" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_26" type="JetBrains.SharedResources">
+      <parameters>
+        <param name="name" value="bar" />
+        <param name="quota" value="-1" />
+        <param name="type" value="quoted" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_3" type="JetBrains.SharedResources">
       <parameters>
         <param name="enabled" value="true" />
