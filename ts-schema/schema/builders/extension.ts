@@ -12,6 +12,18 @@ export function projectExtensionBuilder(
     case "OAuthProvider":
       param = oAuthProvider(input);
       break;
+    case "IssueTracker":
+      param = issueTracker(input);
+      break;
+    case "JetBrains.SharedResources":
+      param = sharedResource(input);
+      break;
+    case "PackageRepository":
+      param = packageRepository(input);
+      break;
+    case "keepRules":
+      param = keepRule(input);
+      break;
     default:
       throw new Error("unsupported project extension type");
   }
@@ -324,6 +336,412 @@ function tfsOAuthProvider(input: j.ExtensionOAuthProviderTfs): x.Parameter[] {
 
   output.push({ "@name": "serverUrl", "@value": input.serverUrl });
   output.push({ "@name": "secure:accessToken", "@value": input.accessToken });
+
+  return output;
+}
+
+function issueTracker(input: j.ExtensionIssueTracker): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "name",
+    "@value": input.displayName,
+  });
+
+  output.push({
+    "@name": "type",
+    "@value": input.providerType,
+  });
+
+  switch (input.providerType) {
+    case "BitBucketIssues":
+      bitBucketIssueTracker(input).forEach((_) => output.push(_));
+      break;
+    case "bugzilla":
+      bugzillaIssueTracker(input).forEach((_) => output.push(_));
+      break;
+    case "GithubIssues":
+      githubIssueTracker(input).forEach((_) => output.push(_));
+      break;
+    case "jira":
+      jiraIssueTracker(input).forEach((_) => output.push(_));
+      break;
+    case "tfs":
+      tfsIssueTracker(input).forEach((_) => output.push(_));
+      break;
+    case "youtrack":
+      youtrackIssueTracker(input).forEach((_) => output.push(_));
+      break;
+    default:
+      throw new Error("unsupported issue tracker providerType");
+  }
+
+  return output;
+}
+
+function bitBucketIssueTracker(
+  input: j.ExtensionIssueTrackerBitBucket,
+): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "repository",
+    "@value": input.repositoryUrl,
+  });
+
+  output.push({
+    "@name": "pattern",
+    "@value": input.pattern ?? "#(\d+)",
+  });
+
+  output.push({
+    "@name": "authType",
+    "@value": input.auth ? "loginpassword" : "anonymous",
+  });
+
+  if (typeof input.auth !== "undefined") {
+    output.push({ "@name": "username", "@value": input.auth.username });
+    output.push({ "@name": "secure:password", "@value": input.auth.password });
+  }
+
+  return output;
+}
+
+function bugzillaIssueTracker(
+  input: j.ExtensionIssueTrackerBugzilla,
+): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "host",
+    "@value": input.serverUrl,
+  });
+
+  output.push({
+    "@name": "pattern",
+    "@value": input.pattern ?? "#(\d+)",
+  });
+
+  output.push({
+    "@name": "authType",
+    "@value": input.auth ? "loginpassword" : "anonymous",
+  });
+
+  if (typeof input.auth !== "undefined") {
+    output.push({ "@name": "username", "@value": input.auth.username });
+    output.push({ "@name": "secure:password", "@value": input.auth.password });
+  }
+
+  return output;
+}
+
+function githubIssueTracker(
+  input: j.ExtensionIssueTrackerGithub,
+): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "repository",
+    "@value": input.repositoryUrl,
+  });
+
+  output.push({
+    "@name": "pattern",
+    "@value": input.pattern ?? "#(\d+)",
+  });
+
+  output.push({
+    "@name": "authType",
+    "@value": input.auth
+      ? (input.auth.token ? "accesstoken" : "loginpassword")
+      : "anonymous",
+  });
+
+  if (typeof input.auth !== "undefined") {
+    if (typeof input.auth.token !== "undefined") {
+      output.push({
+        "@name": "secure:accessToken",
+        "@value": input.auth.token,
+      });
+    }
+    if (
+      typeof input.auth.username !== "undefined" &&
+      typeof input.auth.password !== "undefined"
+    ) {
+      output.push({
+        "@name": "username",
+        "@value": input.auth.username,
+      });
+      output.push({
+        "@name": "secure:password",
+        "@value": input.auth.password,
+      });
+    }
+  }
+
+  return output;
+}
+
+function jiraIssueTracker(
+  input: j.ExtensionIssueTrackerJira,
+): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "host",
+    "@value": input.serverUrl,
+  });
+
+  const keys = input?.projectKeys ?? [];
+  if (keys.length > 0) {
+    output.push({ "@name": "autoSync", "@value": "false" });
+    output.push({ "@name": "idPrefix", "@value": keys.join(" ") });
+  } else {
+    output.push({ "@name": "autoSync", "@value": "true" });
+  }
+
+  output.push({ "@name": "username", "@value": input.username });
+  output.push({ "@name": "secure:password", "@value": input.password });
+
+  if (typeof input.oAuth !== "undefined") {
+    output.push({
+      "@name": "jiraCloudClientId",
+      "@value": input.oAuth.clientId,
+    });
+    output.push({
+      "@name": "secure:jiraCloudServerSecret",
+      "@value": input.oAuth.clientSecret,
+    });
+  }
+
+  return output;
+}
+
+function youtrackIssueTracker(
+  input: j.ExtensionIssueTrackerYoutrack,
+): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "host",
+    "@value": input.serverUrl,
+  });
+
+  const ids = input?.projectIDs ?? [];
+  if (ids.length > 0) {
+    output.push({ "@name": "autoSync", "@value": "false" });
+    output.push({ "@name": "idPrefix", "@value": ids.join(" ") });
+  } else {
+    output.push({ "@name": "autoSync", "@value": "true" });
+  }
+
+  output.push({
+    "@name": "authType",
+    "@value": input.auth.token ? "accesstoken" : "loginpassword",
+  });
+
+  if (typeof input.auth.token !== "undefined") {
+    output.push({ "@name": "secure:accessToken", "@value": input.auth.token });
+  }
+
+  if (
+    typeof input.auth.username !== "undefined" &&
+    typeof input.auth.password !== "undefined"
+  ) {
+    output.push({ "@name": "username", "@value": input.auth.username });
+    output.push({ "@name": "secure:password", "@value": input.auth.password });
+  }
+
+  return output;
+}
+
+function tfsIssueTracker(
+  input: j.ExtensionIssueTrackerTfs,
+): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "host",
+    "@value": input.serverUrl,
+  });
+
+  output.push({
+    "@name": "pattern",
+    "@value": input.pattern ?? "#(\d+)",
+  });
+
+  if (typeof input.auth.token !== "undefined") {
+    output.push({ "@name": "secure:password", "@value": input.auth.token });
+  } else {
+    if (
+      typeof input.auth.username !== "undefined" &&
+      typeof input.auth.password !== "undefined"
+    ) {
+      output.push({
+        "@name": "username",
+        "@value": input.auth.username,
+      });
+      output.push({
+        "@name": "secure:password",
+        "@value": input.auth.password,
+      });
+    } else {
+      throw new Error(
+        "tfs issue tracker expects a single token for auth or a user/pass pair",
+      );
+    }
+  }
+
+  return output;
+}
+
+function sharedResource(input: j.ExtensionSharedResource): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "name",
+    "@value": input.name,
+  });
+
+  output.push({
+    "@name": "enabled",
+    "@value": (input.enabled ?? true) ? "true" : "false",
+  });
+
+  output.push({
+    "@name": "type",
+    "@value": input.quota ? "quoted" : "custom",
+  });
+
+  if (typeof input.quota !== "undefined") {
+    output.push({
+      "@name": "quota",
+      "@value": `${input.quota}`,
+    });
+  }
+
+  if (typeof input.values !== "undefined") {
+    output.push({
+      "@name": "values",
+      "#text": input.values.join("\n"),
+    });
+  }
+
+  return output;
+}
+
+function packageRepository(input: j.ExtensionPackageRepository): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "type",
+    "@value": input.providerType,
+  });
+
+  output.push({
+    "@name": "name",
+    "@value": input.displayName,
+  });
+
+  if (typeof input.description !== "undefined") {
+    output.push({
+      "@name": "description",
+      "@value": input.description,
+    });
+  }
+
+  switch (input.providerType) {
+    case "nuget":
+      nugetPackageRepository(input).forEach((_) => output.push(_));
+      break;
+    default:
+      throw new Error("unsupported package repository providerType");
+  }
+
+  return output;
+}
+
+function nugetPackageRepository(
+  input: j.ExtensionPackageRepositoryNuget,
+): x.Parameter[] {
+  return [{
+    "@name": "description",
+    "@value": (input.indexPackages ?? false) ? "true" : "false",
+  }];
+}
+
+function keepRule(input: j.ExtensionKeepRules): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "ruleDisabled",
+    "@value": "true | false",
+  });
+
+  output.push({
+    "@name": "keepData.X.type",
+    "@value": "everything | statistics | artifacts | logs",
+  });
+
+  output.push({
+    "@name": "limit.type",
+    "@value":
+      "all | lastNDays | lastNBuilds | NDaysSinceLastBuild | NDaysSinceLastSuccessfulBuild",
+  });
+
+  /*
+  Apply rule: To each selected branch / To all branches as a set
+
+  The filters can be applied per every matching branch, or to all builds in
+  matching branches as one set. This affects how many builds are preserved:
+  e.g. 30 last builds in each branch or 30 last builds among all branches.
+
+  The absense of this means the second option
+  */
+  output.push({
+    "@name": "partitions.1.type",
+    "@value": "perBranch",
+  });
+
+  output.push({
+    "@name": "preserveArtifacts",
+    "@value": "true | false",
+  });
+
+  output.push({
+    "@name": "filters.1.personal",
+    "@value": "personal | not_personal",
+  });
+
+  output.push({
+    "@name": "filters.1.type",
+    "@value": "personalBuild | branchActivity |  branchPattern | buildStatus",
+  });
+
+  output.push({
+    "@name": "filters.1.activity",
+    "@value": "active | inactive",
+  });
+
+  output.push({
+    "@name": "limit.daysCount",
+    "@value": "30",
+  });
+
+  output.push({
+    "@name": "limit.buildsCount",
+    "@value": "30",
+  });
+
+  output.push({
+    "@name": "keepData.1.artifactPatterns",
+    "#text": "",
+  });
+
+  output.push({
+    "@name": "filters.1.status",
+    "@value": "successful | failed",
+  });
 
   return output;
 }
