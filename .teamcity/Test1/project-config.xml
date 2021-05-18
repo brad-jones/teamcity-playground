@@ -195,6 +195,13 @@
         <param name="type" value="quoted" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_27" type="JetBrains.SharedResources">
+      <parameters>
+        <param name="name" value="baz" />
+        <param name="quota" value="123" />
+        <param name="type" value="quoted" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_3" type="JetBrains.SharedResources">
       <parameters>
         <param name="enabled" value="true" />
