@@ -59,6 +59,17 @@
         <param name="ruleDisabled" value="false" />
       </parameters>
     </extension>
+    <extension id="KEEP_RULE_6" type="keepRules">
+      <parameters>
+        <param name="filters.1.status" value="successful" />
+        <param name="filters.1.type" value="buildStatus" />
+        <param name="keepData.1.type" value="everything" />
+        <param name="limit.type" value="all" />
+        <param name="partitions.1.type" value="perBranch" />
+        <param name="preserveArtifacts" value="true" />
+        <param name="ruleDisabled" value="false" />
+      </parameters>
+    </extension>
     <extension id="PROJECT_EXT_10" type="OAuthProvider">
       <parameters>
         <param name="aws.access.key.id" value="foo" />
