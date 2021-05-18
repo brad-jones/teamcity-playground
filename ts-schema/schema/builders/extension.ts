@@ -9,6 +9,9 @@ export function projectExtensionBuilder(
     case "ReportTab":
       param = reportTab(input);
       break;
+    case "OAuthProvider":
+      param = oAuthProvider(input);
+      break;
     default:
       throw new Error("unsupported project extension type");
   }
@@ -22,9 +25,7 @@ export function projectExtensionBuilder(
   };
 }
 
-function reportTab(
-  input: j.ExtensionBuildReportTab | j.ExtensionProjectReportTab,
-): x.Parameter[] {
+function reportTab(input: j.ExtensionReportTab): x.Parameter[] {
   const output: x.Parameter[] = [];
 
   output.push({
@@ -92,6 +93,237 @@ function projectReportTab(input: j.ExtensionProjectReportTab): x.Parameter[] {
       "@value": input.revisionRuleValue,
     });
   }
+
+  return output;
+}
+
+function oAuthProvider(input: j.ExtensionOAuthProvider): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "displayName",
+    "@value": input.displayName,
+  });
+
+  switch (input.providerType) {
+    case "AmazonDocker":
+      amazonDockerOAuthProvider(input).forEach((_) => output.push(_));
+      break;
+    case "BitBucketCloud":
+      bitBucketCloudOAuthProvider(input).forEach((_) => output.push(_));
+      break;
+    case "Docker":
+      dockerOAuthProvider(input).forEach((_) => output.push(_));
+      break;
+    case "Github":
+      gitHubOAuthProvider(input).forEach((_) => output.push(_));
+      break;
+    case "Gitlab":
+      gitLabOAuthProvider(input).forEach((_) => output.push(_));
+      break;
+    case "JetBrains Space":
+      jetBrainsSpaceOAuthProvider(input).forEach((_) => output.push(_));
+      break;
+    case "slackConnection":
+      slackConnectionOAuthProvider(input).forEach((_) => output.push(_));
+      break;
+    case "tfs":
+      tfsOAuthProvider(input).forEach((_) => output.push(_));
+      break;
+
+    default:
+      throw new Error("unsupported oAuth providerType");
+  }
+
+  return output;
+}
+
+function amazonDockerOAuthProvider(
+  input: j.ExtensionOAuthProviderAmazonDocker,
+): x.Parameter[] {
+  const output: x.Parameter[] = [{
+    "@name": "providerType",
+    "@value": "AmazonDocker",
+  }];
+
+  output.push({
+    "@name": "aws.region.name",
+    "@value": input.region,
+  });
+
+  output.push({
+    "@name": "registryId",
+    "@value": input.registryID,
+  });
+
+  output.push({
+    "@name": "aws.use.default.credential.provider.chain",
+    "@value": input.auth ? "false" : "true",
+  });
+
+  if (typeof input.auth !== "undefined") {
+    output.push({
+      "@name": "aws.access.key.id",
+      "@value": input.auth.accessKeyId,
+    });
+    output.push({
+      "@name": "secure:aws.secret.access.key",
+      "@value": input.auth.secretAccessKey,
+    });
+  }
+
+  output.push({
+    "@name": "aws.credentials.type",
+    "@value": input.role ? "aws.temp.credentials" : "aws.access.keys",
+  });
+
+  if (typeof input.role !== "undefined") {
+    output.push({
+      "@name": "aws.iam.role.arn",
+      "@value": input.role.arn,
+    });
+
+    if (typeof input.role.externalID !== "undefined") {
+      output.push({
+        "@name": "aws.external.id",
+        "@value": input.role.externalID,
+      });
+    }
+  }
+
+  return output;
+}
+
+function bitBucketCloudOAuthProvider(
+  input: j.ExtensionOAuthProviderBitBucketCloud,
+): x.Parameter[] {
+  const output: x.Parameter[] = [
+    { "@name": "providerType", "@value": "BitBucketCloud" },
+  ];
+
+  output.push({ "@name": "clientId", "@value": input.key });
+  output.push({ "@name": "secure:clientSecret", "@value": input.secret });
+
+  return output;
+}
+
+function dockerOAuthProvider(
+  input: j.ExtensionOAuthProviderDocker,
+): x.Parameter[] {
+  const output: x.Parameter[] = [
+    { "@name": "providerType", "@value": "Docker" },
+  ];
+
+  output.push({ "@name": "repositoryUrl", "@value": input.repositoryUrl });
+
+  if (typeof input.auth !== "undefined") {
+    output.push({ "@name": "userName", "@value": input.auth.username });
+    output.push({ "@name": "secure:userPass", "@value": input.auth.password });
+  }
+
+  return output;
+}
+
+function gitHubOAuthProvider(
+  input: j.ExtensionOAuthProviderGithub,
+): x.Parameter[] {
+  const output: x.Parameter[] = [
+    {
+      "@name": "providerType",
+      "@value": input.serverUrl ? "GHE" : "GitHub",
+    },
+  ];
+
+  output.push({
+    "@name": "gitHubUrl",
+    "@value": input.serverUrl ?? "https://github.com/",
+  });
+
+  output.push({
+    "@name": "clientId",
+    "@value": input.clientId,
+  });
+
+  output.push({
+    "@name": "secure:clientSecret",
+    "@value": input.secret,
+  });
+
+  // NOTE: This parameter does not surface in the UI anywhere
+  // & only appears for the github.com provider.
+  if (typeof input.serverUrl === "undefined") {
+    output.push({
+      "@name": "defaultTokenScope",
+      "@value": "public_repo,repo,repo:status,write:repo_hook",
+    });
+  }
+
+  return output;
+}
+
+function gitLabOAuthProvider(
+  input: j.ExtensionOAuthProviderGitlab,
+): x.Parameter[] {
+  const output: x.Parameter[] = [
+    {
+      "@name": "providerType",
+      "@value": input.serverUrl ? "GitLabCEorEE" : "GitLabCom",
+    },
+  ];
+
+  if (typeof input.serverUrl !== "undefined") {
+    output.push({ "@name": "gitLabUrl", "@value": input.serverUrl });
+  }
+
+  output.push({
+    "@name": "clientId",
+    "@value": input.clientId,
+  });
+
+  output.push({
+    "@name": "secure:clientSecret",
+    "@value": input.secret,
+  });
+
+  return output;
+}
+
+function jetBrainsSpaceOAuthProvider(
+  input: j.ExtensionOAuthProviderJetBrainsSpace,
+): x.Parameter[] {
+  const output: x.Parameter[] = [
+    { "@name": "providerType", "@value": "JetBrains Space" },
+  ];
+
+  output.push({ "@name": "spaceServerUrl", "@value": input.serverUrl });
+  output.push({ "@name": "spaceClientId", "@value": input.clientId });
+  output.push({ "@name": "secure:spaceClientSecret", "@value": input.secret });
+
+  return output;
+}
+
+function slackConnectionOAuthProvider(
+  input: j.ExtensionOAuthProviderSlackConnection,
+): x.Parameter[] {
+  const output: x.Parameter[] = [
+    { "@name": "providerType", "@value": "slackConnection" },
+  ];
+
+  output.push({ "@name": "clientId", "@value": input.clientId });
+  output.push({ "@name": "secure:token", "@value": input.botToken });
+  output.push({ "@name": "secure:clientSecret", "@value": input.clientSecret });
+
+  return output;
+}
+
+function tfsOAuthProvider(input: j.ExtensionOAuthProviderTfs): x.Parameter[] {
+  const output: x.Parameter[] = [
+    { "@name": "providerType", "@value": "tfs" },
+    { "@name": "type", "@value": "token" }, // NOTE: This seemed to be hard coded thing in the XML
+  ];
+
+  output.push({ "@name": "serverUrl", "@value": input.serverUrl });
+  output.push({ "@name": "secure:accessToken", "@value": input.accessToken });
 
   return output;
 }

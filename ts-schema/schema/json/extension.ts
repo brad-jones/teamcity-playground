@@ -1,6 +1,6 @@
 export type Extension =
-  | ExtensionBuildReportTab
-  | ExtensionProjectReportTab;
+  | ExtensionReportTab
+  | ExtensionOAuthProvider;
 
 export interface ExtensionBase {
   /**
@@ -16,7 +16,11 @@ export interface ExtensionBase {
   id: string;
 }
 
-export interface ExtensionReportTab extends ExtensionBase {
+export type ExtensionReportTab =
+  | ExtensionBuildReportTab
+  | ExtensionProjectReportTab;
+
+export interface ExtensionReportTabBase extends ExtensionBase {
   /**
    * see: https://www.jetbrains.com/help/teamcity/2020.2/including-third-party-reports-in-the-build-results.html
    */
@@ -45,7 +49,7 @@ export interface ExtensionReportTab extends ExtensionBase {
   startPage: string;
 }
 
-export interface ExtensionBuildReportTab extends ExtensionReportTab {
+export interface ExtensionBuildReportTab extends ExtensionReportTabBase {
   /**
    * Here you can define artifact-based tabs for build results.
    *
@@ -59,7 +63,7 @@ export interface ExtensionBuildReportTab extends ExtensionReportTab {
   subType: "BuildReportTab";
 }
 
-export interface ExtensionProjectReportTab extends ExtensionReportTab {
+export interface ExtensionProjectReportTab extends ExtensionReportTabBase {
   /**
    * Here you can define custom artifact-based tabs for the Project Home page.
    *
@@ -93,23 +97,34 @@ export interface ExtensionProjectReportTab extends ExtensionReportTab {
   revisionRuleValue?: string;
 }
 
-export interface ExtensionOAuthProvider extends ExtensionBase {
+export type ExtensionOAuthProvider =
+  | ExtensionOAuthProviderAmazonDocker
+  | ExtensionOAuthProviderBitBucketCloud
+  | ExtensionOAuthProviderDocker
+  | ExtensionOAuthProviderGithub
+  | ExtensionOAuthProviderGitlab
+  | ExtensionOAuthProviderJetBrainsSpace
+  | ExtensionOAuthProviderSlackConnection
+  | ExtensionOAuthProviderTfs;
+
+export interface ExtensionOAuthProviderBase extends ExtensionBase {
   /**
    * This is another base type, it refers to the Connections page of a Project.
    */
   type: "OAuthProvider";
+
+  /**
+   * Provide some name to distinguish this connection from others.
+   */
+  displayName: string;
 }
 
-export interface ExtensionAwsEcr extends ExtensionOAuthProvider {
+export interface ExtensionOAuthProviderAmazonDocker
+  extends ExtensionOAuthProviderBase {
   /**
    * Connect TeamCity to an AWS ECR docker registry to simplify docker operations.
    */
   providerType: "AmazonDocker";
-
-  /**
-   * A human friendly name for this Connection.
-   */
-  displayName: string;
 
   /**
    * Registry Id / AWS Account Id
@@ -119,32 +134,254 @@ export interface ExtensionAwsEcr extends ExtensionOAuthProvider {
   /**
    * The AWS Region identifier for where the ECR registry resides.
    */
-  awsRegionName: string;
+  region: string;
 
   /**
-   * If `awsUseDefaultCredentialProviderChain=false` you will need
-   * to supply a AWS_ACCESS_KEY_ID
+   * The `AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY` to use otherwise the
+   * default AWS Credential Provider Chain is used.
    */
-  awsAccessKeyID?: string;
+  auth?: {
+    accessKeyId: string;
+    secretAccessKey: `credentialsJSON:${string}`;
+  };
 
   /**
-   * If `awsUseDefaultCredentialProviderChain=false` you will need
-   * to supply a AWS_SECRET_ACCESS_KEY
-   */
-  awsSecretAccessKey?: string;
-
-  /**
-   * If `awsCredentialsType=aws.temp.credentials` set this to the ARN of the
-   * role to assume.
-   */
-  awsIamRoleARN?: string;
-
-  /**
-   * External ID is strongly recommended to be used in role trust relationship condition.
+   * An IAM role to assume, using AWS STS temporary keys.
    *
-   * see: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
+   * If not supplied then the provided `AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY`
+   * key pair or the default AWS Credential Provider Chain will be used directly.
    */
-  awsExternalID?: string;
+  role?: {
+    arn: string;
+
+    /**
+     * External ID is strongly recommended to be used in role trust relationship condition.
+     *
+     * see: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
+     */
+    externalID?: string;
+  };
+}
+
+export interface ExtensionOAuthProviderBitBucketCloud
+  extends ExtensionOAuthProviderBase {
+  /**
+   * Connect TeamCity to https://bitbucket.org
+   *
+   * see: https://www.jetbrains.com/help/teamcity/integrating-teamcity-with-vcs-hosting-services.html#Connecting+to+Bitbucket+Cloud
+   */
+  providerType: "BitBucketCloud";
+
+  /**
+   * The Bitbucket API Key.
+   */
+  key: string;
+
+  /**
+   * The Bitbucket API Secret.
+   *
+   * > HINT: If you really truly do not want to use a `credentialsJSON` pointer
+   * > here, instead preferring a password parameter you can still do that but
+   * > you will have to cast the string. This is hard on purpose, you should
+   * > always prefer `credentialsJSON` over a parameter with a password spec.
+   */
+  secret: `credentialsJSON:${string}`;
+}
+
+export interface ExtensionOAuthProviderDocker
+  extends ExtensionOAuthProviderBase {
+  /**
+   * Connect TeamCity to a Docker Registry.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/2020.2/configuring-connections-to-docker.html
+   */
+  providerType: "Docker";
+
+  /**
+   * The URL to the Docker Registry.
+   *
+   * Format: `[http(s)://]hostname[:port]`, by default `https://` is used.
+   */
+  repositoryUrl: string;
+
+  /**
+   * The username & password to authenticate against the Docker Registry.
+   *
+   * Leave blank for anonymous access.
+   */
+  auth?: {
+    /**
+     * The Docker Registry username.
+     */
+    username: string;
+
+    /**
+     * The Docker Registry password.
+     *
+     * > HINT: If you really truly do not want to use a `credentialsJSON` pointer
+     * > here, instead preferring a password parameter you can still do that but
+     * > you will have to cast the string. This is hard on purpose, you should
+     * > always prefer `credentialsJSON` over a parameter with a password spec.
+     */
+    password: `credentialsJSON:${string}`;
+  };
+}
+
+export interface ExtensionOAuthProviderGithub
+  extends ExtensionOAuthProviderBase {
+  /**
+   * Connect TeamCity to https://github.com or a Github Enterprise server.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/integrating-teamcity-with-vcs-hosting-services.html#Connecting+to+GitHub
+   */
+  providerType: "Github";
+
+  /**
+   * If using Github Enterprise, provide your servers URL.
+   *
+   * Defaults to: `https://github.com`.
+   */
+  serverUrl?: string;
+
+  /**
+   * The oAuth Client ID.
+   */
+  clientId: string;
+
+  /**
+   * The oAuth Client Secret.
+   *
+   * > HINT: If you really truly do not want to use a `credentialsJSON` pointer
+   * > here, instead preferring a password parameter you can still do that but
+   * > you will have to cast the string. This is hard on purpose, you should
+   * > always prefer `credentialsJSON` over a parameter with a password spec.
+   */
+  secret: `credentialsJSON:${string}`;
+}
+
+export interface ExtensionOAuthProviderGitlab
+  extends ExtensionOAuthProviderBase {
+  /**
+   * Connect TeamCity to https://gitlab.com or a Gitlab CE/EE server.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/integrating-teamcity-with-vcs-hosting-services.html#Connecting+to+GitLab
+   */
+  providerType: "Gitlab";
+
+  /**
+   * If using Gitlab CE/EE, provide your servers URL.
+   *
+   * Defaults to: `https://gitlab.com`.
+   */
+  serverUrl?: string;
+
+  /**
+   * The oAuth Client ID.
+   */
+  clientId: string;
+
+  /**
+   * The oAuth Client Secret.
+   *
+   * > HINT: If you really truly do not want to use a `credentialsJSON` pointer
+   * > here, instead preferring a password parameter you can still do that but
+   * > you will have to cast the string. This is hard on purpose, you should
+   * > always prefer `credentialsJSON` over a parameter with a password spec.
+   */
+  secret: `credentialsJSON:${string}`;
+}
+
+export interface ExtensionOAuthProviderJetBrainsSpace
+  extends ExtensionOAuthProviderBase {
+  /**
+   * Connect TeamCity to https://www.jetbrains.com/space/
+   *
+   * see: https://www.jetbrains.com/help/space/ci-server-integration.html#configure-your-teamcity-project
+   */
+  providerType: "JetBrains Space";
+
+  /**
+   * Your space server URL.
+   */
+  serverUrl: string;
+
+  /**
+   * The oAuth Client ID.
+   */
+  clientId: string;
+
+  /**
+   * The oAuth Client Secret.
+   *
+   * > HINT: If you really truly do not want to use a `credentialsJSON` pointer
+   * > here, instead preferring a password parameter you can still do that but
+   * > you will have to cast the string. This is hard on purpose, you should
+   * > always prefer `credentialsJSON` over a parameter with a password spec.
+   */
+  secret: `credentialsJSON:${string}`;
+}
+
+export interface ExtensionOAuthProviderSlackConnection
+  extends ExtensionOAuthProviderBase {
+  /**
+   * This is used by the "Slack Notifier".
+   *
+   * see: https://www.jetbrains.com/help/teamcity/notifications.html#Configuring+Slack+Connection
+   */
+  providerType: "slackConnection";
+
+  /**
+   * The oAuth Client ID.
+   */
+  clientId: string;
+
+  /**
+   * The oAuth Client Secret.
+   *
+   * > HINT: If you really truly do not want to use a `credentialsJSON` pointer
+   * > here, instead preferring a password parameter you can still do that but
+   * > you will have to cast the string. This is hard on purpose, you should
+   * > always prefer `credentialsJSON` over a parameter with a password spec.
+   */
+  clientSecret: `credentialsJSON:${string}`;
+
+  /**
+   * The bot user token.
+   *
+   * see: https://api.slack.com/docs/token-types#bot
+   *
+   * > HINT: If you really truly do not want to use a `credentialsJSON` pointer
+   * > here, instead preferring a password parameter you can still do that but
+   * > you will have to cast the string. This is hard on purpose, you should
+   * > always prefer `credentialsJSON` over a parameter with a password spec.
+   */
+  botToken: `credentialsJSON:${string}`;
+}
+
+export interface ExtensionOAuthProviderTfs extends ExtensionOAuthProviderBase {
+  /**
+   * Connect TeamCity to Azure Devops or VSTS. aka: TFS.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/integrating-teamcity-with-vcs-hosting-services.html#Connecting+to+Azure+DevOps+Services
+   */
+  providerType: "tfs";
+
+  /**
+   * URL format:
+   * - Azure DevOps: `https://dev.azure.com/<organization>`
+   * - VSTS: `https://<account>.visualstudio.com`
+   */
+  serverUrl: string;
+
+  /**
+   * The oAuth bearer token.
+   *
+   * > HINT: If you really truly do not want to use a `credentialsJSON` pointer
+   * > here, instead preferring a password parameter you can still do that but
+   * > you will have to cast the string. This is hard on purpose, you should
+   * > always prefer `credentialsJSON` over a parameter with a password spec.
+   */
+  accessToken: `credentialsJSON:${string}`;
 }
 
 export interface ExtensionIssueTracker extends ExtensionBase {
