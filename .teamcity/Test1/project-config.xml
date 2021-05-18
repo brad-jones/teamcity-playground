@@ -10,15 +10,6 @@
     <param name="testpwd" value="" />
   </parameters>
   <project-extensions>
-    <extension id="KEEP_RULE_2" type="keepRules">
-      <parameters>
-        <param name="keepData.1.type" value="everything" />
-        <param name="limit.type" value="all" />
-        <param name="partitions.1.type" value="perBranch" />
-        <param name="preserveArtifacts" value="false" />
-        <param name="ruleDisabled" value="false" />
-      </parameters>
-    </extension>
     <extension id="KEEP_RULE_3" type="keepRules">
       <parameters>
         <param name="keepData.1.artifactPatterns" value="+:**/*" />
