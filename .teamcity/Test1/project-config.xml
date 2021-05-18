@@ -140,15 +140,15 @@
     </extension>
     <extension id="PROJECT_EXT_21" type="IssueTracker">
       <parameters>
-        <param name="authType" value="loginpassword" />
+        <param name="authType" value="accesstoken" />
         <param name="autoSync" value="true" />
         <param name="host" value="http://example.org" />
         <param name="idPrefix" value="foo bar baz" />
         <param name="name" value="foo" />
-        <param name="secure:accessToken" value="" />
-        <param name="secure:password" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
+        <param name="secure:accessToken" value="credentialsJSON:4c2378d4-ac5b-422c-babd-06f9065f99d8" />
+        <param name="secure:password" value="" />
         <param name="type" value="youtrack" />
-        <param name="username" value="foo" />
+        <param name="username" value="" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_22" type="ReportTab">
