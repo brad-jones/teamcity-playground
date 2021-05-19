@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="b389470e-fa99-49df-9c76-24408cda6c60" type="jetbrains.git" modification-check-interval="120" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2020.1/project-config.xsd">
+  <name>github.com/brad-jones/teamcity-playground</name>
+  <param name="agentCleanFilesPolicy" value="NON_IGNORED_ONLY" />
+  <param name="agentCleanPolicy" value="NEVER" />
+  <param name="agentGitPath" value="/path/to/git" />
+  <param name="authMethod" value="PASSWORD" />
+  <param name="branch" value="refs/heads/master" />
+  <param name="ignoreKnownHosts" value="true" />
+  <param name="push_url" value="https://github.com/brad-jones/teamcity-playground.git" />
+  <param name="secure:password" value="credentialsJSON:39fd150f-810a-420f-831e-091bae70ae4a" />
+  <param name="serverSideAutoCrlf" value="true" />
+  <param name="submoduleCheckout" value="IGNORE" />
+  <param name="teamcity:branchSpec" value="+:refs/heads/*" />
+  <param name="url" value="https://github.com/brad-jones/teamcity-playground.git" />
+  <param name="useAlternates" value="true" />
+  <param name="userForTags" value="Foo Bar foo.bar@acme.org" />
+  <param name="username" value="brad-jones" />
+  <param name="usernameStyle" value="EMAIL" />
+</vcs-root>
+
