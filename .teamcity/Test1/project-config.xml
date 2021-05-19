@@ -15,7 +15,7 @@
         <param name="keepData.1.type" value="everything" />
         <param name="limit.type" value="all" />
         <param name="partitions.1.type" value="perBranch" />
-        <param name="preserveArtifacts" value="true" />
+        <param name="preserveArtifacts" value="false" />
         <param name="ruleDisabled" value="false" />
       </parameters>
     </extension>
