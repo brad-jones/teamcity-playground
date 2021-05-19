@@ -7,7 +7,7 @@
   <param name="branch" value="master" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="privateKeyPath" value="/foo/bar/baz.pem" />
-  <param name="secure:passphrase" value="zxx2b4d581dd842317df16da29ef3ff4cf0" />
+  <param name="secure:passphrase" value="credentialsJSON:7ed0e33f-8f17-4aa9-ad23-539150427e62" />
   <param name="secure:password" value="" />
   <param name="submoduleCheckout" value="CHECKOUT" />
   <param name="teamcity:branchSpec"><![CDATA[+:foo

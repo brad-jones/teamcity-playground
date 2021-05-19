@@ -145,7 +145,7 @@
           <param name="nuget.package" value="abc" />
           <param name="nuget.source" value="https://foo.example.org" />
           <param name="nuget.username" value="bar" />
-          <param name="secure:nuget.password" value="zxx083015ff1c98f5cc" />
+          <param name="secure:nuget.password" value="credentialsJSON:38a028f3-e750-4e0c-a5a6-a949fe620c94" />
         </parameters>
       </build-trigger>
       <build-trigger id="TRIGGER_4" type="mavenArtifactDependencyTrigger">
@@ -296,7 +296,7 @@ baz]]></param>
         <parameters>
           <param name="nuget.auth.feed" value="https://example.oirg" />
           <param name="nuget.auth.username" value="foo" />
-          <param name="secure:nuget.auth.password" value="zxx1c1784a80f66f55a" />
+          <param name="secure:nuget.auth.password" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
         </parameters>
       </extension>
       <extension id="BUILD_EXT_8" type="NuGetPackagesIndexer">
@@ -315,7 +315,7 @@ baz]]></param>
           <param name="filterTargetBranch"><![CDATA[+:abc
 -:xyz]]></param>
           <param name="providerType" value="gitlab" />
-          <param name="secure:accessToken" value="zxx9f3a5f5154636f7e" />
+          <param name="secure:accessToken" value="credentialsJSON:d76c6ecd-d6d5-48fb-91c9-57c92ebba160" />
           <param name="serverUrl" value="https://example.org/" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>

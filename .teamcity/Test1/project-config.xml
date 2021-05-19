@@ -41,14 +41,14 @@ v4.5.6]]></param>
         <param name="displayName" value="Amazon ECR" />
         <param name="providerType" value="AmazonDocker" />
         <param name="registryId" value="baz" />
-        <param name="secure:aws.secret.access.key" value="zxx1c1784a80f66f55a" />
+        <param name="secure:aws.secret.access.key" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_11" type="OAuthProvider">
       <parameters>
         <param name="displayName" value="Azure DevOps" />
         <param name="providerType" value="tfs" />
-        <param name="secure:accessToken" value="zxx9f3a5f5154636f7e" />
+        <param name="secure:accessToken" value="credentialsJSON:d76c6ecd-d6d5-48fb-91c9-57c92ebba160" />
         <param name="serverUrl" value="https://dev.azure.com/foobar" />
         <param name="type" value="token" />
       </parameters>
@@ -58,7 +58,7 @@ v4.5.6]]></param>
         <param name="clientId" value="foo" />
         <param name="displayName" value="Bitbucket Cloud" />
         <param name="providerType" value="BitBucketCloud" />
-        <param name="secure:clientSecret" value="zxx1c1784a80f66f55a" />
+        <param name="secure:clientSecret" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_13" type="OAuthProvider">
@@ -67,7 +67,7 @@ v4.5.6]]></param>
         <param name="displayName" value="GitHub Enterprise" />
         <param name="gitHubUrl" value="https://example.org/" />
         <param name="providerType" value="GHE" />
-        <param name="secure:clientSecret" value="zxx1c1784a80f66f55a" />
+        <param name="secure:clientSecret" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_14" type="OAuthProvider">
@@ -77,7 +77,7 @@ v4.5.6]]></param>
         <param name="displayName" value="GitHub.com" />
         <param name="gitHubUrl" value="https://github.com/" />
         <param name="providerType" value="GitHub" />
-        <param name="secure:clientSecret" value="zxx1c1784a80f66f55a" />
+        <param name="secure:clientSecret" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_15" type="OAuthProvider">
@@ -86,7 +86,7 @@ v4.5.6]]></param>
         <param name="displayName" value="GitLab CE/EE" />
         <param name="gitLabUrl" value="https://example.org/" />
         <param name="providerType" value="GitLabCEorEE" />
-        <param name="secure:clientSecret" value="zxx1c1784a80f66f55a" />
+        <param name="secure:clientSecret" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_16" type="OAuthProvider">
@@ -94,7 +94,7 @@ v4.5.6]]></param>
         <param name="clientId" value="foo" />
         <param name="displayName" value="GitLab.com" />
         <param name="providerType" value="GitLabCom" />
-        <param name="secure:clientSecret" value="zxx1c1784a80f66f55a" />
+        <param name="secure:clientSecret" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_17" type="IssueTracker">
@@ -103,7 +103,7 @@ v4.5.6]]></param>
         <param name="name" value="foo" />
         <param name="pattern" value="#(\d+)" />
         <param name="repository" value="http://example.org/" />
-        <param name="secure:password" value="zxx1c1784a80f66f55a" />
+        <param name="secure:password" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
         <param name="type" value="BitBucketIssues" />
         <param name="username" value="foo" />
       </parameters>
@@ -113,7 +113,7 @@ v4.5.6]]></param>
         <param name="host" value="https://example.org/" />
         <param name="name" value="foo" />
         <param name="pattern" value="abc" />
-        <param name="secure:password" value="zxx2ef120fa549a17ab" />
+        <param name="secure:password" value="credentialsJSON:39a55d53-faa1-40ed-85e3-c21910aad35d" />
         <param name="type" value="bugzilla" />
         <param name="username" value="baz" />
       </parameters>
@@ -124,8 +124,8 @@ v4.5.6]]></param>
         <param name="name" value="foo" />
         <param name="pattern" value="#(\d+)" />
         <param name="repository" value="https://example.org" />
-        <param name="secure:accessToken" value="zxxb03ccdddb746ab50" />
-        <param name="secure:password" value="zxx1c1784a80f66f55a" />
+        <param name="secure:accessToken" value="credentialsJSON:a5788c60-b523-4b3a-bfc7-2fb96494f426" />
+        <param name="secure:password" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
         <param name="type" value="GithubIssues" />
         <param name="username" value="foo" />
       </parameters>
@@ -133,6 +133,7 @@ v4.5.6]]></param>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
       <parameters>
         <param name="buildSettings" value="PREFER_VCS" />
+        <param name="credentialsStorageType" value="credentialsJSON" />
         <param name="enabled" value="true" />
         <param name="rootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         <param name="showChanges" value="true" />
@@ -155,7 +156,7 @@ v4.5.6]]></param>
         <param name="host" value="http://example.org" />
         <param name="idPrefix" value="foo bar baz" />
         <param name="name" value="foo" />
-        <param name="secure:accessToken" value="zxx0b1e6a42ee3e4798bfe6b53627e02ca5" />
+        <param name="secure:accessToken" value="credentialsJSON:4c2378d4-ac5b-422c-babd-06f9065f99d8" />
         <param name="secure:password" value="" />
         <param name="type" value="youtrack" />
         <param name="username" value="" />
@@ -227,7 +228,7 @@ baz]]></param>
       <parameters>
         <param name="displayName" value="JetBrains Space" />
         <param name="providerType" value="JetBrains Space" />
-        <param name="secure:spaceClientSecret" value="zxxc78f51b67f0c1e52a3cd15043026881c" />
+        <param name="secure:spaceClientSecret" value="credentialsJSON:bb0770d8-25e7-4bc3-8475-96a101c11769" />
         <param name="spaceClientId" value="abc123" />
         <param name="spaceServerUrl" value="https://example.foo" />
       </parameters>
@@ -237,7 +238,7 @@ baz]]></param>
         <param name="displayName" value="Docker Registry" />
         <param name="providerType" value="Docker" />
         <param name="repositoryUrl" value="https://docker.io" />
-        <param name="secure:userPass" value="zxx1c1784a80f66f55a" />
+        <param name="secure:userPass" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
         <param name="userName" value="foo" />
       </parameters>
     </extension>
@@ -248,8 +249,8 @@ baz]]></param>
         <param name="idPrefix" value="abc123" />
         <param name="jiraCloudClientId" value="baz" />
         <param name="name" value="foo" />
-        <param name="secure:jiraCloudServerSecret" value="zxxcaaf5e864df62c82" />
-        <param name="secure:password" value="zxx0331ac1f4271cfe7" />
+        <param name="secure:jiraCloudServerSecret" value="credentialsJSON:27ae21a3-146c-4448-a5bc-59fd89b33586" />
+        <param name="secure:password" value="credentialsJSON:ff2ed01c-bca8-441b-9182-c03e59a5f127" />
         <param name="type" value="jira" />
         <param name="username" value="user.name" />
       </parameters>
@@ -259,8 +260,8 @@ baz]]></param>
         <param name="clientId" value="abc" />
         <param name="displayName" value="Slack" />
         <param name="providerType" value="slackConnection" />
-        <param name="secure:clientSecret" value="zxxb03ccdddb746ab50" />
-        <param name="secure:token" value="zxx1c1784a80f66f55a" />
+        <param name="secure:clientSecret" value="credentialsJSON:a5788c60-b523-4b3a-bfc7-2fb96494f426" />
+        <param name="secure:token" value="credentialsJSON:602e0159-4599-4a18-ba96-ff1dc49507c2" />
       </parameters>
     </extension>
     <extension id="PROJECT_EXT_8" type="ReportTab">
