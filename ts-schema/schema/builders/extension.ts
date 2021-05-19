@@ -675,73 +675,115 @@ function keepRule(input: j.ExtensionKeepRules): x.Parameter[] {
 
   output.push({
     "@name": "ruleDisabled",
-    "@value": "true | false",
+    "@value": (input.enabled ?? true) ? "true" : "false",
   });
 
-  output.push({
-    "@name": "keepData.X.type",
-    "@value": "everything | statistics | artifacts | logs",
-  });
+  if (input.keep.length === 0 && input.keep[0] === "everything") {
+    input.keep = ["artifacts", "logs", "statistics"];
+  }
 
-  output.push({
-    "@name": "limit.type",
-    "@value":
-      "all | lastNDays | lastNBuilds | NDaysSinceLastBuild | NDaysSinceLastSuccessfulBuild",
-  });
-
-  /*
-  Apply rule: To each selected branch / To all branches as a set
-
-  The filters can be applied per every matching branch, or to all builds in
-  matching branches as one set. This affects how many builds are preserved:
-  e.g. 30 last builds in each branch or 30 last builds among all branches.
-
-  The absense of this means the second option
-  */
-  output.push({
-    "@name": "partitions.1.type",
-    "@value": "perBranch",
+  input.keep.forEach((v, i) => {
+    i++;
+    output.push({
+      "@name": `keepData.${i}.type`,
+      "@value": v,
+    });
+    if (v === "artifacts") {
+      output.push({
+        "@name": `keepData.${i}.artifactPatterns`,
+        "#text": (input?.artifactPatterns ?? ["+:**/*"]).join("\n"),
+      });
+    }
   });
 
   output.push({
     "@name": "preserveArtifacts",
-    "@value": "true | false",
+    "@value": (input?.keepDependantArtifacts ?? true) ? "true" : "false",
   });
 
-  output.push({
-    "@name": "filters.1.personal",
-    "@value": "personal | not_personal",
-  });
+  let filterCount = 0;
+
+  const status = input.filter?.status ?? "successful";
+  if (status !== "any") {
+    filterCount++;
+    output.push({
+      "@name": `filters.${filterCount}.type`,
+      "@value": "buildStatus",
+    });
+    output.push({
+      "@name": `filters.${filterCount}.status`,
+      "@value": status,
+    });
+  }
+
+  if (typeof input.filter?.personal !== "undefined") {
+    filterCount++;
+    output.push({
+      "@name": `filters.${filterCount}.type`,
+      "@value": "personalBuild",
+    });
+    output.push({
+      "@name": `filters.${filterCount}.personal`,
+      "@value": input.filter.personal ? "personal" : "not_personal",
+    });
+  }
+
+  if (typeof input.filter?.tags !== "undefined") {
+    filterCount++;
+    output.push({
+      "@name": `filters.${filterCount}.type`,
+      "@value": "tags",
+    });
+    output.push({
+      "@name": `filters.${filterCount}.tagsList`,
+      "#text": input.filter.tags.join("\n"),
+    });
+  }
+
+  if (typeof input.filter?.branches !== "undefined") {
+    filterCount++;
+    output.push({
+      "@name": `filters.${filterCount}.type`,
+      "@value": "branchPattern",
+    });
+    output.push({
+      "@name": `filters.${filterCount}.pattern`,
+      "#text": input.filter.branches.join("\n"),
+    });
+  }
+
+  if (typeof input.filter?.onlyActiveBranches !== "undefined") {
+    filterCount++;
+    output.push({
+      "@name": `filters.${filterCount}.type`,
+      "@value": "branchActivity",
+    });
+    output.push({
+      "@name": `filters.${filterCount}.activity`,
+      "@value": input.filter.onlyActiveBranches ? "active" : "inactive",
+    });
+  }
 
   output.push({
-    "@name": "filters.1.type",
-    "@value": "personalBuild | branchActivity |  branchPattern | buildStatus",
+    "@name": "limit.type",
+    "@value": input.range?.type ?? "all",
   });
 
-  output.push({
-    "@name": "filters.1.activity",
-    "@value": "active | inactive",
-  });
+  if (typeof input?.range !== "undefined") {
+    output.push({
+      "@name": `limit.${
+        input.range.type === "lastNBuilds" ? "buildsCount" : "daysCount"
+      }`,
+      "@value": input.range.n.toString(),
+    });
+  }
 
-  output.push({
-    "@name": "limit.daysCount",
-    "@value": "30",
-  });
-
-  output.push({
-    "@name": "limit.buildsCount",
-    "@value": "30",
-  });
-
-  output.push({
-    "@name": "keepData.1.artifactPatterns",
-    "#text": "",
-  });
-
-  output.push({
-    "@name": "filters.1.status",
-    "@value": "successful | failed",
-  });
+  if (input.filter?.perBranch === true) {
+    output.push({
+      "@name": "partitions.1.type",
+      "@value": "perBranch",
+    });
+  }
 
   return output;
 }

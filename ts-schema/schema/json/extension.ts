@@ -887,13 +887,227 @@ export interface ExtensionKeepRules extends ExtensionBase {
    * see: https://www.jetbrains.com/help/teamcity/2020.2/clean-up.html#Clean-up+Rules
    */
   type: "keepRules";
+
+  /**
+   * Is the rule enabled or not?
+   *
+   * Default to: `true`.
+   */
   enabled?: boolean;
-  preserveArtifacts?: boolean;
-  keep: ("everything" | "statistics" | "artifacts" | "logs")[];
-  limit:
-    "all | lastNDays | lastNBuilds | NDaysSinceLastBuild | NDaysSinceLastSuccessfulBuild";
+
+  /**
+   * Defines what build data to preserve. Provide one or more of these options.
+   * Supplying the `everything` option is the same as supplying all the options.
+   */
+  keep: ("everything" | "artifacts" | "logs" | "statistics")[];
+
+  /**
+   * If keeping artifacts, which artifacts should we keep.
+   *
+   * > HINT: If none is provided all artifacts are kept.
+   */
+  artifactPatterns?: string[];
+
+  /**
+   * To keep artifacts in dependencies or not. This option controls if the
+   * builds of the dependency build configurations are also cleaned up.
+   *
+   * With this option enabled, if some build is preserved by this rule, all
+   * artifacts of its dependency builds will also be preserved.
+   *
+   * The option works similarly to the Dependencies option of a base rule.
+   *
+   * Defaults to `true`.
+   */
+  keepDependantArtifacts?: boolean;
+
+  /**
+   * Defines which builds this cleanup rule applies to.
+   */
+  filter: {
+    /**
+     * Whether to include failed builds or not.
+     *
+     * Defaults to `successful`.
+     */
+    status?: "any" | "successful" | "failed";
+
+    /**
+     * Whether to include personal builds or not.
+     *
+     * A personal build is a build-out of the common build sequence which
+     * typically uses the changes not yet committed into the version control.
+     *
+     * Personal builds are usually initiated from one of the supported IDEs
+     * via the Remote Run procedure. You can also upload a patch with changes
+     * directly to the server...
+     *
+     * > HINT: If left undefined then both personal builds &
+     * >       non personal builds will be matched by this filter.
+     *
+     * see: https://www.jetbrains.com/help/teamcity/personal-build.html
+     */
+    personal?: boolean;
+
+    /**
+     * Matches builds with any specified tag.
+     */
+    tags?: string[];
+
+    /**
+     * A list of branch patterns to match against.
+     *
+     * Defaults to `+:*`.
+     */
+    branches?: string[];
+
+    /**
+     * Matches only Active Branches.
+     *
+     * If left undefined then both active & inactive builds will be matched.
+     *
+     * > HINT: Yes this can be applied with custom branch patterns too.
+     *
+     * see: https://www.jetbrains.com/help/teamcity/working-with-feature-branches.html#Active+branches
+     */
+    onlyActiveBranches?: boolean;
+
+    /**
+     * The filter can be applied per every matching branch, or to all builds in
+     * matching branches as one set. This affects how many builds are preserved:
+     * e.g. 30 last builds in each branch or 30 last builds among all branches.
+     *
+     * Defaults to `true`;
+     */
+    perBranch?: boolean;
+  };
+
+  /**
+   * Defines a quantity or time range for matching builds to be preserved.
+   *
+   * > HINT: If left undefined then all matching builds will be preserved.
+   */
+  range?: {
+    type:
+      | "lastNDays"
+      | "lastNBuilds"
+      | "NDaysSinceLastBuild"
+      | "NDaysSinceLastSuccessfulBuild";
+    n: number;
+  };
 }
 
 export interface ExtensionVersionedSettings extends ExtensionBase {
+  /**
+   * TeamCity allows the two-way synchronization of the project settings with
+   * the version control repository. Supported VCSs are Git, Mercurial, Perforce,
+   * Subversion, and Azure DevOps Server (formerly TFS).
+   *
+   * You can store settings in the XML format or in the Kotlin language and
+   * define settings programmatically using the Kotlin-based DSL.
+   *
+   * > HINT: Or in this case we will be keeping our settings in YAML/JSON
+   * >       or maybe even TypeScript files & then generating that into XML.
+   * >       The entire premise behind this very project.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/2020.2/storing-project-settings-in-version-control.html
+   */
   type: "versionedSettings";
+
+  /**
+   * Enable or disable synchronization.
+   *
+   * Defaults to `true`.
+   */
+  enabled?: boolean;
+
+  /**
+   * The ID of a VcsRoot that will be used to synchronize settings with.
+   *
+   * > HINT: Yes you could have a totally different repo or branch that
+   * >       contained the `.teamcity` folder if so inclined...
+   */
+  vscRootID: string;
+
+  /**
+   * There are two possible sources of build settings:
+   *
+   * (1) the current settings on the TeamCity server, that is the latest settings'
+   *     changes applied to the server (either made via the UI, or via a commit
+   *     to the .teamcity directory in the VCS root), and
+   *
+   * (2) the settings in the VCS on the revision selected for a build.
+   *
+   * Therefore, it is possible to start builds with settings different from those
+   * currently defined in the build configuration. For projects with enabled
+   * versioned settings, you can instruct TeamCity which settings to take when
+   * build starts.
+   *
+   * The 3 modes:
+   *
+   * `ALWAYS_USE_CURRENT`: all builds use current project settings from the
+   * TeamCity server. Settings' changes in branches, history, and personal
+   * builds are ignored. Users cannot run a build with custom project settings.
+   *
+   * `PREFER_CURRENT`: a build uses the latest project settings from the TeamCity
+   * server. Users can run a build with older project settings via the custom
+   * build dialog.
+   *
+   * `PREFER_VCS`: builds in branches and history builds, which use settings
+   * from VCS, load settings from the versioned settings' revision calculated
+   * for the build. Users can change configuration settings in personal builds
+   * from IDE or can run a build with project settings current on the TeamCity
+   * server via the custom build dialog.
+   *
+   * Defaults to `PREFER_VCS`.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/2020.2/storing-project-settings-in-version-control.html#StoringProjectSettingsinVersionControl-DefiningSettingstoApplytoBuilds
+   */
+  mode?: "ALWAYS_USE_CURRENT" | "PREFER_CURRENT" | "PREFER_VCS";
+
+  /**
+   * Show settings changes in builds.
+   *
+   * Defaults to `true`.
+   */
+  showChanges?: boolean;
+
+  /**
+   * Store secure values (like passwords or API tokens) outside of VCS.
+   *
+   * Defaults to `true`.
+   */
+  useCredentialsJSON?: boolean;
+
+  /**
+   * The format in which the Settings are stored.
+   *
+   * Obviously this tool doesn't support kotlin in anyway shape or form.
+   * None the less for the sake of completeness here is the property.
+   *
+   * Defaults to `xml`.
+   */
+  format?: "xml" | "kotlin";
 }
+
+/*
+<extension id="PROJECT_EXT_2" type="versionedSettings">
+  <parameters>
+    <param name="buildSettings" value="PREFER_VCS" />
+    <param name="credentialsStorageType" value="credentialsJSON" />
+    <param name="enabled" value="true" />
+    <param name="rootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
+    <param name="showChanges" value="true" />
+  </parameters>
+</extension>
+<extension id="PROJECT_EXT_2" type="versionedSettings">
+  <parameters>
+    <param name="buildSettings" value="PREFER_VCS" />
+    <param name="credentialsStorageType" value="credentialsJSON" />
+    <param name="enabled" value="true" />
+    <param name="format" value="kotlin" />
+    <param name="rootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
+    <param name="showChanges" value="true" />
+  </parameters>
+</extension>
+*/
