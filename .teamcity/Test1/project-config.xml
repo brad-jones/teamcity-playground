@@ -12,16 +12,18 @@
   <project-extensions>
     <extension id="KEEP_RULE_2" type="keepRules">
       <parameters>
-        <param name="filters.1.pattern"><![CDATA[+:foo
+        <param name="filters.1.activity" value="active" />
+        <param name="filters.1.type" value="branchActivity" />
+        <param name="filters.2.pattern"><![CDATA[+:foo
 -:bar]]></param>
-        <param name="filters.1.type" value="branchPattern" />
-        <param name="filters.2.personal" value="personal" />
-        <param name="filters.2.type" value="personalBuild" />
-        <param name="filters.3.status" value="successful" />
-        <param name="filters.3.type" value="buildStatus" />
-        <param name="filters.4.tagsList"><![CDATA[v1.2.3
+        <param name="filters.2.type" value="branchPattern" />
+        <param name="filters.3.personal" value="personal" />
+        <param name="filters.3.type" value="personalBuild" />
+        <param name="filters.4.status" value="successful" />
+        <param name="filters.4.type" value="buildStatus" />
+        <param name="filters.5.tagsList"><![CDATA[v1.2.3
 v4.5.6]]></param>
-        <param name="filters.4.type" value="tags" />
+        <param name="filters.5.type" value="tags" />
         <param name="keepData.1.artifactPatterns" value="+:**/*" />
         <param name="keepData.1.type" value="artifacts" />
         <param name="keepData.2.type" value="logs" />
