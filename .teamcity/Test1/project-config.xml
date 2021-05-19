@@ -12,9 +12,11 @@
   <project-extensions>
     <extension id="KEEP_RULE_1" type="keepRules">
       <parameters>
-        <param name="filters.1.pattern"><![CDATA[+:foo
+        <param name="filters.1.activity" value="inactive" />
+        <param name="filters.1.type" value="branchActivity" />
+        <param name="filters.2.pattern"><![CDATA[+:foo
 -:foo]]></param>
-        <param name="filters.1.type" value="branchPattern" />
+        <param name="filters.2.type" value="branchPattern" />
         <param name="keepData.1.type" value="everything" />
         <param name="limit.type" value="all" />
         <param name="partitions.1.type" value="perBranch" />
