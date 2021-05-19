@@ -12,6 +12,8 @@
   <project-extensions>
     <extension id="KEEP_RULE_2" type="keepRules">
       <parameters>
+        <param name="filters.1.tagsList" value="v1.2.3" />
+        <param name="filters.1.type" value="tags" />
         <param name="keepData.1.artifactPatterns" value="+:**/*" />
         <param name="keepData.1.type" value="artifacts" />
         <param name="keepData.2.type" value="logs" />
