@@ -132,7 +132,7 @@ v4.5.6]]></param>
     </extension>
     <extension id="PROJECT_EXT_2" type="versionedSettings">
       <parameters>
-        <param name="buildSettings" value="PREFER_VCS" />
+        <param name="buildSettings" value="PREFER_CURRENT" />
         <param name="credentialsStorageType" value="credentialsJSON" />
         <param name="enabled" value="true" />
         <param name="rootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
