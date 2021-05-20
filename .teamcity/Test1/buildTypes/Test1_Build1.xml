@@ -370,7 +370,16 @@ baz]]></param>
         </parameters>
       </extension>
     </build-extensions>
-    <cleanup />
+    <cleanup>
+      <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
+        <parameters>
+          <param name="artifactPatterns"><![CDATA[+:doo
+-:baz]]></param>
+          <param name="keepBuilds.count" value="5" />
+          <param name="keepDays.count" value="4" />
+        </parameters>
+      </policy>
+    </cleanup>
   </settings>
 </build-type>
 
