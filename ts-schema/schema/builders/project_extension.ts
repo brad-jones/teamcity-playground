@@ -2,7 +2,7 @@ import * as x from "../xml/mod.ts";
 import * as j from "../json/mod.ts";
 
 export function projectExtensionBuilder(
-  input: j.Extension,
+  input: j.ProjectExtension,
 ): x.ProjectExtension {
   let param: x.Parameter[];
   switch (input.type) {
@@ -24,6 +24,9 @@ export function projectExtensionBuilder(
     case "keepRules":
       param = keepRule(input);
       break;
+    case "versionedSettings":
+      param = versionedSettings(input);
+      break;
     default:
       throw new Error("unsupported project extension type");
   }
@@ -37,7 +40,7 @@ export function projectExtensionBuilder(
   };
 }
 
-function reportTab(input: j.ExtensionReportTab): x.Parameter[] {
+function reportTab(input: j.ProjectExtensionReportTab): x.Parameter[] {
   const output: x.Parameter[] = [];
 
   output.push({
@@ -69,7 +72,9 @@ function reportTab(input: j.ExtensionReportTab): x.Parameter[] {
   return output;
 }
 
-function projectReportTab(input: j.ExtensionProjectReportTab): x.Parameter[] {
+function projectReportTab(
+  input: j.ProjectExtensionProjectReportTab,
+): x.Parameter[] {
   const output: x.Parameter[] = [];
 
   output.push({
@@ -109,7 +114,7 @@ function projectReportTab(input: j.ExtensionProjectReportTab): x.Parameter[] {
   return output;
 }
 
-function oAuthProvider(input: j.ExtensionOAuthProvider): x.Parameter[] {
+function oAuthProvider(input: j.ProjectExtensionOAuthProvider): x.Parameter[] {
   const output: x.Parameter[] = [];
 
   output.push({
@@ -151,7 +156,7 @@ function oAuthProvider(input: j.ExtensionOAuthProvider): x.Parameter[] {
 }
 
 function amazonDockerOAuthProvider(
-  input: j.ExtensionOAuthProviderAmazonDocker,
+  input: j.ProjectExtensionOAuthProviderAmazonDocker,
 ): x.Parameter[] {
   const output: x.Parameter[] = [{
     "@name": "providerType",
@@ -207,7 +212,7 @@ function amazonDockerOAuthProvider(
 }
 
 function bitBucketCloudOAuthProvider(
-  input: j.ExtensionOAuthProviderBitBucketCloud,
+  input: j.ProjectExtensionOAuthProviderBitBucketCloud,
 ): x.Parameter[] {
   const output: x.Parameter[] = [
     { "@name": "providerType", "@value": "BitBucketCloud" },
@@ -220,7 +225,7 @@ function bitBucketCloudOAuthProvider(
 }
 
 function dockerOAuthProvider(
-  input: j.ExtensionOAuthProviderDocker,
+  input: j.ProjectExtensionOAuthProviderDocker,
 ): x.Parameter[] {
   const output: x.Parameter[] = [
     { "@name": "providerType", "@value": "Docker" },
@@ -237,7 +242,7 @@ function dockerOAuthProvider(
 }
 
 function gitHubOAuthProvider(
-  input: j.ExtensionOAuthProviderGithub,
+  input: j.ProjectExtensionOAuthProviderGithub,
 ): x.Parameter[] {
   const output: x.Parameter[] = [
     {
@@ -274,7 +279,7 @@ function gitHubOAuthProvider(
 }
 
 function gitLabOAuthProvider(
-  input: j.ExtensionOAuthProviderGitlab,
+  input: j.ProjectExtensionOAuthProviderGitlab,
 ): x.Parameter[] {
   const output: x.Parameter[] = [
     {
@@ -301,7 +306,7 @@ function gitLabOAuthProvider(
 }
 
 function jetBrainsSpaceOAuthProvider(
-  input: j.ExtensionOAuthProviderJetBrainsSpace,
+  input: j.ProjectExtensionOAuthProviderJetBrainsSpace,
 ): x.Parameter[] {
   const output: x.Parameter[] = [
     { "@name": "providerType", "@value": "JetBrains Space" },
@@ -315,7 +320,7 @@ function jetBrainsSpaceOAuthProvider(
 }
 
 function slackConnectionOAuthProvider(
-  input: j.ExtensionOAuthProviderSlackConnection,
+  input: j.ProjectExtensionOAuthProviderSlackConnection,
 ): x.Parameter[] {
   const output: x.Parameter[] = [
     { "@name": "providerType", "@value": "slackConnection" },
@@ -328,7 +333,9 @@ function slackConnectionOAuthProvider(
   return output;
 }
 
-function tfsOAuthProvider(input: j.ExtensionOAuthProviderTfs): x.Parameter[] {
+function tfsOAuthProvider(
+  input: j.ProjectExtensionOAuthProviderTfs,
+): x.Parameter[] {
   const output: x.Parameter[] = [
     { "@name": "providerType", "@value": "tfs" },
     { "@name": "type", "@value": "token" }, // NOTE: This seemed to be hard coded thing in the XML
@@ -340,7 +347,7 @@ function tfsOAuthProvider(input: j.ExtensionOAuthProviderTfs): x.Parameter[] {
   return output;
 }
 
-function issueTracker(input: j.ExtensionIssueTracker): x.Parameter[] {
+function issueTracker(input: j.ProjectExtensionIssueTracker): x.Parameter[] {
   const output: x.Parameter[] = [];
 
   output.push({
@@ -380,7 +387,7 @@ function issueTracker(input: j.ExtensionIssueTracker): x.Parameter[] {
 }
 
 function bitBucketIssueTracker(
-  input: j.ExtensionIssueTrackerBitBucket,
+  input: j.ProjectExtensionIssueTrackerBitBucket,
 ): x.Parameter[] {
   const output: x.Parameter[] = [];
 
@@ -408,7 +415,7 @@ function bitBucketIssueTracker(
 }
 
 function bugzillaIssueTracker(
-  input: j.ExtensionIssueTrackerBugzilla,
+  input: j.ProjectExtensionIssueTrackerBugzilla,
 ): x.Parameter[] {
   const output: x.Parameter[] = [];
 
@@ -436,7 +443,7 @@ function bugzillaIssueTracker(
 }
 
 function githubIssueTracker(
-  input: j.ExtensionIssueTrackerGithub,
+  input: j.ProjectExtensionIssueTrackerGithub,
 ): x.Parameter[] {
   const output: x.Parameter[] = [];
 
@@ -483,7 +490,7 @@ function githubIssueTracker(
 }
 
 function jiraIssueTracker(
-  input: j.ExtensionIssueTrackerJira,
+  input: j.ProjectExtensionIssueTrackerJira,
 ): x.Parameter[] {
   const output: x.Parameter[] = [];
 
@@ -518,7 +525,7 @@ function jiraIssueTracker(
 }
 
 function youtrackIssueTracker(
-  input: j.ExtensionIssueTrackerYoutrack,
+  input: j.ProjectExtensionIssueTrackerYoutrack,
 ): x.Parameter[] {
   const output: x.Parameter[] = [];
 
@@ -556,7 +563,7 @@ function youtrackIssueTracker(
 }
 
 function tfsIssueTracker(
-  input: j.ExtensionIssueTrackerTfs,
+  input: j.ProjectExtensionIssueTrackerTfs,
 ): x.Parameter[] {
   const output: x.Parameter[] = [];
 
@@ -595,7 +602,9 @@ function tfsIssueTracker(
   return output;
 }
 
-function sharedResource(input: j.ExtensionSharedResource): x.Parameter[] {
+function sharedResource(
+  input: j.ProjectExtensionSharedResource,
+): x.Parameter[] {
   const output: x.Parameter[] = [];
 
   output.push({
@@ -630,7 +639,9 @@ function sharedResource(input: j.ExtensionSharedResource): x.Parameter[] {
   return output;
 }
 
-function packageRepository(input: j.ExtensionPackageRepository): x.Parameter[] {
+function packageRepository(
+  input: j.ProjectExtensionPackageRepository,
+): x.Parameter[] {
   const output: x.Parameter[] = [];
 
   output.push({
@@ -662,7 +673,7 @@ function packageRepository(input: j.ExtensionPackageRepository): x.Parameter[] {
 }
 
 function nugetPackageRepository(
-  input: j.ExtensionPackageRepositoryNuget,
+  input: j.ProjectExtensionPackageRepositoryNuget,
 ): x.Parameter[] {
   return [{
     "@name": "description",
@@ -670,7 +681,7 @@ function nugetPackageRepository(
   }];
 }
 
-function keepRule(input: j.ExtensionKeepRules): x.Parameter[] {
+function keepRule(input: j.ProjectExtensionKeepRules): x.Parameter[] {
   const output: x.Parameter[] = [];
 
   output.push({
@@ -783,6 +794,63 @@ function keepRule(input: j.ExtensionKeepRules): x.Parameter[] {
       "@name": "partitions.1.type",
       "@value": "perBranch",
     });
+  }
+
+  return output;
+}
+
+function versionedSettings(
+  input: j.ProjectExtensionVersionedSettings,
+): x.Parameter[] {
+  const output: x.Parameter[] = [];
+
+  output.push({
+    "@name": "enabled",
+    "@value": (input.enabled ?? true) ? "true" : "false",
+  });
+
+  output.push({
+    "@name": "rootId",
+    "@value": input.vscRootID,
+  });
+
+  output.push({
+    "@name": "buildSettings",
+    "@value": input.mode ?? "PREFER_VCS",
+  });
+
+  output.push({
+    "@name": "showChanges",
+    "@value": (input.showChanges ?? true) ? "true" : "false",
+  });
+
+  if (input.useCredentialsJSON ?? true) {
+    output.push({
+      "@name": "credentialsStorageType",
+      "@value": "credentialsJSON",
+    });
+  }
+
+  const format = input.format ?? "xml";
+  if (format === "kotlin") {
+    output.push({ "@name": "format", "@value": "kotlin" });
+    output.push({ "@name": "useRelativeIds", "@value": "true" });
+  } else {
+    if (typeof format === "object") {
+      output.push({
+        "@name": "format",
+        "@value": "kotlin",
+      });
+
+      output.push({
+        "@name": "useRelativeIds",
+        "@value": (format.generatePortableDSL ?? true) ? "true" : "false",
+      });
+
+      for (const [k, v] of Object.entries(format.context ?? {})) {
+        output.push({ "@name": `context.${k}`, "@value": v });
+      }
+    }
   }
 
   return output;

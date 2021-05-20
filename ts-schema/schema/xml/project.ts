@@ -1,7 +1,9 @@
-import { Parameter } from "./parameter.ts";
+import { Parameters } from "./parameter.ts";
+import { ProjectCleanup } from "./project_cleanup.ts";
+import { ProjectExtensions } from "./project_extension.ts";
 
 export interface Project {
-  "?xml": { "@version": "1.0"; "@encoding": "UTF-8" };
+  "?xml": { "@version": string; "@encoding": string };
   project: {
     "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance";
     "@xsi:noNamespaceSchemaLocation":
@@ -9,19 +11,8 @@ export interface Project {
     "@uuid": string;
     name: string;
     description?: string;
-    parameters?: {
-      param: Parameter[];
-    };
-    "project-extensions"?: {
-      extension: ProjectExtension[];
-    };
-  };
-}
-
-export interface ProjectExtension {
-  "@id": string;
-  "@type": string;
-  parameters: {
-    param: Parameter[];
+    parameters?: Parameters;
+    "project-extensions"?: ProjectExtensions;
+    cleanup?: ProjectCleanup;
   };
 }

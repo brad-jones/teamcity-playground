@@ -1,7 +1,7 @@
 import { Parameter } from "./parameter.ts";
 
 export interface BuildType {
-  "?xml": { "@version": "1.0"; "@encoding": "UTF-8" };
+  "?xml": { "@version": string; "@encoding": string };
   "build-type": {
     "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance";
     "@xsi:noNamespaceSchemaLocation":
@@ -56,6 +56,7 @@ export interface BuildType {
           };
         }[];
       };
+      cleanup?: {};
     };
   };
 }

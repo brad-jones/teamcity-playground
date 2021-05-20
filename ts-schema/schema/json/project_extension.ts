@@ -1,14 +1,15 @@
 import { AllXOR } from "../xor.ts";
 
-export type Extension =
-  | ExtensionReportTab
-  | ExtensionOAuthProvider
-  | ExtensionIssueTracker
-  | ExtensionSharedResource
-  | ExtensionPackageRepository
-  | ExtensionKeepRules;
+export type ProjectExtension =
+  | ProjectExtensionReportTab
+  | ProjectExtensionOAuthProvider
+  | ProjectExtensionIssueTracker
+  | ProjectExtensionSharedResource
+  | ProjectExtensionPackageRepository
+  | ProjectExtensionKeepRules
+  | ProjectExtensionVersionedSettings;
 
-export interface ExtensionBase {
+export interface ProjectExtensionBase {
   /**
    * This id is used as an attribute on the extension xml node.
    *
@@ -22,11 +23,11 @@ export interface ExtensionBase {
   id: string;
 }
 
-export type ExtensionReportTab =
-  | ExtensionBuildReportTab
-  | ExtensionProjectReportTab;
+export type ProjectExtensionReportTab =
+  | ProjectExtensionBuildReportTab
+  | ProjectExtensionProjectReportTab;
 
-export interface ExtensionReportTabBase extends ExtensionBase {
+export interface ProjectExtensionReportTabBase extends ProjectExtensionBase {
   /**
    * see: https://www.jetbrains.com/help/teamcity/2020.2/including-third-party-reports-in-the-build-results.html
    */
@@ -55,7 +56,8 @@ export interface ExtensionReportTabBase extends ExtensionBase {
   startPage: string;
 }
 
-export interface ExtensionBuildReportTab extends ExtensionReportTabBase {
+export interface ProjectExtensionBuildReportTab
+  extends ProjectExtensionReportTabBase {
   /**
    * Here you can define artifact-based tabs for build results.
    *
@@ -69,7 +71,8 @@ export interface ExtensionBuildReportTab extends ExtensionReportTabBase {
   subType: "BuildReportTab";
 }
 
-export interface ExtensionProjectReportTab extends ExtensionReportTabBase {
+export interface ProjectExtensionProjectReportTab
+  extends ProjectExtensionReportTabBase {
   /**
    * Here you can define custom artifact-based tabs for the Project Home page.
    *
@@ -103,17 +106,18 @@ export interface ExtensionProjectReportTab extends ExtensionReportTabBase {
   revisionRuleValue?: string;
 }
 
-export type ExtensionOAuthProvider =
-  | ExtensionOAuthProviderAmazonDocker
-  | ExtensionOAuthProviderBitBucketCloud
-  | ExtensionOAuthProviderDocker
-  | ExtensionOAuthProviderGithub
-  | ExtensionOAuthProviderGitlab
-  | ExtensionOAuthProviderJetBrainsSpace
-  | ExtensionOAuthProviderSlackConnection
-  | ExtensionOAuthProviderTfs;
+export type ProjectExtensionOAuthProvider =
+  | ProjectExtensionOAuthProviderAmazonDocker
+  | ProjectExtensionOAuthProviderBitBucketCloud
+  | ProjectExtensionOAuthProviderDocker
+  | ProjectExtensionOAuthProviderGithub
+  | ProjectExtensionOAuthProviderGitlab
+  | ProjectExtensionOAuthProviderJetBrainsSpace
+  | ProjectExtensionOAuthProviderSlackConnection
+  | ProjectExtensionOAuthProviderTfs;
 
-export interface ExtensionOAuthProviderBase extends ExtensionBase {
+export interface ProjectExtensionOAuthProviderBase
+  extends ProjectExtensionBase {
   /**
    * This is another base type, it refers to the Connections page of a Project.
    */
@@ -125,8 +129,8 @@ export interface ExtensionOAuthProviderBase extends ExtensionBase {
   displayName: string;
 }
 
-export interface ExtensionOAuthProviderAmazonDocker
-  extends ExtensionOAuthProviderBase {
+export interface ProjectExtensionOAuthProviderAmazonDocker
+  extends ProjectExtensionOAuthProviderBase {
   /**
    * Connect TeamCity to an AWS ECR docker registry to simplify docker operations.
    */
@@ -169,8 +173,8 @@ export interface ExtensionOAuthProviderAmazonDocker
   };
 }
 
-export interface ExtensionOAuthProviderBitBucketCloud
-  extends ExtensionOAuthProviderBase {
+export interface ProjectExtensionOAuthProviderBitBucketCloud
+  extends ProjectExtensionOAuthProviderBase {
   /**
    * Connect TeamCity to https://bitbucket.org
    *
@@ -194,8 +198,8 @@ export interface ExtensionOAuthProviderBitBucketCloud
   secret: `credentialsJSON:${string}`;
 }
 
-export interface ExtensionOAuthProviderDocker
-  extends ExtensionOAuthProviderBase {
+export interface ProjectExtensionOAuthProviderDocker
+  extends ProjectExtensionOAuthProviderBase {
   /**
    * Connect TeamCity to a Docker Registry.
    *
@@ -233,8 +237,8 @@ export interface ExtensionOAuthProviderDocker
   };
 }
 
-export interface ExtensionOAuthProviderGithub
-  extends ExtensionOAuthProviderBase {
+export interface ProjectExtensionOAuthProviderGithub
+  extends ProjectExtensionOAuthProviderBase {
   /**
    * Connect TeamCity to https://github.com or a Github Enterprise server.
    *
@@ -265,8 +269,8 @@ export interface ExtensionOAuthProviderGithub
   secret: `credentialsJSON:${string}`;
 }
 
-export interface ExtensionOAuthProviderGitlab
-  extends ExtensionOAuthProviderBase {
+export interface ProjectExtensionOAuthProviderGitlab
+  extends ProjectExtensionOAuthProviderBase {
   /**
    * Connect TeamCity to https://gitlab.com or a Gitlab CE/EE server.
    *
@@ -297,8 +301,8 @@ export interface ExtensionOAuthProviderGitlab
   secret: `credentialsJSON:${string}`;
 }
 
-export interface ExtensionOAuthProviderJetBrainsSpace
-  extends ExtensionOAuthProviderBase {
+export interface ProjectExtensionOAuthProviderJetBrainsSpace
+  extends ProjectExtensionOAuthProviderBase {
   /**
    * Connect TeamCity to https://www.jetbrains.com/space/
    *
@@ -327,8 +331,8 @@ export interface ExtensionOAuthProviderJetBrainsSpace
   secret: `credentialsJSON:${string}`;
 }
 
-export interface ExtensionOAuthProviderSlackConnection
-  extends ExtensionOAuthProviderBase {
+export interface ProjectExtensionOAuthProviderSlackConnection
+  extends ProjectExtensionOAuthProviderBase {
   /**
    * This is used by the "Slack Notifier".
    *
@@ -364,7 +368,8 @@ export interface ExtensionOAuthProviderSlackConnection
   botToken: `credentialsJSON:${string}`;
 }
 
-export interface ExtensionOAuthProviderTfs extends ExtensionOAuthProviderBase {
+export interface ProjectExtensionOAuthProviderTfs
+  extends ProjectExtensionOAuthProviderBase {
   /**
    * Connect TeamCity to Azure Devops or VSTS. aka: TFS.
    *
@@ -390,15 +395,15 @@ export interface ExtensionOAuthProviderTfs extends ExtensionOAuthProviderBase {
   accessToken: `credentialsJSON:${string}`;
 }
 
-export type ExtensionIssueTracker =
-  | ExtensionIssueTrackerBitBucket
-  | ExtensionIssueTrackerBugzilla
-  | ExtensionIssueTrackerGithub
-  | ExtensionIssueTrackerJira
-  | ExtensionIssueTrackerTfs
-  | ExtensionIssueTrackerYoutrack;
+export type ProjectExtensionIssueTracker =
+  | ProjectExtensionIssueTrackerBitBucket
+  | ProjectExtensionIssueTrackerBugzilla
+  | ProjectExtensionIssueTrackerGithub
+  | ProjectExtensionIssueTrackerJira
+  | ProjectExtensionIssueTrackerTfs
+  | ProjectExtensionIssueTrackerYoutrack;
 
-export interface ExtensionIssueTrackerBase extends ExtensionBase {
+export interface ProjectExtensionIssueTrackerBase extends ProjectExtensionBase {
   /**
    * This is another base type, it refers to the Issue Trackers page of a Project.
    */
@@ -410,8 +415,8 @@ export interface ExtensionIssueTrackerBase extends ExtensionBase {
   displayName: string;
 }
 
-export interface ExtensionIssueTrackerBitBucket
-  extends ExtensionIssueTrackerBase {
+export interface ProjectExtensionIssueTrackerBitBucket
+  extends ProjectExtensionIssueTrackerBase {
   /**
    * Connect TeamCity to the Bitbucket Issue Tracker.
    *
@@ -460,8 +465,8 @@ export interface ExtensionIssueTrackerBitBucket
   };
 }
 
-export interface ExtensionIssueTrackerBugzilla
-  extends ExtensionIssueTrackerBase {
+export interface ProjectExtensionIssueTrackerBugzilla
+  extends ProjectExtensionIssueTrackerBase {
   /**
    * Connext TeamCity to a Bugzilla Issue Tracker.
    *
@@ -511,7 +516,8 @@ export interface ExtensionIssueTrackerBugzilla
   };
 }
 
-export interface ExtensionIssueTrackerGithub extends ExtensionIssueTrackerBase {
+export interface ProjectExtensionIssueTrackerGithub
+  extends ProjectExtensionIssueTrackerBase {
   /**
    * Connect TeamCity to a Github Issue Tracker.
    *
@@ -573,7 +579,8 @@ export interface ExtensionIssueTrackerGithub extends ExtensionIssueTrackerBase {
   }]>;
 }
 
-export interface ExtensionIssueTrackerJira extends ExtensionIssueTrackerBase {
+export interface ProjectExtensionIssueTrackerJira
+  extends ProjectExtensionIssueTrackerBase {
   /**
    * Connect TeamCity to a Jira Issue Tracker.
    *
@@ -636,8 +643,8 @@ export interface ExtensionIssueTrackerJira extends ExtensionIssueTrackerBase {
   };
 }
 
-export interface ExtensionIssueTrackerYoutrack
-  extends ExtensionIssueTrackerBase {
+export interface ProjectExtensionIssueTrackerYoutrack
+  extends ProjectExtensionIssueTrackerBase {
   /**
    * Connect TeamCity to a Jet Brains YouTrack Issue Tracker.
    *
@@ -693,7 +700,8 @@ export interface ExtensionIssueTrackerYoutrack
   }]>;
 }
 
-export interface ExtensionIssueTrackerTfs extends ExtensionIssueTrackerBase {
+export interface ProjectExtensionIssueTrackerTfs
+  extends ProjectExtensionIssueTrackerBase {
   /**
    * Connect TeamCity to a TFS based Issue Tracker. aka: Azure DevOps
    *
@@ -762,8 +770,8 @@ export interface ExtensionIssueTrackerTfs extends ExtensionIssueTrackerBase {
   }]>;
 }
 
-export type ExtensionSharedResource =
-  & ExtensionBase
+export type ProjectExtensionSharedResource =
+  & ProjectExtensionBase
   & {
     /**
      * The Shared Resources build feature allows limiting concurrently running
@@ -825,9 +833,11 @@ export type ExtensionSharedResource =
     },
   ]>;
 
-export type ExtensionPackageRepository = ExtensionPackageRepositoryNuget;
+export type ProjectExtensionPackageRepository =
+  ProjectExtensionPackageRepositoryNuget;
 
-export interface ExtensionPackageRepositoryBase extends ExtensionBase {
+export interface ProjectExtensionPackageRepositoryBase
+  extends ProjectExtensionBase {
   /**
    * This is another base type, it refers to different types of built-in
    * Package Repositories/Feeds that TeamCity can be configured to provide.
@@ -845,8 +855,8 @@ export interface ExtensionPackageRepositoryBase extends ExtensionBase {
   description?: string;
 }
 
-export interface ExtensionPackageRepositoryNuget
-  extends ExtensionPackageRepositoryBase {
+export interface ProjectExtensionPackageRepositoryNuget
+  extends ProjectExtensionPackageRepositoryBase {
   /**
    * If you want to publish your NuGet packages to a limited audience,
    * for example, to use them internally, you can use TeamCity as a NuGet feed.
@@ -874,7 +884,7 @@ export interface ExtensionPackageRepositoryNuget
   indexPackages?: boolean;
 }
 
-export interface ExtensionKeepRules extends ExtensionBase {
+export interface ProjectExtensionKeepRules extends ProjectExtensionBase {
   /**
    * The clean-up rules define how to clean data in the current project,
    * its subprojects and build configurations.
@@ -997,7 +1007,8 @@ export interface ExtensionKeepRules extends ExtensionBase {
   };
 }
 
-export interface ExtensionVersionedSettings extends ExtensionBase {
+export interface ProjectExtensionVersionedSettings
+  extends ProjectExtensionBase {
   /**
    * TeamCity allows the two-way synchronization of the project settings with
    * the version control repository. Supported VCSs are Git, Mercurial, Perforce,
@@ -1087,27 +1098,33 @@ export interface ExtensionVersionedSettings extends ExtensionBase {
    *
    * Defaults to `xml`.
    */
-  format?: "xml" | "kotlin";
-}
+  format?: "xml" | "kotlin" | {
+    kotlin: true;
 
-/*
-<extension id="PROJECT_EXT_2" type="versionedSettings">
-  <parameters>
-    <param name="buildSettings" value="PREFER_VCS" />
-    <param name="credentialsStorageType" value="credentialsJSON" />
-    <param name="enabled" value="true" />
-    <param name="rootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
-    <param name="showChanges" value="true" />
-  </parameters>
-</extension>
-<extension id="PROJECT_EXT_2" type="versionedSettings">
-  <parameters>
-    <param name="buildSettings" value="PREFER_VCS" />
-    <param name="credentialsStorageType" value="credentialsJSON" />
-    <param name="enabled" value="true" />
-    <param name="format" value="kotlin" />
-    <param name="rootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
-    <param name="showChanges" value="true" />
-  </parameters>
-</extension>
-*/
+    /**
+     * One of the advantages of the portable DSL script is that the script can
+     * be used by more than one project on the same server or more than one
+     * server (hence the name: portable).
+     *
+     * Defaults to `true`.
+     *
+     * see: https://www.jetbrains.com/help/teamcity/2020.2/kotlin-dsl.html#Sharing+Kotlin+DSL+Scripts
+     * also: https://www.jetbrains.com/help/teamcity/2020.2/kotlin-dsl.html#Non-Portable+DSL
+     */
+    generatePortableDSL?: boolean;
+
+    /**
+     * Since TeamCity 2019.2, you can customize the DSL generation behavior using
+     * context parameters configured in the TeamCity UI. Context parameters are
+     * specified as a part of the project versioned settings in the UI.
+     *
+     * > HINT: Context parameters are a Kotlin only thing, XML configuration
+     * > can not & does not need to use context parameters. And since this
+     * > project generates XML this is also essentially useless but here for
+     * > the sake of completeness.
+     *
+     * see: https://www.jetbrains.com/help/teamcity/2020.2/kotlin-dsl.html#Using+Context+Parameters+in+DSL
+     */
+    context?: Record<string, string>;
+  };
+}

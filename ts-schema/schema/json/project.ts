@@ -1,7 +1,8 @@
 import { VcsRoot } from "./vcs_root.ts";
-import { Extension } from "./extension.ts";
 import { Parameter } from "./parameter.ts";
 import { BuildType } from "./build_type.ts";
+import { ProjectCleanup } from "./project_cleanup.ts";
+import { ProjectExtension } from "./project_extension.ts";
 
 /**
  * A project is the top level of this schema, start by creating a Project object.
@@ -79,7 +80,7 @@ export interface Project {
    * types that better represent all those other things that extend the
    * `Extension` type which you can use here.
    */
-  extensions?: Extension[];
+  extensions?: ProjectExtension[];
 
   /**
    * A build configuration is a collection of settings used to start a build and
@@ -101,4 +102,14 @@ export interface Project {
    * see: https://www.jetbrains.com/help/teamcity/2020.2/project.html#Project+Hierarchy
    */
   subProjects?: Project[];
+
+  /**
+   * Base Clean Up configuration.
+   *
+   * > HINT: This can be combined with `ProjectExtensionKeepRules` to cater
+   * >       for more complex needs.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/2020.2/clean-up.html#Base+Rule
+   */
+  cleanUp?: ProjectCleanup;
 }

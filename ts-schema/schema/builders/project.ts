@@ -3,7 +3,8 @@ import * as j from "../json/mod.ts";
 import { vcsRootBuilder } from "./vcs_root.ts";
 import { buildTypeBuilder } from "./build_type.ts";
 import { parameterBuilder } from "./parameter.ts";
-import { projectExtensionBuilder } from "./extension.ts";
+import { projectCleanupBuilder } from "./project_cleanup.ts";
+import { projectExtensionBuilder } from "./project_extension.ts";
 import * as uuid from "https://deno.land/std@0.96.0/uuid/mod.ts";
 
 export interface ProjectFiles {
@@ -28,7 +29,7 @@ export function projectBuilder(input: j.Project): ProjectFiles {
       );
   }
 
-  let parameters: { param: x.Parameter[] } | undefined = undefined;
+  let parameters: x.Parameters | undefined = undefined;
   if (typeof input.parameters !== "undefined") {
     parameters = { param: [] };
     for (const p of input.parameters) {
@@ -36,12 +37,17 @@ export function projectBuilder(input: j.Project): ProjectFiles {
     }
   }
 
-  let extensions: { extension: x.ProjectExtension[] } | undefined = undefined;
+  let extensions: x.ProjectExtensions | undefined = undefined;
   if (typeof input.extensions !== "undefined") {
     extensions = { extension: [] };
     for (const e of input.extensions) {
       extensions.extension.push(projectExtensionBuilder(e));
     }
+  }
+
+  let cleanup: x.ProjectCleanup | undefined = undefined;
+  if (typeof input.cleanUp !== "undefined") {
+    cleanup = projectCleanupBuilder(input.cleanUp);
   }
 
   return {
@@ -56,6 +62,7 @@ export function projectBuilder(input: j.Project): ProjectFiles {
         description: input.description,
         parameters,
         "project-extensions": extensions,
+        cleanup,
       },
     }],
     vcsRoots,
