@@ -1,3 +1,18 @@
+/**
+ * A VCS root in TeamCity defines a connection to a version control system.
+ * It represents a set of parameters (paths to sources, username, password,
+ * and other settings) that determine how TeamCity communicates with a VCS
+ * to monitor changes and get sources for a build.
+ * 
+ * VCS roots are created in a project and are available to all the build
+ * configurations defined in that project or its subprojects. One or more
+ * VCS roots can be attached to a build configuration or a template.
+ * 
+ * You can specify portions of the repository to check out and target paths
+ * via VCS checkout rules.
+ * 
+ * see: https://www.jetbrains.com/help/teamcity/vcs-root.html
+ */
 export type VcsRoot =
   | VcsRootCvs
   | VcsRootGit

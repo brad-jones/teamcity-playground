@@ -1,4 +1,6 @@
-import { Parameter } from "./parameter.ts";
+import { Parameter, Parameters } from "./parameter.ts";
+import { ProjectCleanup, ProjectCleanupPolicy } from "./project_cleanup.ts";
+import { ProjectExtension, ProjectExtensions } from "./project_extension.ts";
 
 export interface BuildType {
   "?xml": { "@version": string; "@encoding": string };
@@ -10,53 +12,76 @@ export interface BuildType {
     name: string;
     description?: string;
     settings: {
-      options?: { option: Parameter[] };
-      parameters?: {
-        param: Parameter[];
-      };
-      "build-runners"?: {
-        "runner": {
-          "@id": string;
-          "@name": string;
-          "@type": string;
-          conditions?: {
-            [k: string]: { "@name": string; "@value"?: string }[];
-          };
-          parameters: {
-            param: Parameter[];
-          };
-        }[];
-      };
-      "vcs-settings"?: {
-        "vcs-entry-ref": {
-          "@root-id": string;
-          "checkout-rule": {
-            "@rule": string;
-          }[];
-        }[];
-      };
-      requirements?: {
-        [k: string]: { "@id": string; "@name": string; "@value"?: string }[];
-      };
-      "build-triggers"?: {
-        "build-trigger": {
-          "@id": string;
-          "@type": string;
-          parameters: {
-            param: Parameter[];
-          };
-        }[];
-      };
-      "build-extensions"?: {
-        "extension": {
-          "@id": string;
-          "@type": string;
-          parameters: {
-            param: Parameter[];
-          };
-        }[];
-      };
-      cleanup?: {};
+      options?: BuildOptions;
+      parameters?: Parameters;
+      "vcs-settings"?: VcsSettings;
+      requirements?: BuildRequirements;
+      "build-triggers"?: BuildTriggers;
+      "build-runners"?: BuildRunners;
+      "build-extensions"?: BuildExtensions;
+      cleanup?: BuildCleanup;
     };
   };
 }
+
+export interface BuildOptions {
+  option: Parameter[];
+}
+
+export interface VcsSettings {
+  "vcs-entry-ref": {
+    "@root-id": string;
+    "checkout-rule": {
+      "@rule": string;
+    }[];
+  }[];
+}
+
+export interface BuildRequirements {
+  [k: string]: BuildRequirement[];
+}
+
+export interface BuildRequirement {
+  "@id": string;
+  "@name": string;
+  "@value"?: string;
+}
+
+export interface BuildTriggers {
+  "build-trigger": BuildTrigger[];
+}
+
+export interface BuildTrigger {
+  "@id": string;
+  "@type": string;
+  parameters: {
+    param: Parameter[];
+  };
+}
+
+export interface BuildRunners {
+  "runner": BuildRunner[];
+}
+
+export interface BuildRunner {
+  "@id": string;
+  "@name": string;
+  "@type": string;
+  conditions?: BuildConditions;
+  parameters?: Parameters;
+}
+
+export interface BuildConditions {
+  [k: string]: BuildCondition[];
+}
+
+export interface BuildCondition {
+  "@name": string;
+  "@value"?: string;
+}
+
+export type BuildExtensions = ProjectExtensions;
+export type BuildExtension = ProjectExtension;
+
+export type BuildCleanup = ProjectCleanup;
+export type BuildCleanupPolicy = ProjectCleanupPolicy;
