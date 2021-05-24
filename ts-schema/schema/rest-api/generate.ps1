@@ -1,0 +1,1 @@
+npx @openapitools/openapi-generator-cli generate -i ./swagger.json -g typescript --additional-properties=platform=deno -o ./deno;
