@@ -211,3 +211,9 @@ After further reflection this is where I see things heading.
       - This generate mode is what the remote mode would use but it would just
         create a one time only pipeline. (maybe there would be some caching &
         re-use depending on timings)
+
+
+Just had a crazy idea... We use the generated openapi client to hit a teamcity
+instance, editing one thing at a time, which generates our XML diff, which we
+can then use to generate the XML types. Basically automating what have done
+manually in this repo.
