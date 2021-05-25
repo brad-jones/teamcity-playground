@@ -147,14 +147,6 @@
           <param name="skipIfRunning" value="true" />
         </parameters>
       </build-trigger>
-      <build-trigger id="vcsTrigger" type="vcsTrigger">
-        <parameters>
-          <param name="branchFilter" value="+:*" />
-          <param name="enableQueueOptimization" value="true" />
-          <param name="quietPeriod" value="123" />
-          <param name="quietPeriodMode" value="USE_CUSTOM" />
-        </parameters>
-      </build-trigger>
     </build-triggers>
     <build-extensions>
       <extension id="BUILD_EXT_1" type="BuildFailureOnMetric">
