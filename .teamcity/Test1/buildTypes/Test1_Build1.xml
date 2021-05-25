@@ -14,6 +14,7 @@
       <option name="maximumNumberOfBuilds" value="1" />
       <option name="shouldFailBuildIfTestsFailed" value="false" />
       <option name="showDependenciesChanges" value="true" />
+      <option name="supportTestRetry" value="true" />
     </options>
     <parameters>
       <param name="env.RBENV_ROOT" value="/foo/bar" />
