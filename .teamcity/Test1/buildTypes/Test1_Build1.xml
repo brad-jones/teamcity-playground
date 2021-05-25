@@ -10,7 +10,7 @@
       <option name="branchFilter" value="+:master&#xD;&#xA;+:foo" />
       <option name="buildConfigurationType" value="DEPLOYMENT" />
       <option name="checkoutDirectory" value="/foo/bar/baz" />
-      <option name="checkoutMode" value="ON_AGENT" />
+      <option name="checkoutMode" value="ON_SERVER" />
       <option name="cleanBuild" value="true" />
       <option name="enableHangingBuildsDetection" value="false" />
       <option name="excludeDefaultBranchChanges" value="true" />
