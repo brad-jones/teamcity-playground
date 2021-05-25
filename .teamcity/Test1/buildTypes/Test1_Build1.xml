@@ -81,12 +81,10 @@
           <param name="cronExpression_sec" value="0" />
           <param name="cronExpression_year" value="*" />
           <param name="dayOfWeek" value="Thursday" />
-          <param name="enforceCleanCheckout" value="true" />
-          <param name="enforceCleanCheckoutForDependencies" value="true" />
           <param name="hour" value="5" />
           <param name="minute" value="20" />
           <param name="promoteWatchedBuild" value="true" />
-          <param name="revisionRule" value="lastPinned" />
+          <param name="revisionRule" value="buildTag" />
           <param name="revisionRuleBuildBranch" value="+:&lt;default&gt;" />
           <param name="revisionRuleDependsOn" value="Test1_Build1" />
           <param name="revistionRuleBuildTag" value="v1.0.0" />
