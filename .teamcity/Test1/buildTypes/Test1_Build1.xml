@@ -102,7 +102,8 @@
       <build-trigger id="TRIGGER_2" type="buildDependencyTrigger">
         <parameters>
           <param name="afterSuccessfulBuildOnly" value="true" />
-          <param name="dependsOn" value="Test1_Build1" />
+          <param name="branchFilter" value="+:&lt;default&gt;" />
+          <param name="dependsOn" value="Test1_SubProject1_PackageWin" />
         </parameters>
       </build-trigger>
       <build-trigger id="remoteRunOnBranch" type="remoteRunOnBranch">
