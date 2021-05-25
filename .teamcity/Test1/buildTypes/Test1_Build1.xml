@@ -11,14 +11,8 @@
       <option name="buildConfigurationType" value="DEPLOYMENT" />
       <option name="cleanBuild" value="true" />
       <option name="enableHangingBuildsDetection" value="false" />
-      <option name="executionTimeoutMin" value="60" />
       <option name="maximumNumberOfBuilds" value="1" />
-      <option name="shouldFailBuildIfTestsFailed" value="false" />
-      <option name="shouldFailBuildOnAnyErrorMessage" value="true" />
-      <option name="shouldFailBuildOnBadExitCode" value="false" />
-      <option name="shouldFailBuildOnOOMEOrCrash" value="false" />
       <option name="showDependenciesChanges" value="true" />
-      <option name="supportTestRetry" value="true" />
     </options>
     <parameters>
       <param name="env.RBENV_ROOT" value="/foo/bar" />
