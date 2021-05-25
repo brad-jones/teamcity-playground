@@ -4,6 +4,7 @@
   <description>This is a build config</description>
   <settings>
     <options>
+      <option name="allowExternalStatus" value="true" />
       <option name="allowPersonalBuildTriggering" value="false" />
       <option name="artifactRules" value="+:foo&#xA;+:./bar/xyz/*&#xA;+:baz" />
       <option name="branchFilter" value="+:master&#xD;&#xA;+:foo" />
