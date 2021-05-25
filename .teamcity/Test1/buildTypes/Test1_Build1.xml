@@ -93,6 +93,7 @@
           <param name="timezone" value="Australia/Melbourne" />
           <param name="triggerBuildIfWatchedBuildChanges" value="true" />
           <param name="triggerBuildOnAllCompatibleAgents" value="true" />
+          <param name="triggerBuildWithPendingChangesOnly" value="true" />
           <param name="triggerRules" value="+:**" />
         </parameters>
       </build-trigger>
