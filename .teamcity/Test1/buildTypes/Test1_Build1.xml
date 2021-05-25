@@ -151,7 +151,8 @@
         <parameters>
           <param name="branchFilter" value="+:*" />
           <param name="enableQueueOptimization" value="true" />
-          <param name="quietPeriodMode" value="USE_DEFAULT" />
+          <param name="quietPeriod" value="123" />
+          <param name="quietPeriodMode" value="USE_CUSTOM" />
         </parameters>
       </build-trigger>
     </build-triggers>
