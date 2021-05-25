@@ -12,6 +12,7 @@
       <option name="cleanBuild" value="true" />
       <option name="enableHangingBuildsDetection" value="false" />
       <option name="maximumNumberOfBuilds" value="1" />
+      <option name="shouldFailBuildIfTestsFailed" value="false" />
       <option name="showDependenciesChanges" value="true" />
     </options>
     <parameters>
