@@ -102,8 +102,6 @@
       <build-trigger id="TRIGGER_2" type="buildDependencyTrigger">
         <parameters>
           <param name="afterSuccessfulBuildOnly" value="true" />
-          <param name="branchFilter"><![CDATA[+:<default>
--:xyz]]></param>
           <param name="dependsOn" value="Test1_Build1" />
         </parameters>
       </build-trigger>
