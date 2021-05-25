@@ -16,3 +16,6 @@ export function buildTypeBuilder(input: j.BuildType): x.BuildType {
     },
   };
 }
+
+
+// buildConfigurationType?: "REGULAR" | "DEPLOYMENT" | "COMPOSITE"; // the absense of this means it's a "REGULAR" type
