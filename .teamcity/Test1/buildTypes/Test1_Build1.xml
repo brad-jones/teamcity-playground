@@ -106,12 +106,6 @@
           <param name="dependsOn" value="Test1_SubProject1_PackageWin" />
         </parameters>
       </build-trigger>
-      <build-trigger id="remoteRunOnBranch" type="remoteRunOnBranch">
-        <parameters>
-          <param name="branchy:jetbrains.git" value="pattern:jetbrains.git" />
-          <param name="pattern:jetbrains.git" value="refs/heads/remote-run/*" />
-        </parameters>
-      </build-trigger>
       <build-trigger id="retryBuildTrigger" type="retryBuildTrigger">
         <parameters>
           <param name="branchFilter" value="+:*" />
