@@ -110,6 +110,17 @@
           <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
+      <runner id="RUNNER_16" name="" type="ftp-deploy-runner">
+        <parameters>
+          <param name="jetbrains.buildServer.deployer.ftp.authMethod" value="ANONYMOUS" />
+          <param name="jetbrains.buildServer.deployer.ftp.ftpMode" value="PASSIVE" />
+          <param name="jetbrains.buildServer.deployer.ftp.securityMode" value="0" />
+          <param name="jetbrains.buildServer.deployer.ftp.transferMethod" value="AUTO" />
+          <param name="jetbrains.buildServer.deployer.sourcePath" value="sdfgh" />
+          <param name="jetbrains.buildServer.deployer.targetUrl" value="dszfah" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground">
