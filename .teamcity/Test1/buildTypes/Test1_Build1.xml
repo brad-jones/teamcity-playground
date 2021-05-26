@@ -510,14 +510,13 @@
       <extension id="BUILD_EXT_4" type="JetBrains.FileContentReplacer">
         <parameters>
           <param name="teamcity.file.content.replacer.failBuild" value="false" />
-          <param name="teamcity.file.content.replacer.file.encoding" value="UTF-8" />
-          <param name="teamcity.file.content.replacer.file.encoding.custom" value="UTF-8" />
-          <param name="teamcity.file.content.replacer.pattern" value="xyz" />
-          <param name="teamcity.file.content.replacer.pattern.case.sensitive" value="false" />
+          <param name="teamcity.file.content.replacer.file.encoding" value="autodetect" />
+          <param name="teamcity.file.content.replacer.file.encoding.custom" value="autodetect" />
+          <param name="teamcity.file.content.replacer.pattern" value="(^\s*\[\s*assembly\s*:\s*((System\s*::)?\s*Reflection\s*::)?\s*AssemblyInformationalVersion(Attribute)?\s*\(\s*\&quot;)([^\&quot;]*)(\&quot;\s*\)\s*\])" />
+          <param name="teamcity.file.content.replacer.pattern.case.sensitive" value="true" />
           <param name="teamcity.file.content.replacer.regexMode" value="REGEX_MIXED" />
           <param name="teamcity.file.content.replacer.replacement" value="adsfgdafg" />
-          <param name="teamcity.file.content.replacer.wildcards"><![CDATA[+:foo
--:bar]]></param>
+          <param name="teamcity.file.content.replacer.wildcards" value="**/AssemblyInfo.cpp" />
         </parameters>
       </extension>
       <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
