@@ -665,6 +665,9 @@ baz]]></param>
           <param name="teamcity.merge.policy" value="alwaysCreateMergeCommit" />
         </parameters>
       </extension>
+      <extension id="DockerSupport" type="DockerSupport">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
