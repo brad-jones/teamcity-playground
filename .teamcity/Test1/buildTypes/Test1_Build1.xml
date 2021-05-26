@@ -106,15 +106,6 @@
           <param name="dependsOn" value="Test1_SubProject1_PackageWin" />
         </parameters>
       </build-trigger>
-      <build-trigger id="retryBuildTrigger" type="retryBuildTrigger">
-        <parameters>
-          <param name="branchFilter" value="+:*" />
-          <param name="enqueueTimeout" value="120" />
-          <param name="moveToTheQueueTop" value="true" />
-          <param name="reRunBuildWithTheSameRevisions" value="true" />
-          <param name="retryAttempts" value="5" />
-        </parameters>
-      </build-trigger>
       <build-trigger id="TRIGGER_3" type="nuget.simple">
         <parameters>
           <param name="nuget.exe" value="/path/to/nuget.exe" />
