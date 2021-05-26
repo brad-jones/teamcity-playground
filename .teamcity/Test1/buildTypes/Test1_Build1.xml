@@ -530,17 +530,6 @@
           <param name="test.format" value="json" />
         </parameters>
       </extension>
-      <extension id="InvestigationsAutoAssigner" type="InvestigationsAutoAssigner">
-        <parameters>
-          <param name="assignOnSecondFailure" value="true" />
-          <param name="defaultAssignee.username" value="brad.jones" />
-          <param name="excludeAssignees.usernames"><![CDATA[foo
-bar
-baz]]></param>
-          <param name="ignoreBuildProblems.compilation" value="true" />
-          <param name="ignoreBuildProblems.exitCode" value="true" />
-        </parameters>
-      </extension>
       <extension id="BUILD_EXT_5" type="jiraCloud">
         <parameters>
           <param name="deployment" value="true" />
