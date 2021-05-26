@@ -685,6 +685,11 @@
           <param name="withBuildAnchor" value="true" />
         </parameters>
       </extension>
+      <extension id="InvestigationsAutoAssigner" type="InvestigationsAutoAssigner">
+        <parameters>
+          <param name="assignOnSecondFailure" value="true" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
