@@ -500,10 +500,10 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="publisherId" value="spaceStatusPublisher" />
-          <param name="spaceCommitStatusPublisherDisplayName" value="abc123" />
-          <param name="spaceConnectionId" value="PROJECT_EXT_4" />
-          <param name="spaceCredentialsType" value="spaceCredentialsConnection" />
+          <param name="github_authentication_type" value="token" />
+          <param name="github_host" value="https://api.github.com" />
+          <param name="publisherId" value="githubStatusPublisher" />
+          <param name="secure:github_access_token" value="credentialsJSON:71445da1-cb20-4744-b2f2-62a26beda283" />
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
