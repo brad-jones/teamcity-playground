@@ -310,6 +310,17 @@
           <param name="virtualenvFile" value="requirements.txt" />
         </parameters>
       </runner>
+      <runner id="RUNNER_31" name="" type="rake-runner">
+        <parameters>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="ui.rakeRunner.bunlder.exec.enabled" value="true" />
+          <param name="ui.rakeRunner.config.version" value="2" />
+          <param name="ui.rakeRunner.frameworks.cucumber.enabled" value="true" />
+          <param name="ui.rakeRunner.frameworks.rspec.enabled" value="true" />
+          <param name="ui.rakeRunner.frameworks.testunit.enabled" value="true" />
+          <param name="ui.rakeRunner.ruby.use.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground">
