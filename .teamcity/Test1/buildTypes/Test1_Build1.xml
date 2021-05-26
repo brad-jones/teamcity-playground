@@ -500,10 +500,14 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="publisherId" value="atlassianStashPublisher" />
-          <param name="secure:stashPassword" value="credentialsJSON:23b5aad0-84d5-4893-b88a-dd3f6aa0d737" />
-          <param name="stashBaseUrl" value="sdfgdfsag" />
-          <param name="stashUsername" value="dsfg" />
+          <param name="failureVote" value="-1" />
+          <param name="gerritProject" value="dsfgdsfg" />
+          <param name="gerritServer" value="adsfgdsfagh" />
+          <param name="gerritUsername" value="dsazfgdfsg" />
+          <param name="label" value="Verified" />
+          <param name="publisherId" value="gerritStatusPublisher" />
+          <param name="successVote" value="+1" />
+          <param name="teamcitySshKey" value="foo" />
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
