@@ -504,7 +504,6 @@
           <param name="spaceCommitStatusPublisherDisplayName" value="abc123" />
           <param name="spaceConnectionId" value="PROJECT_EXT_4" />
           <param name="spaceCredentialsType" value="spaceCredentialsConnection" />
-          <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
