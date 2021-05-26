@@ -662,6 +662,16 @@ baz]]></param>
           <param name="assembly-format" value="%system.build.number%" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_14" type="AutoMergeFeature">
+        <parameters>
+          <param name="teamcity.automerge.buildStatusCondition" value="successful" />
+          <param name="teamcity.automerge.dstBranch" value="sdazfg" />
+          <param name="teamcity.automerge.message" value="Merge branch '%teamcity.build.branch%'" />
+          <param name="teamcity.automerge.run.policy" value="runAfterBuildFinish" />
+          <param name="teamcity.automerge.srcBranchFilter" value="sdfg" />
+          <param name="teamcity.merge.policy" value="alwaysCreateMergeCommit" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
