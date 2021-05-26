@@ -500,9 +500,10 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="bitbucketUsername" value="sdfag" />
-          <param name="publisherId" value="bitbucketCloudPublisher" />
-          <param name="secure:bitbucketPassword" value="credentialsJSON:f8706850-2e4c-4997-975a-33a8e9668ce7" />
+          <param name="publisherId" value="atlassianStashPublisher" />
+          <param name="secure:stashPassword" value="credentialsJSON:23b5aad0-84d5-4893-b88a-dd3f6aa0d737" />
+          <param name="stashBaseUrl" value="sdfgdfsag" />
+          <param name="stashUsername" value="dsfg" />
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
