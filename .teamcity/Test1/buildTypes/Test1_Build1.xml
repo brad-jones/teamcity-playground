@@ -671,6 +671,15 @@ baz]]></param>
           <param name="loginCheckbox" value="on" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_2" type="BuildFailureOnMessage">
+        <parameters>
+          <param name="buildFailureOnMessage.conditionType" value="contains" />
+          <param name="buildFailureOnMessage.messagePattern" value="dfghdfh" />
+          <param name="buildFailureOnMessage.outputText" value="dshdsgfh" />
+          <param name="buildFailureOnMessage.reverse" value="false" />
+          <param name="buildFailureOnMessage.stopBuildOnFailure" value="true" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
