@@ -32,7 +32,7 @@
           <param name="plugin.docker.pull.enabled" value="true" />
           <param name="plugin.docker.run.parameters" value="--entrypoint /foo" />
           <param name="teamcity.build.workingDir" value="/foo/bar/baz" />
-          <param name="teamcity.step.mode" value="execute_if_failed" />
+          <param name="teamcity.step.mode" value="execute_always" />
         </parameters>
       </runner>
       <runner id="RUNNER_2" name="Step 2" type="simpleRunner">
