@@ -578,9 +578,8 @@
       </extension>
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
-          <param name="authenticationType" value="token" />
-          <param name="providerType" value="azureDevOps" />
-          <param name="secure:accessToken" value="credentialsJSON:ed14ad76-fd91-48ab-9594-732a39f5996c" />
+          <param name="authenticationType" value="vcsRoot" />
+          <param name="providerType" value="bitbucketCloud" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
