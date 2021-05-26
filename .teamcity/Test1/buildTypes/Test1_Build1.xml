@@ -329,6 +329,13 @@
           <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
+      <runner id="RUNNER_33" name="" type="smb-deploy-runner">
+        <parameters>
+          <param name="jetbrains.buildServer.deployer.sourcePath" value="adfh" />
+          <param name="jetbrains.buildServer.deployer.targetUrl" value="\\adfhg\adfhg\sdfh" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground">
