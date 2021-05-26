@@ -86,6 +86,21 @@
           <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
+      <runner id="RUNNER_14" name="" type="Duplicator">
+        <parameters>
+          <param name="duplicates.runner.bound" value="10" />
+          <param name="duplicates.runner.discard" value="0" />
+          <param name="duplicates.runner.literal" value="true" />
+          <param name="duplicates.runner.method" value="true" />
+          <param name="duplicates.runner.type" value="true" />
+          <param name="duplicates.runner.visibility" value="true" />
+          <param name="idea.app.home" value="%teamcity.tool.intellij.DEFAULT%" />
+          <param name="iprInfoRunParam" value="&lt;iprInfo path-to-ipr=&quot;&quot; should-load-iml=&quot;true&quot; should-load-run-configurations=&quot;false&quot; should-load-artifacts=&quot;false&quot; /&gt;" />
+          <param name="jvmArgs" value="-Xmx1G -XX:ReservedCodeCacheSize=240m" />
+          <param name="target.jdk.home" value="%env.JDK_18%" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground">
