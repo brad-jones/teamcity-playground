@@ -24,15 +24,15 @@
           <equals name="teamcity.build.branch" value="release" />
         </conditions>
         <parameters>
-          <param name="command.executable" value="foo" />
-          <param name="command.parameters" value="bar -baz=adsfg -e.t foo etc" />
           <param name="log.stderr.as.errors" value="true" />
           <param name="plugin.docker.imageId" value="node:latest" />
           <param name="plugin.docker.imagePlatform" value="windows" />
           <param name="plugin.docker.pull.enabled" value="true" />
           <param name="plugin.docker.run.parameters" value="--entrypoint /foo" />
+          <param name="script.content" value="eadfhgb" />
           <param name="teamcity.build.workingDir" value="/foo/bar/baz" />
           <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
       <runner id="RUNNER_2" name="Step 2" type="simpleRunner">
