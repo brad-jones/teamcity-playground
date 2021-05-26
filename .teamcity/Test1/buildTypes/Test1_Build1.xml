@@ -500,10 +500,9 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="github_authentication_type" value="token" />
-          <param name="github_host" value="https://api.github.com" />
-          <param name="publisherId" value="githubStatusPublisher" />
-          <param name="secure:github_access_token" value="credentialsJSON:71445da1-cb20-4744-b2f2-62a26beda283" />
+          <param name="publisherId" value="tfs" />
+          <param name="secure:accessToken" value="credentialsJSON:c96445b7-4c4b-4a04-b241-e2dd82fc777c" />
+          <param name="tfsAuthType" value="token" />
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
