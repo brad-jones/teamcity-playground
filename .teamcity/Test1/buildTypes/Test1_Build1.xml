@@ -507,13 +507,6 @@
           <param name="upsourceUsername" value="dsfgdsfg" />
         </parameters>
       </extension>
-      <extension id="DockerSupport" type="DockerSupport">
-        <parameters>
-          <param name="cleanupPushed" value="true" />
-          <param name="login2registry" value="PROJECT_EXT_5" />
-          <param name="loginCheckbox" value="on" />
-        </parameters>
-      </extension>
       <extension id="BUILD_EXT_4" type="JetBrains.FileContentReplacer">
         <parameters>
           <param name="teamcity.file.content.replacer.failBuild" value="false" />
