@@ -667,6 +667,11 @@ baz]]></param>
           <param name="ruleDisabled" value="false" />
         </parameters>
       </extension>
+      <extension id="JetBrains.AssemblyInfo" type="JetBrains.AssemblyInfo">
+        <parameters>
+          <param name="assembly-format" value="%system.build.number%" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
