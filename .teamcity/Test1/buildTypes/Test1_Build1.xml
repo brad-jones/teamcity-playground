@@ -60,6 +60,16 @@
           <param name="teamcity.tool.jacoco" value="%teamcity.tool.jacoco.DEFAULT%" />
         </parameters>
       </runner>
+      <runner id="RUNNER_11" name="" type="cargo-deploy-runner">
+        <parameters>
+          <param name="jetbrains.buildServer.deployer.container.type" value="tomcat8x" />
+          <param name="jetbrains.buildServer.deployer.sourcePath" value="sdfh" />
+          <param name="jetbrains.buildServer.deployer.targetUrl" value="dsafgh" />
+          <param name="jetbrains.buildServer.deployer.username" value="dsafhg" />
+          <param name="secure:jetbrains.buildServer.deployer.password" value="credentialsJSON:cb237372-f04b-4f18-9413-50492eef9b78" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground">
