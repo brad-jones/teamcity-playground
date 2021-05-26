@@ -1,5 +1,6 @@
 import { AllXOR } from "../xor.ts";
 import { Parameter } from "./parameter.ts";
+import { UniqueArray } from "../unique_array.ts";
 import { ProjectCleanup } from "./project_cleanup.ts";
 import { ProjectExtensionKeepRules } from "./project_extension.ts";
 
@@ -1586,6 +1587,7 @@ export type BuildExtension =
   | BuildExtensionAutoMergeFeature
   | BuildExtensionCommitStatusPublisher
   | BuildExtensionDockerSupport
+  | BuildExtensionFailureOnMessage
   | BuildExtensionFailureOnMetric
   | BuildExtensionFileContentReplacer
   | BuildExtensionGolang
@@ -1923,62 +1925,665 @@ export interface BuildExtensionDockerSupport extends BuildExtensionBase {
   registryIds?: string[];
 }
 
-/** TODO: placeholder for BuildFailureOnMetric build extension */
-export interface BuildExtensionFailureOnMetric extends BuildExtensionBase {
-  type: "BuildFailureOnMetric";
+export interface BuildExtensionFailureOnMessage extends BuildExtensionBase {
+  /**
+   * TeamCity can inspect all lines in a build log for some particular text
+   * occurrence that indicates a build failure.
+   *
+   * When matching lines, the time and block name prefixes preceding each log
+   * message are ignored.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/build-failure-conditions.html#Fail+build+on+specific+text+in+build+log
+   */
+  type: "BuildFailureOnMessage";
 
-  // This is on The Failure Conditions page not Build Features.
+  /**
+   * Fail build if its build log contains some string.
+   *
+   * Default to `true`.
+   *
+   * > HINT: Set to false to invert the logic. ie: does not contain
+   */
+  contains?: boolean;
+
+  /**
+   * Either an exact string to match on or a _"Java"_ regular expression.
+   */
+  match: AllXOR<[{
+    /**
+     * The exact sub string to match.
+     */
+    exact: string;
+  }, {
+    /**
+     * A _"Java"_ regular expression.
+     *
+     * see: http://java.sun.com/javase/6/docs/api/java/util/regex/Pattern.html
+     */
+    pattern: string;
+  }]>;
+
+  /**
+   * An optional message to display in the UI and the build log
+   * when this Failure Condition matches.
+   */
+  failureMsg?: string;
+
+  /**
+   * Immediately stop the build if it fails due to the condition.
+   *
+   * Defaults to `true`.
+   */
+  stopBuild?: boolean;
 }
 
-/** TODO: placeholder for golang build extension */
+export interface BuildExtensionFailureOnMetric extends BuildExtensionBase {
+  /**
+   * When your build uses code examining tools like code coverage, duplicates
+   * finders, or inspections, it generates various numeric metrics. For these
+   * metrics, you can specify a threshold which, when exceeded, will fail a build.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/build-failure-conditions.html#Fail+build+on+metric+change
+   */
+  type: "BuildFailureOnMetric";
+
+  /**
+   * The build metric to compare.
+   */
+  metric:
+    | "artifactsSize"
+    | "buildDurationSecs"
+    | "buildLogSize"
+    | "numberOfClasses"
+    | "numberOfCodeDuplicates"
+    | "numberOfCoveredClasses"
+    | "numberOfCoveredLines"
+    | "numberOfCoveredMethods"
+    | "numberOfFailedTests"
+    | "numberOfIgnoredTests"
+    | "numberOfInspectionErrors"
+    | "numberOfInspectionWarnings"
+    | "numberOfLinesOfCode"
+    | "numberOfMethods"
+    | "numberOfPassedTests"
+    | "numberOfTests"
+    | "percentageOfBlockCoverage"
+    | "percentageOfBranchCoverage"
+    | "percentageOfClassCoverage"
+    | "percentageOfLineCoverage"
+    | "percentageOfMethodCoverage"
+    | "percentageOfStatementCoverage"
+    | "testsDurationSecs"
+    | "totalArtifactsSize";
+
+  /**
+   * In general, there are two ways to configure this build fail condition:
+   *
+   * A build metric exceeds or is less than the specified constant value (threshold).
+   * For example, Fail build if its "build duration (secs) ", compared to the
+   * constant value, is "more" than "300 ". In this case, a build will fail if
+   * it runs more than 300 seconds.
+   *
+   * A build metric has changed comparing to a specific build by a specified value.
+   * For example, Fail build if its "build duration (secs)" compared to a value
+   * from another build is "more" by at least "300" default units for this metric
+   * than the value in the "Last successful build ". In this case, a build will
+   * fail if it runs 300 seconds longer than the last successful build.
+   *
+   * Defaults to `CONSTANT_VALUE`.
+   */
+  comparedTo?:
+    | "CONSTANT_VALUE"
+    | "LATEST_SUCCESSFUL_BUILD"
+    | "LATEST_PINNED_BUILD"
+    | "LATEST_FINISHED_BUILD"
+    | AllXOR<[{
+      /**
+       * Build with specified build number.
+       *
+       * see: https://www.jetbrains.com/help/teamcity/build-number.html
+       */
+      buildNumber: number;
+    }, {
+      /**
+       * Latest finished build with specified tag.
+       *
+       * see: https://www.jetbrains.com/help/teamcity/build-tag.html
+       */
+      buildTag: string;
+    }]>;
+
+  /**
+   * How to apply `byAtLeast` to the `metric`.
+   */
+  is: "more" | "less" | "different";
+
+  /**
+   * A numeric value for the comparison.
+   */
+  byAtLeast: number;
+
+  /**
+   * If enabled `byAtLeast` is treated as a percentage instead of a raw unit.
+   *
+   * Defaults to `false`.
+   *
+   * > HINT: If set to `true`, `comparedTo` can not be set to `CONSTANT_VALUE`
+   * > as you are checking for a percentage change from some other build.
+   */
+  percent?: boolean;
+
+  /**
+   * Immediately stop the build if it fails due to the condition.
+   *
+   * Defaults to `true`.
+   */
+  stopBuild?: boolean;
+}
+
+export interface BuildExtensionFileContentReplacer extends BuildExtensionBase {
+  /**
+   * File Content Replacer is the build feature which processes text files by
+   * performing regular expression replacements before a build. After the build,
+   * it restores the file content to the original state.
+   *
+   * > HINT: File Content Replacer should be used with the automatic checkout
+   * > only: after this build feature is configured, it will run before the
+   * > first build step. TeamCity will first perform replacement in the
+   * > specified files found in the build checkout directory and then run
+   * > your build.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/file-content-replacer.html
+   */
+  type: "JetBrains.FileContentReplacer";
+
+  /**
+   * Specify paths to files where the values to be replaced will be searched.
+   *
+   * Rules are in the form of `+|-:[path relative to the checkout directory]`.
+   * Ant-like wildcards are supported, for example, `dir/*.cs`.
+   *
+   * > HINT: Here, the pipe symbol `|` represents the **OR** command,
+   * >       as in regular expressions: use `+` for including, OR `-`
+   * >       for excluding.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/file-content-replacer.html#File+Content+Replacer+Settings
+   */
+  processFiles: string[];
+
+  /**
+   * Disable this option to prevent build failure even if no files match the
+   * specified pattern.
+   *
+   * Defaults to `true`.
+   */
+  failBuild?: boolean;
+
+  /**
+   * The file encoding of the files that are being search and replaced.
+   *
+   * > HINT: If left undefined TeamCity will just aut detect this
+   * >       and most of the time probably work just fine.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/file-content-replacer.html#File+Content+Replacer+Settings
+   */
+  encoding?:
+    | "US-ASCII"
+    | "UTF-8"
+    | "UTF-16BE"
+    | "UTF-16LE"
+    | {
+      /**
+       * When specifying a custom encoding, make sure it is supported by the agent.
+       *
+       * see: https://docs.oracle.com/javase/8/docs/technotes/guides/intl/encoding.doc.html
+       */
+      custom: string;
+    };
+
+  /**
+   * You have 3 options for the actual search and replace logic.
+   *
+   * - fixedStrings: Where you provide a simple exact search and replace values,
+   *   no regex is used at all.
+   *
+   * - regex: Both the search and replace values are treated as regex patterns.
+   *
+   * - mixed: Where the search pattern is treated as regex but the replacement
+   *   is a static string.
+   */
+  regexMode: AllXOR<[
+    {
+      fixedStrings: {
+        /**
+         * Pattern to search for. Interpreted literally.
+         */
+        search: string;
+
+        /**
+         * Replacement text. Backslashes (\) and dollar signs ($) have no special meaning.
+         */
+        replace: string;
+      };
+    },
+    {
+      regex: {
+        /**
+         * Pattern to search for, in the regular expression format.
+         *
+         * **MULTILINE** mode is on by default. To disable it,
+         * start the pattern with `(?-m)`.
+         *
+         * see: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#sum
+         */
+        search: string;
+
+        /**
+         * Replacement text. $N sequence references N-th capturing group.
+         * All backslashes (\) and dollar signs ($) without a special meaning
+         * should be quoted (as \\ and \$, respectively).
+         */
+        replace: string;
+      };
+    },
+    {
+      mixed: {
+        /**
+         * Pattern to search for, in the regular expression format.
+         *
+         * **MULTILINE** mode is on by default. To disable it,
+         * start the pattern with `(?-m)`.
+         *
+         * see: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#sum
+         */
+        search: string;
+
+        /**
+         * Replacement text. Backslashes (\) and dollar signs ($) have no special meaning.
+         */
+        replace: string;
+      };
+    },
+  ]>;
+
+  /**
+   * Disable for case-insensitive languages (e.g. Visual Basic).
+   *
+   * Defaults to `true`.
+   */
+  matchCase?: boolean;
+}
+
 export interface BuildExtensionGolang extends BuildExtensionBase {
+  /**
+   * The Golang build feature enables the real-time reporting and history of
+   * Go test results in TeamCity.
+   *
+   * Before running builds, make sure a Go compiler is installed on an agent.
+   *
+   * To enable Go tests reporting in TeamCity, run them with the `-json` flag
+   * using one of these two methods:
+   *
+   * - Add this flag to the Command Line build runner's script: `go test -json`.
+   * - Add the `env.GOFLAGS = -json` parameter to the build configuration.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/golang.html
+   */
   type: "golang";
 }
 
-/** TODO: placeholder for InvestigationsAutoAssigner build extension */
 export interface BuildExtensionInvestigationsAutoAssigner
   extends BuildExtensionBase {
+  /**
+   * TeamCity can analyse build problems (for example, compilation errors) and
+   * test failures, and try to find a committer to blame for the problem using
+   * a number of heuristics.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/investigations-auto-assigner.html
+   */
   type: "InvestigationsAutoAssigner";
+
+  /**
+   * Defaults to `ON_FIRST_FAILURE`.
+   */
+  assign?: "ON_FIRST_FAILURE" | "ON_SECOND_FAILURE";
+
+  /**
+   * Username of a user to assign the investigation to if no other assignee can be found.
+   */
+  defaultAssignee: string;
+
+  /**
+   * Exclude these users from investigation auto-assignment.
+   */
+  usersToIgnore?: string[];
+
+  /**
+   * Build problems to ignore.
+   */
+  ignore?: {
+    /**
+     * Defaults to `false`.
+     */
+    compilationErrors?: boolean;
+
+    /**
+     * Defaults to `false`.
+     */
+    exitCodes?: boolean;
+  };
 }
 
-/** TODO: placeholder for jb.nuget.auth build extension */
+export interface BuildExtensionJiraCloud extends BuildExtensionBase {
+  /**
+   * The Jira Cloud Integration build feature allows reporting build statuses
+   * directly to Jira Cloud in real time.
+   *
+   * > HINT: This feature uses the Jira Software Cloud REST API and requires
+   * > additional authentication parameters comparing to the regular integration
+   * > with Jira. Before adding this feature to your build configuration, you
+   * > need to create an issue tracker connection to Jira in the parent project's
+   * > settings and provide the OAuth client ID/secret there.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/jira-cloud-integration.html
+   */
+  type: "jiraCloud";
+
+  /**
+   * An id of a `ProjectExtensionIssueTrackerJira` object.
+   */
+  issueTrackerConnectionId: string;
+
+  /**
+   * Environment information is required to show deployment status in Jira Cloud.
+   */
+  environmentType:
+    | "production"
+    | "staging"
+    | "testing"
+    | "development"
+    | "unmapped";
+
+  environmentName: string;
+}
+
+export type BuildExtensionNotifications =
+  | BuildExtensionNotificationsEmail
+  | BuildExtensionNotificationsSlack;
+
+const _events = [
+  "BUILD_FAILED_TO_START",
+  "BUILD_FAILED",
+  "BUILD_FINISHED_SUCCESSFULLY",
+  "BUILD_PROBABLY_HANGING",
+  "BUILD_STARTED",
+  "FIRST_BUILD_ERROR_OCCURS",
+  "FIRST_FAILURE_AFTER_SUCCESS",
+  "FIRST_SUCCESS_AFTER_FAILURE",
+  "NEW_BUILD_PROBLEM_OCCURRED",
+] as const;
+
+export interface BuildExtensionNotificationsBase extends BuildExtensionBase {
+  /**
+   * The Notifications build feature is responsible for sending notifications
+   * about build statuses and events to external services. Currently, the
+   * feature provides Email Notifier and Slack Notifier.
+   *
+   * This feature adds to the functionality of user-level notifications that can
+   * be assigned to a particular user or user group, but it allows configuring
+   * notifications per build configuration. This approach does not require
+   * referencing a specific TeamCity user and works better for group notifications.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/notifications.html
+   */
+  type: "notifications";
+
+  /**
+   * Configure a branch filter. If it is not configured, you will receive
+   * notifications about the default branch only.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/branch-filter.html
+   */
+  branchFilter?: string[];
+
+  /**
+   * A list of events to subscribe to.
+   */
+  events?: UniqueArray<typeof _events>;
+}
+
+export interface BuildExtensionNotificationsEmail
+  extends BuildExtensionNotificationsBase {
+  /**
+   * see: https://www.jetbrains.com/help/teamcity/notifications.html#Email+Notifier
+   */
+  notifier: "email";
+
+  /**
+   * The email address to send the notifications to.
+   */
+  to: string;
+}
+
+export interface BuildExtensionNotificationsSlack
+  extends BuildExtensionNotificationsBase {
+  /**
+   * The Slack Notifier feature relies on a Slack connection that should be
+   * preconfigured in the parent project's settings.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/notifications.html#Slack+Notifier
+   */
+  notifier: "slack";
+
+  /**
+   * The id of a `ProjectExtensionOAuthProviderSlackConnection` object.
+   */
+  connection: string;
+
+  /**
+   * Specify where messages should be sent.
+   *
+   * Channel IDs should start with the `#` symbol.
+   *
+   * Bot should be added to the provided channel to be able to send notifications.
+   */
+  channel: string;
+
+  /**
+   * If left undefined only "simple" messages will be sent.
+   */
+  msgFmt?: {
+    /**
+     * Adds branch name to the message.
+     *
+     * Defaults to `false`.
+     */
+    addBranch?: boolean;
+
+    /**
+     * Adds build status text to the message.
+     *
+     * Defaults to `false`.
+     */
+    addBuildStatus?: boolean;
+
+    /**
+     * Adds a list of changes to the message, up to the given maximum.
+     */
+    addChanges?: number;
+  };
+}
+
 export interface BuildExtensionNugetAuth extends BuildExtensionBase {
+  /**
+   * When using NuGet packages from an external authenticated feed during a
+   * build on TeamCity, the credentials for connecting to that feed have to
+   * be specified.
+   *
+   * Adding this information to source control is not a secure practice,
+   * so TeamCity provides the NuGet Feed Credentials build feature which
+   * allows interacting with feeds that require authentication.
+   *
+   * > HINT: Only NuGet 2.0+ is supported!
+   *
+   * see: https://www.jetbrains.com/help/teamcity/nuget-feed-credentials.html
+   */
   type: "jb.nuget.auth";
+
+  /**
+   * The Nuget Source URL to authenticate against.
+   */
+  source: string;
+
+  /**
+   * The username for the Nuget Source URL.
+   */
+  username: string;
+
+  /**
+   * The password for the Nuget Source URL.
+   *
+   * > HINT: If you really truly do not want to use a `credentialsJSON` pointer
+   * > here, instead preferring a password parameter you can still do that but
+   * > you will have to cast the string. This is hard on purpose, you should
+   * > always prefer `credentialsJSON` over a parameter with a password spec.
+   */
+  password: `credentialsJSON:${string}`;
 }
 
-/** TODO: placeholder for JetBrains.FileContentReplacer build extension */
-export interface BuildExtensionFileContentReplacer extends BuildExtensionBase {
-  type: "JetBrains.FileContentReplacer";
+export interface BuildExtensionNuGetPackagesIndexer extends BuildExtensionBase {
+  /**
+   * NuGet packages indexer is an internal TeamCity tool that can index NuGet
+   * packages and add them to TeamCity remote private feeds, with no need for
+   * additional authorization.
+   *
+   * When the NuGet packages indexer build feature is added to a build configuration,
+   * all .nupkg files published as build artifacts will be indexed and added to
+   * the selected NuGet feed. Indexing is performed on the agent side.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/nuget-packages-indexer.html
+   */
+  type: "NuGetPackagesIndexer";
+
+  /**`
+   * The fully qualified name of a `ProjectExtensionPackageRepositoryNuget` object.
+   *
+   * ie: `{ProjectName}/{NugetRepoName}`
+   *
+   * > HINT: This does not accept an ID! (Or at least I don't think it does)
+   */
+  feed: string;
+}
+
+export interface BuildExtensionPerfmon extends BuildExtensionBase {
+  /**
+   * The Performance Monitor build feature allows you to get the statistics on
+   * the CPU, disk, and memory usage during a build run on a build agent.
+   *
+   * Performance Monitor supports Windows, Linux, macOS, Solaris,
+   * and FreeBSD operating systems.
+   *
+   * > HINT: It requires Perl to be installed on any used OS except Windows.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/performance-monitor.html
+   */
+  type: "perfmon";
+}
+
+export type BuildExtensionPullRequests =
+  | BuildExtensionPullRequestsAzureDevOps
+  | BuildExtensionPullRequestsBitbucketCloud
+  | BuildExtensionPullRequestsBitbucketServer
+  | BuildExtensionPullRequestsGithub
+  | BuildExtensionPullRequestsGitlab;
+
+export interface BuildExtensionPullRequestsBase extends BuildExtensionBase {
+  /**
+   * The Pull Requests build feature lets you automatically load pull request*
+   * information and run builds on pull request branches in GitHub, Bitbucket
+   * Server, Bitbucket Cloud, GitLab, and Azure DevOps.
+   *
+   *  _* Or merge requests in case of GitLab._
+   *
+   * When adding this build feature, you need to specify a VCS root and select
+   * a VCS hosting type. Other settings depend on the selected VCS hosting type.
+   *
+   * This feature extends the original branch specification of VCS roots,
+   * attached to the current build configuration, to include pull requests
+   * that match the specified filtering criteria.
+   *
+   * > HINT: The branch specification of the VCS root must not contain patterns
+   * > matching pull request branches. If you want to trigger builds only on
+   * > pull requests, leave the branch specification of the VCS root empty.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/pull-requests.html
+   */
+  type: "pullRequests";
+
+  /**
+   * The id of a `VcsRootGit` object.
+   */
+  vcsRootId: string;
+}
+
+/** TODO: placeholder for azureDevOps pullRequests */
+export interface BuildExtensionPullRequestsAzureDevOps
+  extends BuildExtensionPullRequestsBase {
+  /**
+   * This feature monitors builds only on the `refs/pull/{{star}}/merge` branch.
+   *
+   * In case with Azure DevOps, TeamCity detects requests on a merge branch,
+   * not on the pull request itself as with other VCSs. Each build will be
+   * launched on a virtual branch showing an actual result of the build after
+   * merging the PR. Thus, the build will contain both the commit with changes
+   * and the virtual merge commit.
+   *
+   * > HINT: This feature ignores Azure DevOps draft pull requests.
+   *
+   * see: https://www.jetbrains.com/help/teamcity/pull-requests.html#Azure+DevOps+Pull+Requests
+   */
+  providerType: "azureDevOps";
+}
+
+/** TODO: placeholder for bitbucketCloud pullRequests */
+export interface BuildExtensionPullRequestsBitbucketCloud
+  extends BuildExtensionPullRequestsBase {
+  /**
+   * see: https://www.jetbrains.com/help/teamcity/pull-requests.html#Bitbucket+Cloud+Pull+Requests
+   */
+  providerType: "bitbucketCloud";
+}
+
+/** TODO: placeholder for bitbucketServer pullRequests */
+export interface BuildExtensionPullRequestsBitbucketServer
+  extends BuildExtensionPullRequestsBase {
+  /**
+   * see: https://www.jetbrains.com/help/teamcity/pull-requests.html#Bitbucket+Server+Pull+Requests
+   */
+  providerType: "bitbucketServer";
+}
+
+/** TODO: placeholder for github pullRequests */
+export interface BuildExtensionPullRequestsGithub
+  extends BuildExtensionPullRequestsBase {
+  /**
+   * see: https://www.jetbrains.com/help/teamcity/pull-requests.html#GitHub+Pull+Requests
+   */
+  providerType: "github";
+}
+
+/** TODO: placeholder for gitlab pullRequests */
+export interface BuildExtensionPullRequestsGitlab
+  extends BuildExtensionPullRequestsBase {
+  /**
+   * see: https://www.jetbrains.com/help/teamcity/pull-requests.html#GitLab+Merge+Requests
+   */
+  providerType: "gitlab";
 }
 
 /** TODO: placeholder for JetBrains.SharedResources build extension */
 export interface BuildExtensionSharedResources extends BuildExtensionBase {
   type: "JetBrains.SharedResources";
-}
-
-/** TODO: placeholder for jiraCloud build extension */
-export interface BuildExtensionJiraCloud extends BuildExtensionBase {
-  type: "jiraCloud";
-}
-
-/** TODO: placeholder for notifications build extension */
-export interface BuildExtensionNotifications extends BuildExtensionBase {
-  type: "notifications";
-}
-
-/** TODO: placeholder for NuGetPackagesIndexer build extension */
-export interface BuildExtensionNuGetPackagesIndexer extends BuildExtensionBase {
-  type: "NuGetPackagesIndexer";
-}
-
-/** TODO: placeholder for perfmon build extension */
-export interface BuildExtensionPerfmon extends BuildExtensionBase {
-  type: "perfmon";
-}
-
-/** TODO: placeholder for pullRequests build extension */
-export interface BuildExtensionPullRequests extends BuildExtensionBase {
-  type: "pullRequests";
 }
 
 /** TODO: placeholder for ruby.env.configurator build extension */
