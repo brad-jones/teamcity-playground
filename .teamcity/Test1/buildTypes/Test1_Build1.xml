@@ -143,6 +143,15 @@
           <param name="ui.gradleRunner.gradle.wrapper.useWrapper" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_19" name="" type="Inspection">
+        <parameters>
+          <param name="idea.app.home" value="%teamcity.tool.intellij.DEFAULT%" />
+          <param name="iprInfoRunParam" value="&lt;iprInfo path-to-ipr=&quot;&quot; should-load-iml=&quot;true&quot; should-load-run-configurations=&quot;false&quot; should-load-artifacts=&quot;false&quot; /&gt;" />
+          <param name="jvmArgs" value="-Xmx512m -XX:ReservedCodeCacheSize=240m" />
+          <param name="target.jdk.home" value="%env.JDK_18%" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground">
