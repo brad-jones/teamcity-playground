@@ -673,7 +673,7 @@ baz]]></param>
       </extension>
       <extension id="BUILD_EXT_2" type="BuildFailureOnMessage">
         <parameters>
-          <param name="buildFailureOnMessage.conditionType" value="contains" />
+          <param name="buildFailureOnMessage.conditionType" value="matchesRegex" />
           <param name="buildFailureOnMessage.messagePattern" value="dfghdfh" />
           <param name="buildFailureOnMessage.outputText" value="dshdsgfh" />
           <param name="buildFailureOnMessage.reverse" value="false" />
