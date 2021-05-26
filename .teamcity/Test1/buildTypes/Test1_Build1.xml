@@ -500,9 +500,9 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="publisherId" value="tfs" />
-          <param name="secure:accessToken" value="credentialsJSON:c96445b7-4c4b-4a04-b241-e2dd82fc777c" />
-          <param name="tfsAuthType" value="token" />
+          <param name="bitbucketUsername" value="sdfag" />
+          <param name="publisherId" value="bitbucketCloudPublisher" />
+          <param name="secure:bitbucketPassword" value="credentialsJSON:f8706850-2e4c-4997-975a-33a8e9668ce7" />
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
