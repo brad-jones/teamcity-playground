@@ -488,14 +488,6 @@
           <param name="withBuildAnchor" value="true" />
         </parameters>
       </extension>
-      <extension id="JetBrains.AssemblyInfo" type="JetBrains.AssemblyInfo">
-        <parameters>
-          <param name="assembly-format" value="%system.build.number%" />
-          <param name="file-format" value="foo" />
-          <param name="info-format" value="bar" />
-          <param name="patch-global-assembly-info" value="true" />
-        </parameters>
-      </extension>
       <extension id="BUILD_EXT_2" type="AutoMergeFeature">
         <parameters>
           <param name="teamcity.automerge.buildStatusCondition" value="noNewTests" />
