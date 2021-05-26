@@ -130,11 +130,6 @@
           <param name="version" value="1.2.3" />
         </parameters>
       </build-trigger>
-      <build-trigger id="mavenSnapshotDependencyTrigger" type="mavenSnapshotDependencyTrigger">
-        <parameters>
-          <param name="skipIfRunning" value="true" />
-        </parameters>
-      </build-trigger>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
         <parameters>
           <param name="branchFilter" value="+:*" />
