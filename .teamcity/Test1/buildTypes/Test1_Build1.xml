@@ -80,6 +80,12 @@
           <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
+      <runner id="RUNNER_13" name="" type="DockerCompose">
+        <parameters>
+          <param name="dockerCompose.file" value="teamcity-services.yml" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground">
