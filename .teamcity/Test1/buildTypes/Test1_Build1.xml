@@ -253,6 +253,13 @@
           <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
+      <runner id="RUNNER_27" name="" type="jb.nuget.publish">
+        <parameters>
+          <param name="nuget.path" value="dasfghdasfrh" />
+          <param name="nuget.publish.files" value="dasfhg" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground">
