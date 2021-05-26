@@ -500,9 +500,10 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="gitlabApiUrl" value="zdsfgvdsfg" />
-          <param name="publisherId" value="gitlabStatusPublisher" />
-          <param name="secure:gitlabAccessToken" value="credentialsJSON:f23af9cb-628f-4cfb-99b6-0de6a79813d9" />
+          <param name="publisherId" value="spaceStatusPublisher" />
+          <param name="spaceCommitStatusPublisherDisplayName" value="dsfg" />
+          <param name="spaceConnectionId" value="PROJECT_EXT_4" />
+          <param name="spaceCredentialsType" value="spaceCredentialsConnection" />
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
