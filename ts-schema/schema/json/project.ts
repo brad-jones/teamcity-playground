@@ -76,9 +76,9 @@ export interface Project {
    * Report Tabs, Connections, Shared Resources, Issue Trackers, Clean-Up Rules,
    * Nuget Feeds, etc... are all defined as extension nodes in the XML.
    *
-   * In this schema the `Extension` type is a base type and there many other
-   * types that better represent all those other things that extend the
-   * `Extension` type which you can use here.
+   * In this schema the `ProjectExtension` type is a base type and there many
+   * other types that better represent all those other things that extend the
+   * `ProjectExtension` type which you can use here.
    */
   extensions?: ProjectExtension[];
 
