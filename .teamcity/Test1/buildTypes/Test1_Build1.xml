@@ -480,7 +480,7 @@
           <param name="anchorBuild" value="buildTag" />
           <param name="buildNumberPattern" value="123" />
           <param name="buildTag" value="v1.0.4" />
-          <param name="metricKey" value="ArtifactsSize" />
+          <param name="metricKey" value="buildPassedTestCount" />
           <param name="metricThreshold" value="123" />
           <param name="metricUnits" value="metricUnitsPercents" />
           <param name="moreOrLess" value="more" />
