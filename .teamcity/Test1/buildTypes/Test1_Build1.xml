@@ -688,6 +688,11 @@
       <extension id="InvestigationsAutoAssigner" type="InvestigationsAutoAssigner">
         <parameters>
           <param name="assignOnSecondFailure" value="true" />
+          <param name="defaultAssignee.username" value="sdfg" />
+          <param name="excludeAssignees.usernames"><![CDATA[dsfgdfsag
+dsfg]]></param>
+          <param name="ignoreBuildProblems.compilation" value="true" />
+          <param name="ignoreBuildProblems.exitCode" value="true" />
         </parameters>
       </extension>
     </build-extensions>
