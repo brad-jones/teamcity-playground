@@ -24,7 +24,6 @@
           <equals name="teamcity.build.branch" value="release" />
         </conditions>
         <parameters>
-          <param name="log.stderr.as.errors" value="true" />
           <param name="plugin.docker.imageId" value="node:latest" />
           <param name="plugin.docker.imagePlatform" value="windows" />
           <param name="plugin.docker.pull.enabled" value="true" />
