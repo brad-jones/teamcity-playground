@@ -121,6 +121,17 @@
           <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
+      <runner id="RUNNER_17" name="" type="FxCop">
+        <parameters>
+          <param name="fxcop.detection_mode" value="auto" />
+          <param name="fxcop.fail_on_analysis_error" value="true" />
+          <param name="fxcop.files" value="adfhg" />
+          <param name="fxcop.search_in_gac" value="true" />
+          <param name="fxcop.version" value="not_specified" />
+          <param name="fxcop.what" value="files" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Test1_GithubComBradJonesTeamcityPlayground">
