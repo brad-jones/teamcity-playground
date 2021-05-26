@@ -500,14 +500,9 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="failureVote" value="-1" />
-          <param name="gerritProject" value="dsfgdsfg" />
-          <param name="gerritServer" value="adsfgdsfagh" />
-          <param name="gerritUsername" value="dsazfgdfsg" />
-          <param name="label" value="Verified" />
-          <param name="publisherId" value="gerritStatusPublisher" />
-          <param name="successVote" value="+1" />
-          <param name="teamcitySshKey" value="foo" />
+          <param name="gitlabApiUrl" value="zdsfgvdsfg" />
+          <param name="publisherId" value="gitlabStatusPublisher" />
+          <param name="secure:gitlabAccessToken" value="credentialsJSON:f23af9cb-628f-4cfb-99b6-0de6a79813d9" />
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
