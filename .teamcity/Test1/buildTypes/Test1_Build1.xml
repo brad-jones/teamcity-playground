@@ -477,7 +477,7 @@
     <build-extensions>
       <extension id="BUILD_EXT_1" type="BuildFailureOnMetric">
         <parameters>
-          <param name="anchorBuild" value="lastPinned" />
+          <param name="anchorBuild" value="lastFinished" />
           <param name="buildNumberPattern" value="123" />
           <param name="buildTag" value="v1.0.4" />
           <param name="metricKey" value="CodeCoverageAbsCTotal" />
