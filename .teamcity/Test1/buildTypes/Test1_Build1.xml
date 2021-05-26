@@ -579,7 +579,7 @@
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
           <param name="authenticationType" value="vcsRoot" />
-          <param name="providerType" value="bitbucketCloud" />
+          <param name="providerType" value="bitbucketServer" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
