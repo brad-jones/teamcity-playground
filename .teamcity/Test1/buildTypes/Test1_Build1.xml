@@ -500,10 +500,11 @@
       </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="publisherId" value="spaceStatusPublisher" />
-          <param name="spaceCommitStatusPublisherDisplayName" value="dsfg" />
-          <param name="spaceConnectionId" value="PROJECT_EXT_4" />
-          <param name="spaceCredentialsType" value="spaceCredentialsConnection" />
+          <param name="publisherId" value="upsourcePublisher" />
+          <param name="secure:upsourcePassword" value="credentialsJSON:17a8831b-362d-4285-b6dd-4680640661bb" />
+          <param name="upsourceProjectId" value="gsdfg" />
+          <param name="upsourceServerUrl" value="dsfgfdsg" />
+          <param name="upsourceUsername" value="dsfgdsfg" />
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
