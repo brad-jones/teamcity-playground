@@ -126,7 +126,7 @@
           <param name="skipIfRunning" value="true" />
           <param name="type" value="jar" />
           <param name="userSettingsPath" value="/settings/path" />
-          <param name="userSettingsSelection" value="userSettingsSelection:default" />
+          <param name="userSettingsSelection" value="userSettingsSelection:byPath" />
           <param name="version" value="1.2.3" />
         </parameters>
       </build-trigger>
