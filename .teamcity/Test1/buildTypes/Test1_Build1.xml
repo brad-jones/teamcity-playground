@@ -666,7 +666,10 @@ baz]]></param>
         </parameters>
       </extension>
       <extension id="DockerSupport" type="DockerSupport">
-        <parameters />
+        <parameters>
+          <param name="login2registry" value="PROJECT_EXT_5" />
+          <param name="loginCheckbox" value="on" />
+        </parameters>
       </extension>
     </build-extensions>
     <cleanup>
