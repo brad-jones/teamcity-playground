@@ -578,14 +578,10 @@
       </extension>
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
-          <param name="authenticationType" value="token" />
-          <param name="filterSourceBranch"><![CDATA[+:aZFDSGh
--:zdsfg]]></param>
-          <param name="filterTargetBranch"><![CDATA[+:zsfdg
--:zdsfag]]></param>
-          <param name="projectUrl" value="https://example.oirg/" />
-          <param name="providerType" value="azureDevOps" />
-          <param name="secure:accessToken" value="credentialsJSON:9733da55-72ae-4d90-b679-a5329ff3c0da" />
+          <param name="authenticationType" value="vcsRoot" />
+          <param name="filterTargetBranch"><![CDATA[+:adsfgad
+-:dsafgdsafgh]]></param>
+          <param name="providerType" value="bitbucketCloud" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
