@@ -680,6 +680,11 @@ dsfg]]></param>
           <param name="ignoreBuildProblems.exitCode" value="true" />
         </parameters>
       </extension>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
