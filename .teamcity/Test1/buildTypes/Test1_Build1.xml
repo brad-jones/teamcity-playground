@@ -488,16 +488,6 @@
           <param name="withBuildAnchor" value="true" />
         </parameters>
       </extension>
-      <extension id="swabra" type="swabra">
-        <parameters>
-          <param name="swabra.enabled" value="swabra.before.build" />
-          <param name="swabra.processes" value="kill" />
-          <param name="swabra.rules"><![CDATA[+:/a/b/c
--:/1/2/3]]></param>
-          <param name="swabra.strict" value="true" />
-          <param name="swabra.verbose" value="true" />
-        </parameters>
-      </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
           <param name="publisherId" value="upsourcePublisher" />
