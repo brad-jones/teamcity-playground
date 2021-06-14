@@ -17,6 +17,7 @@
       <option name="shouldFailBuildIfTestsFailed" value="false" />
       <option name="shouldFailBuildOnBadExitCode" value="false" />
       <option name="showDependenciesChanges" value="true" />
+      <option name="supportTestRetry" value="true" />
     </options>
     <parameters>
       <param name="env.RBENV_ROOT" value="/foo/bar" />
