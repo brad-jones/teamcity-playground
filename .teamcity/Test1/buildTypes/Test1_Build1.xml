@@ -4,7 +4,6 @@
   <description>This is a build config</description>
   <settings>
     <options>
-      <option name="allowExternalStatus" value="true" />
       <option name="allowPersonalBuildTriggering" value="false" />
       <option name="branchFilter" value="+:foo" />
       <option name="buildConfigurationType" value="DEPLOYMENT" />
