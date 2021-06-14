@@ -12,6 +12,7 @@
       <option name="cleanBuild" value="true" />
       <option name="enableHangingBuildsDetection" value="false" />
       <option name="excludeDefaultBranchChanges" value="true" />
+      <option name="executionTimeoutMin" value="345" />
       <option name="maximumNumberOfBuilds" value="1" />
       <option name="showDependenciesChanges" value="true" />
     </options>
