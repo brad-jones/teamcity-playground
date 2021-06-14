@@ -12,7 +12,6 @@
       <option name="cleanBuild" value="true" />
       <option name="enableHangingBuildsDetection" value="false" />
       <option name="maximumNumberOfBuilds" value="1" />
-      <option name="publishArtifactCondition" value="ALWAYS" />
       <option name="showDependenciesChanges" value="true" />
     </options>
     <parameters>
