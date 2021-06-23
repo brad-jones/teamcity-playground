@@ -14,6 +14,7 @@
           <param name="command.parameters" value="xyz abc 123" />
           <param name="log.stderr.as.errors" value="true" />
           <param name="plugin.docker.imageId" value="alpine" />
+          <param name="plugin.docker.imagePlatform" value="linux" />
           <param name="script.content"><![CDATA[echo "Hello World";
 echo "Hello World";
 echo "Hello World";]]></param>
