@@ -628,6 +628,9 @@
       <extension id="JetBrains.AssemblyInfo" type="JetBrains.AssemblyInfo">
         <parameters>
           <param name="assembly-format" value="%system.build.number%" />
+          <param name="file-format" value="1.2.3" />
+          <param name="info-format" value="4.5.6" />
+          <param name="patch-global-assembly-info" value="true" />
         </parameters>
       </extension>
       <extension id="BUILD_EXT_14" type="AutoMergeFeature">
