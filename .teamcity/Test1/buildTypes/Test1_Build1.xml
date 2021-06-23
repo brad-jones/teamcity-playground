@@ -469,13 +469,6 @@
           <param name="quietPeriodMode" value="DO_NOT_USE" />
         </parameters>
       </build-trigger>
-      <build-trigger id="retryBuildTrigger" type="retryBuildTrigger">
-        <parameters>
-          <param name="enqueueTimeout" value="0" />
-          <param name="moveToTheQueueTop" value="true" />
-          <param name="reRunBuildWithTheSameRevisions" value="true" />
-        </parameters>
-      </build-trigger>
       <build-trigger id="remoteRunOnBranch" type="remoteRunOnBranch">
         <parameters>
           <param name="branchy:jetbrains.git" value="pattern:jetbrains.git" />
