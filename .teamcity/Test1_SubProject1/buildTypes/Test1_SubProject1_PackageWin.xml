@@ -15,6 +15,7 @@
           <param name="log.stderr.as.errors" value="true" />
           <param name="plugin.docker.imageId" value="alpine" />
           <param name="plugin.docker.pull.enabled" value="true" />
+          <param name="plugin.docker.run.parameters" value="-it" />
           <param name="script.content"><![CDATA[echo "Hello World";
 echo "Hello World";
 echo "Hello World";]]></param>
