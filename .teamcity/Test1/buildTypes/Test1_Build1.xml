@@ -471,7 +471,6 @@
       </build-trigger>
       <build-trigger id="retryBuildTrigger" type="retryBuildTrigger">
         <parameters>
-          <param name="branchFilter" value="+:*" />
           <param name="enqueueTimeout" value="0" />
           <param name="moveToTheQueueTop" value="true" />
           <param name="reRunBuildWithTheSameRevisions" value="true" />
