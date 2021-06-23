@@ -6,6 +6,9 @@
     <parameters />
     <build-runners>
       <runner id="RUNNER_6" name="adsfgh" type="simpleRunner">
+        <conditions>
+          <equals name="teamcity.build.branch.is_default" value="true" />
+        </conditions>
         <parameters>
           <param name="script.content" value="echo &quot;Hello World&quot;;" />
           <param name="teamcity.step.mode" value="execute_always" />
