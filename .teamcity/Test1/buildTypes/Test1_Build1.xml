@@ -632,7 +632,7 @@
       </extension>
       <extension id="BUILD_EXT_14" type="AutoMergeFeature">
         <parameters>
-          <param name="teamcity.automerge.buildStatusCondition" value="successful" />
+          <param name="teamcity.automerge.buildStatusCondition" value="noNewTests" />
           <param name="teamcity.automerge.dstBranch" value="sdazfg" />
           <param name="teamcity.automerge.message" value="Merge branch '%teamcity.build.branch%'" />
           <param name="teamcity.automerge.run.policy" value="runBeforeBuildFinish" />
