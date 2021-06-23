@@ -10,6 +10,7 @@
           <equals name="teamcity.build.branch.is_default" value="true" />
         </conditions>
         <parameters>
+          <param name="log.stderr.as.errors" value="true" />
           <param name="script.content" value="echo &quot;Hello World&quot;;" />
           <param name="teamcity.build.workingDir" value="/foo/bar" />
           <param name="teamcity.step.mode" value="execute_always" />
