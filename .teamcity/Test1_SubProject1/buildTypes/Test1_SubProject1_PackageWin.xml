@@ -5,7 +5,7 @@
   <settings>
     <parameters />
     <build-runners>
-      <runner id="RUNNER_6" name="" type="simpleRunner">
+      <runner id="RUNNER_6" name="adsfgh" type="simpleRunner">
         <parameters>
           <param name="script.content" value="echo &quot;Hello World&quot;;" />
           <param name="teamcity.step.mode" value="default" />
