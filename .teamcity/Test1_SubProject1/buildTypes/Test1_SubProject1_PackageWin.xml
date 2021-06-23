@@ -23,7 +23,7 @@
           <param name="branchFilter" value="+:*" />
           <param name="groupCheckinsByCommitter" value="true" />
           <param name="perCheckinTriggering" value="true" />
-          <param name="quietPeriodMode" value="DO_NOT_USE" />
+          <param name="quietPeriodMode" value="USE_DEFAULT" />
           <param name="watchChangesInDependencies" value="true" />
         </parameters>
       </build-trigger>
