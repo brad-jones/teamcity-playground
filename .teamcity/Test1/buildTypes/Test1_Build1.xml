@@ -462,13 +462,6 @@
           <param name="version" value="1.2.3" />
         </parameters>
       </build-trigger>
-      <build-trigger id="vcsTrigger" type="vcsTrigger">
-        <parameters>
-          <param name="branchFilter" value="+:*" />
-          <param name="enableQueueOptimization" value="true" />
-          <param name="quietPeriodMode" value="DO_NOT_USE" />
-        </parameters>
-      </build-trigger>
       <build-trigger id="remoteRunOnBranch" type="remoteRunOnBranch">
         <parameters>
           <param name="branchy:jetbrains.git" value="pattern:jetbrains.git" />
