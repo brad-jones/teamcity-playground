@@ -475,7 +475,6 @@
           <param name="enqueueTimeout" value="0" />
           <param name="moveToTheQueueTop" value="true" />
           <param name="reRunBuildWithTheSameRevisions" value="true" />
-          <param name="retryAttempts" value="3" />
         </parameters>
       </build-trigger>
       <build-trigger id="remoteRunOnBranch" type="remoteRunOnBranch">
