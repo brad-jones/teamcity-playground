@@ -657,7 +657,7 @@ dsfg]]></param>
           <param name="metricKey" value="VisibleArtifactsSize" />
           <param name="metricThreshold" value="1" />
           <param name="metricUnits" value="metricUnitsDefault" />
-          <param name="moreOrLess" value="more" />
+          <param name="moreOrLess" value="different" />
           <param name="stopBuildOnFailure" value="true" />
           <param name="withBuildAnchor" value="false" />
         </parameters>
