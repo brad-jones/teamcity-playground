@@ -639,6 +639,7 @@
       </extension>
       <extension id="InvestigationsAutoAssigner" type="InvestigationsAutoAssigner">
         <parameters>
+          <param name="assignOnSecondFailure" value="true" />
           <param name="defaultAssignee.username" value="sdfg" />
           <param name="excludeAssignees.usernames"><![CDATA[dsfgdfsag
 dsfg]]></param>
