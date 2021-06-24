@@ -646,6 +646,8 @@
       <extension id="DockerSupport" type="DockerSupport">
         <parameters>
           <param name="cleanupPushed" value="true" />
+          <param name="login2registry" value="PROJECT_EXT_10" />
+          <param name="loginCheckbox" value="on" />
         </parameters>
       </extension>
       <extension id="BUILD_EXT_2" type="BuildFailureOnMessage">
