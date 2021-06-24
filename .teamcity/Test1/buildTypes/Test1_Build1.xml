@@ -654,7 +654,7 @@ dsfg]]></param>
       </extension>
       <extension id="BUILD_EXT_17" type="BuildFailureOnMetric">
         <parameters>
-          <param name="anchorBuild" value="lastFinished" />
+          <param name="anchorBuild" value="lastSuccessful" />
           <param name="metricKey" value="VisibleArtifactsSize" />
           <param name="metricThreshold" value="1234" />
           <param name="metricUnits" value="metricUnitsDefault" />
