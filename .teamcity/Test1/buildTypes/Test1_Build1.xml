@@ -477,19 +477,6 @@
       </build-trigger>
     </build-triggers>
     <build-extensions>
-      <extension id="BUILD_EXT_1" type="BuildFailureOnMetric">
-        <parameters>
-          <param name="anchorBuild" value="buildTag" />
-          <param name="buildNumberPattern" value="123" />
-          <param name="buildTag" value="v1.0.4" />
-          <param name="metricKey" value="CodeCoverageAbsCTotal" />
-          <param name="metricThreshold" value="123" />
-          <param name="metricUnits" value="metricUnitsPercents" />
-          <param name="moreOrLess" value="more" />
-          <param name="stopBuildOnFailure" value="true" />
-          <param name="withBuildAnchor" value="true" />
-        </parameters>
-      </extension>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
           <param name="publisherId" value="upsourcePublisher" />
