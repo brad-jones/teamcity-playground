@@ -652,6 +652,16 @@ dsfg]]></param>
           <param name="swabra.enabled" value="swabra.before.build" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_17" type="BuildFailureOnMetric">
+        <parameters>
+          <param name="metricKey" value="VisibleArtifactsSize" />
+          <param name="metricThreshold" value="1" />
+          <param name="metricUnits" value="metricUnitsDefault" />
+          <param name="moreOrLess" value="more" />
+          <param name="stopBuildOnFailure" value="true" />
+          <param name="withBuildAnchor" value="false" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
