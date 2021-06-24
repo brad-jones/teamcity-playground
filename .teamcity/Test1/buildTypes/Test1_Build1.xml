@@ -637,16 +637,6 @@
           <param name="loginCheckbox" value="on" />
         </parameters>
       </extension>
-      <extension id="BUILD_EXT_16" type="BuildFailureOnMetric">
-        <parameters>
-          <param name="anchorBuild" value="lastSuccessful" />
-          <param name="metricKey" value="BuildDurationNetTime" />
-          <param name="metricThreshold" value="1" />
-          <param name="metricUnits" value="metricUnitsDefault" />
-          <param name="moreOrLess" value="more" />
-          <param name="withBuildAnchor" value="true" />
-        </parameters>
-      </extension>
       <extension id="InvestigationsAutoAssigner" type="InvestigationsAutoAssigner">
         <parameters>
           <param name="assignOnSecondFailure" value="true" />
