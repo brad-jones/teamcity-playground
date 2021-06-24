@@ -654,8 +654,9 @@ dsfg]]></param>
       </extension>
       <extension id="BUILD_EXT_17" type="BuildFailureOnMetric">
         <parameters>
-          <param name="anchorBuild" value="buildNumber" />
+          <param name="anchorBuild" value="buildTag" />
           <param name="buildNumberPattern" value="3456" />
+          <param name="buildTag" value="edsrfg" />
           <param name="metricKey" value="VisibleArtifactsSize" />
           <param name="metricThreshold" value="1234" />
           <param name="metricUnits" value="metricUnitsDefault" />
