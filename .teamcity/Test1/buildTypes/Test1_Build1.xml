@@ -637,13 +637,6 @@
           <param name="loginCheckbox" value="on" />
         </parameters>
       </extension>
-      <extension id="BUILD_EXT_15" type="BuildFailureOnMessage">
-        <parameters>
-          <param name="buildFailureOnMessage.conditionType" value="contains" />
-          <param name="buildFailureOnMessage.messagePattern" value="dafsghdfash" />
-          <param name="buildFailureOnMessage.reverse" value="false" />
-        </parameters>
-      </extension>
       <extension id="BUILD_EXT_16" type="BuildFailureOnMetric">
         <parameters>
           <param name="anchorBuild" value="lastSuccessful" />
