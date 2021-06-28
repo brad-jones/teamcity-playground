@@ -656,6 +656,7 @@ dsfg]]></param>
       </extension>
       <extension id="ruby.env.configurator" type="ruby.env.configurator">
         <parameters>
+          <param name="ui.ruby.configurator.ruby.interpreter.path" value="/path/to/ruby" />
           <param name="ui.ruby.configurator.rvm.gemset.create.if.non.exists" value="true" />
           <param name="ui.ruby.configurator.rvm.rvmrc.path" value=".rvmrc" />
         </parameters>
