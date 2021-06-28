@@ -492,8 +492,8 @@
           <param name="teamcity.file.content.replacer.file.encoding" value="UTF-16BE" />
           <param name="teamcity.file.content.replacer.file.encoding.custom" value="UTF-16BE" />
           <param name="teamcity.file.content.replacer.pattern" value="(^\s*\[\s*assembly\s*:\s*((System\s*::)?\s*Reflection\s*::)?\s*AssemblyInformationalVersion(Attribute)?\s*\(\s*\&quot;)([^\&quot;]*)(\&quot;\s*\)\s*\])" />
-          <param name="teamcity.file.content.replacer.pattern.case.sensitive" value="true" />
-          <param name="teamcity.file.content.replacer.regexMode" value="REGEX_MIXED" />
+          <param name="teamcity.file.content.replacer.pattern.case.sensitive" value="false" />
+          <param name="teamcity.file.content.replacer.regexMode" value="REGEX" />
           <param name="teamcity.file.content.replacer.replacement" value="adsfgdafg" />
           <param name="teamcity.file.content.replacer.wildcards"><![CDATA[**/AssemblyInfo.cpp
 **/AssemblyInfo123.cpp]]></param>
