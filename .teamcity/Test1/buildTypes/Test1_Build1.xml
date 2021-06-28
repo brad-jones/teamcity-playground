@@ -588,7 +588,7 @@ sdgf]]></param>
           <param name="xmlReportParsing.findBugs.home" value="/foo/bar" />
           <param name="xmlReportParsing.reportDirs"><![CDATA[+:foo
 -:bar]]></param>
-          <param name="xmlReportParsing.reportType" value="vstest" />
+          <param name="xmlReportParsing.reportType" value="junit" />
           <param name="xmlReportParsing.verboseOutput" value="true" />
         </parameters>
       </extension>
