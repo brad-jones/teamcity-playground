@@ -657,13 +657,14 @@ dsfg]]></param>
       <extension id="ruby.env.configurator" type="ruby.env.configurator">
         <parameters>
           <param name="ui.ruby.configurator.fail.build.if.interpreter.not.found" value="true" />
+          <param name="ui.ruby.configurator.rbenv.root.path" value="%env.RBENV_ROOT%" />
+          <param name="ui.ruby.configurator.rbenv.version.name" value="jruby-1.7.0" />
           <param name="ui.ruby.configurator.ruby.interpreter.path" value="/path/to/ruby" />
           <param name="ui.ruby.configurator.rvm.gemset.create.if.non.exists" value="true" />
           <param name="ui.ruby.configurator.rvm.gemset.name" value="abc123" />
-          <param name="ui.ruby.configurator.rvm.path" value="%env.rvm_path%" />
           <param name="ui.ruby.configurator.rvm.rvmrc.path" value="/var/foo/bar/.rvmrc" />
           <param name="ui.ruby.configurator.rvm.sdk.name" value="system" />
-          <param name="ui.ruby.configurator.use.rvm" value="rvm_ruby_version" />
+          <param name="ui.ruby.configurator.use.rvm" value="rbenv" />
         </parameters>
       </extension>
     </build-extensions>
