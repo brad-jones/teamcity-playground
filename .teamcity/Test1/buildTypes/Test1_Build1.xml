@@ -667,11 +667,6 @@ dsfg]]></param>
           <param name="withBuildAnchor" value="true" />
         </parameters>
       </extension>
-      <extension id="BUILD_EXT_1" type="JetBrains.SharedResources">
-        <parameters>
-          <param name="locks-param" value="bar readLock" />
-        </parameters>
-      </extension>
     </build-extensions>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
