@@ -580,7 +580,7 @@ sdgf]]></param>
       </extension>
       <extension id="BUILD_EXT_10" type="JetBrains.SharedResources">
         <parameters>
-          <param name="locks-param" value="foo readLock" />
+          <param name="locks-param" value="foo writeLock" />
         </parameters>
       </extension>
       <extension id="BUILD_EXT_11" type="ssh-agent-build-feature">
