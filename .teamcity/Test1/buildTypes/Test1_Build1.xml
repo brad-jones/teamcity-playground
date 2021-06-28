@@ -654,6 +654,12 @@ dsfg]]></param>
           <param name="withBuildAnchor" value="true" />
         </parameters>
       </extension>
+      <extension id="ruby.env.configurator" type="ruby.env.configurator">
+        <parameters>
+          <param name="ui.ruby.configurator.rvm.gemset.create.if.non.exists" value="true" />
+          <param name="ui.ruby.configurator.rvm.rvmrc.path" value=".rvmrc" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
