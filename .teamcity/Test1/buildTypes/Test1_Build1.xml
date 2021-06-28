@@ -638,7 +638,6 @@ dsfg]]></param>
       </extension>
       <extension id="swabra" type="swabra">
         <parameters>
-          <param name="swabra.enabled" value="swabra.before.build" />
           <param name="swabra.strict" value="true" />
         </parameters>
       </extension>
