@@ -567,6 +567,7 @@ sdgf]]></param>
       </extension>
       <extension id="ruby.env.configurator" type="ruby.env.configurator">
         <parameters>
+          <param name="ui.ruby.configurator.fail.build.if.interpreter.not.found" value="true" />
           <param name="ui.ruby.configurator.rbenv.file.path" value="/foo/bar/abc" />
           <param name="ui.ruby.configurator.rbenv.root.path" value="%env.RBENV_ROOT%" />
           <param name="ui.ruby.configurator.rbenv.version.name" value="jruby-1.7.5" />
