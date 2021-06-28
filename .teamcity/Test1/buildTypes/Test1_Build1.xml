@@ -643,6 +643,7 @@ dsfg]]></param>
           <param name="swabra.rules"><![CDATA[+:adsfg
 -:abcv]]></param>
           <param name="swabra.strict" value="true" />
+          <param name="swabra.verbose" value="true" />
         </parameters>
       </extension>
       <extension id="BUILD_EXT_17" type="BuildFailureOnMetric">
