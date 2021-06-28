@@ -565,20 +565,6 @@ sdgf]]></param>
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
-      <extension id="ruby.env.configurator" type="ruby.env.configurator">
-        <parameters>
-          <param name="ui.ruby.configurator.fail.build.if.interpreter.not.found" value="true" />
-          <param name="ui.ruby.configurator.rbenv.file.path" value="/foo/bar/abc" />
-          <param name="ui.ruby.configurator.rbenv.root.path" value="%env.RBENV_ROOT%" />
-          <param name="ui.ruby.configurator.rbenv.version.name" value="jruby-1.7.5" />
-          <param name="ui.ruby.configurator.ruby.interpreter.path" value="/path/to/ruby" />
-          <param name="ui.ruby.configurator.rvm.gemset.name" value="foobar" />
-          <param name="ui.ruby.configurator.rvm.ruby_version.path" value="/foo/bar/baz" />
-          <param name="ui.ruby.configurator.rvm.rvmrc.path" value=".rvmrc" />
-          <param name="ui.ruby.configurator.rvm.sdk.name" value="system" />
-          <param name="ui.ruby.configurator.use.rvm" value="rbenv_file" />
-        </parameters>
-      </extension>
       <extension id="BUILD_EXT_10" type="JetBrains.SharedResources">
         <parameters>
           <param name="locks-param" value="foo writeLock" />
