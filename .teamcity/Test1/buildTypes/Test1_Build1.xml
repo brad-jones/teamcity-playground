@@ -639,6 +639,7 @@ dsfg]]></param>
       <extension id="swabra" type="swabra">
         <parameters>
           <param name="swabra.enabled" value="swabra.before.build" />
+          <param name="swabra.strict" value="true" />
         </parameters>
       </extension>
       <extension id="BUILD_EXT_17" type="BuildFailureOnMetric">
