@@ -495,7 +495,8 @@
           <param name="teamcity.file.content.replacer.pattern.case.sensitive" value="true" />
           <param name="teamcity.file.content.replacer.regexMode" value="REGEX_MIXED" />
           <param name="teamcity.file.content.replacer.replacement" value="adsfgdafg" />
-          <param name="teamcity.file.content.replacer.wildcards" value="**/AssemblyInfo.cpp" />
+          <param name="teamcity.file.content.replacer.wildcards"><![CDATA[**/AssemblyInfo.cpp
+**/AssemblyInfo123.cpp]]></param>
         </parameters>
       </extension>
       <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
