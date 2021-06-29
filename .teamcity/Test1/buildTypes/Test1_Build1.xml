@@ -523,6 +523,15 @@ sdgf]]></param>
         <parameters>
           <param name="branchFilter"><![CDATA[+:master
 -:archived]]></param>
+          <param name="buildFailedToStart" value="true" />
+          <param name="buildFailing" value="true" />
+          <param name="buildFinishedFailure" value="true" />
+          <param name="buildFinishedSuccess" value="true" />
+          <param name="buildProbablyHanging" value="true" />
+          <param name="buildStarted" value="true" />
+          <param name="firstFailureAfterSuccess" value="true" />
+          <param name="firstSuccessAfterFailure" value="true" />
+          <param name="newBuildProblemOccured" value="true" />
           <param name="notifier" value="jbSlackNotifier" />
           <param name="plugin:notificator:jbSlackNotifier:addBranch" value="true" />
           <param name="plugin:notificator:jbSlackNotifier:addBuildStatus" value="true" />
