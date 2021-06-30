@@ -529,17 +529,11 @@ sdgf]]></param>
           <param name="buildFinishedSuccess" value="true" />
           <param name="buildProbablyHanging" value="true" />
           <param name="buildStarted" value="true" />
+          <param name="email" value="asdgfs@example.orgh" />
           <param name="firstFailureAfterSuccess" value="true" />
           <param name="firstSuccessAfterFailure" value="true" />
           <param name="newBuildProblemOccured" value="true" />
-          <param name="notifier" value="jbSlackNotifier" />
-          <param name="plugin:notificator:jbSlackNotifier:addBranch" value="true" />
-          <param name="plugin:notificator:jbSlackNotifier:addBuildStatus" value="true" />
-          <param name="plugin:notificator:jbSlackNotifier:addChanges" value="true" />
-          <param name="plugin:notificator:jbSlackNotifier:channel" value="abc123" />
-          <param name="plugin:notificator:jbSlackNotifier:connection" value="PROJECT_EXT_7" />
-          <param name="plugin:notificator:jbSlackNotifier:maximumNumberOfChanges" value="10" />
-          <param name="plugin:notificator:jbSlackNotifier:messageFormat" value="verbose" />
+          <param name="notifier" value="email" />
         </parameters>
       </extension>
       <extension id="BUILD_EXT_7" type="jb.nuget.auth">
