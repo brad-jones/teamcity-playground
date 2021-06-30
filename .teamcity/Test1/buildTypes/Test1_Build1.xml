@@ -484,6 +484,7 @@
           <param name="upsourceProjectId" value="gsdfg" />
           <param name="upsourceServerUrl" value="dsfgfdsg" />
           <param name="upsourceUsername" value="dsfgdsfg" />
+          <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
       <extension id="BUILD_EXT_4" type="JetBrains.FileContentReplacer">
