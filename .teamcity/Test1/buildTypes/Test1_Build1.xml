@@ -479,12 +479,10 @@
     <build-extensions>
       <extension id="BUILD_EXT_3" type="commit-status-publisher">
         <parameters>
-          <param name="publisherId" value="upsourcePublisher" />
-          <param name="secure:upsourcePassword" value="credentialsJSON:17a8831b-362d-4285-b6dd-4680640661bb" />
-          <param name="upsourceProjectId" value="gsdfg" />
-          <param name="upsourceServerUrl" value="dsfgfdsg" />
-          <param name="upsourceUsername" value="dsfgdsfg" />
-          <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
+          <param name="github_authentication_type" value="token" />
+          <param name="github_host" value="https://api.github.com" />
+          <param name="publisherId" value="githubStatusPublisher" />
+          <param name="secure:github_access_token" value="credentialsJSON:e7a5160b-4f17-4ec9-aa4a-97b801e4757e" />
         </parameters>
       </extension>
       <extension id="BUILD_EXT_4" type="JetBrains.FileContentReplacer">
