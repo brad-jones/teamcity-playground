@@ -559,9 +559,10 @@ sdgf]]></param>
       </extension>
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
-          <param name="authenticationType" value="vcsRoot" />
+          <param name="authenticationType" value="token" />
           <param name="filterAuthorRole" value="EVERYBODY" />
           <param name="providerType" value="github" />
+          <param name="secure:accessToken" value="credentialsJSON:a40645b1-aa49-40fa-9ef8-98718ee2affa" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
