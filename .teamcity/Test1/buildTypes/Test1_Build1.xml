@@ -559,12 +559,9 @@ sdgf]]></param>
       </extension>
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
-          <param name="authenticationType" value="token" />
-          <param name="filterSourceBranch" value="+:sdfag" />
-          <param name="filterTargetBranch" value="+:Lzafsdg" />
-          <param name="projectUrl" value="https://xdfghj/" />
-          <param name="providerType" value="azureDevOps" />
-          <param name="secure:accessToken" value="credentialsJSON:defa05c5-5b6a-473e-b320-e5c4b22cae7a" />
+          <param name="authenticationType" value="vcsRoot" />
+          <param name="filterTargetBranch" value="+:sfg" />
+          <param name="providerType" value="bitbucketCloud" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
