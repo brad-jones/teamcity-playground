@@ -565,6 +565,7 @@ sdgf]]></param>
           <param name="filterTargetBranch" value="+:foo" />
           <param name="providerType" value="github" />
           <param name="secure:accessToken" value="credentialsJSON:a40645b1-aa49-40fa-9ef8-98718ee2affa" />
+          <param name="serverUrl" value="https://examnple" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
