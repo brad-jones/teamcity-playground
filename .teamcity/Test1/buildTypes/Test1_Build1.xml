@@ -561,6 +561,7 @@ sdgf]]></param>
         <parameters>
           <param name="authenticationType" value="token" />
           <param name="filterAuthorRole" value="EVERYBODY" />
+          <param name="filterSourceBranch" value="+:master" />
           <param name="providerType" value="github" />
           <param name="secure:accessToken" value="credentialsJSON:a40645b1-aa49-40fa-9ef8-98718ee2affa" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
