@@ -560,12 +560,11 @@ sdgf]]></param>
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
           <param name="authenticationType" value="token" />
-          <param name="filterAuthorRole" value="EVERYBODY" />
-          <param name="filterSourceBranch" value="+:master" />
-          <param name="filterTargetBranch" value="+:foo" />
-          <param name="providerType" value="github" />
-          <param name="secure:accessToken" value="credentialsJSON:a40645b1-aa49-40fa-9ef8-98718ee2affa" />
-          <param name="serverUrl" value="https://examnple" />
+          <param name="filterSourceBranch" value="+:sdfag" />
+          <param name="filterTargetBranch" value="+:Lzafsdg" />
+          <param name="projectUrl" value="https://xdfghj/" />
+          <param name="providerType" value="azureDevOps" />
+          <param name="secure:accessToken" value="credentialsJSON:defa05c5-5b6a-473e-b320-e5c4b22cae7a" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
