@@ -559,9 +559,11 @@ sdgf]]></param>
       </extension>
       <extension id="BUILD_EXT_9" type="pullRequests">
         <parameters>
-          <param name="authenticationType" value="vcsRoot" />
+          <param name="authenticationType" value="password" />
           <param name="filterTargetBranch" value="+:sfg" />
           <param name="providerType" value="bitbucketCloud" />
+          <param name="secure:password" value="credentialsJSON:c765d421-833e-4cbc-bc90-d3535295b540" />
+          <param name="username" value="sdfgh" />
           <param name="vcsRootId" value="Test1_GithubComBradJonesTeamcityPlayground" />
         </parameters>
       </extension>
